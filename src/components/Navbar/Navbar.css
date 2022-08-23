@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+i:hover {
+    color: #f9004d;
+}
+
+.logo {
+    margin-left: 1rem;
+    max-height: 63px;
+    height: 100%;
+    max-width: 236px;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(46, 46, 46);
+    height: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.navbar-items {
+    display: flex;
+    list-style: none;
+    gap: 4.5rem;
+    font-family: 'Poppins';
+}
+
+.navbar-items li {
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.navbar-items li:hover {
+    color: #f9004d;
+}
+
+.btn-login {
+    padding: 8px 20px;
+    font-size: 12px;
+}
+
+.btn-imagem {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btn-imagem img {
+    width: 26px;
+    height: 28px;
+}
+
+.btn-imagem:hover {
+    transform: scale(1.05);
+}
+
+.btn-branco {
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 3px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.btn-branco:hover {
+    background-color: #f9004d;
+}
+
+.btn-produto {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container-button {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.container-button button {
+    margin-left: 15px;
+    cursor: pointer;
+}
