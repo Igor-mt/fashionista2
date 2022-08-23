@@ -4,6 +4,15 @@
 
 Projeto prático em grupo de longo prazo que vai simular ambiente das empresas.
 
+## Membros do Grupo
+
+- Igor Matheus - Líder
+- Lucas Santana
+- Gustavo Araújo
+- Davi Silveira
+- Gustavo Ferreira
+- Pedro Paulo
+
 ## Papel do Monitor:
 
 Liderar equipe.
@@ -20,10 +29,6 @@ Ex:
 ## Objetivo
 
 Avaliar a capacidade de trabalho em equipe; Estimular Soft Skills; Auxiliar no desenvolvimento técnico; Possibilitar que monitores nos ajudem na avaliação dos alunos; Simular o ambiente das empresas;
-
-## Fashionista E-commerce
-
-![Fashionista E-commerce](./docs/images/01.png)
 
 ## Cenário
 
@@ -63,10 +68,6 @@ Oferecer a melhor experiência aos usuários que interagem com os produtos no de
 - Alguns produtos não tem todos os tamanhos disponíveis, mostre apenas os tamanhos disponíveis em estoque.
 - Implemente a funcionalidade de busca em tempo real.
 
-## Endpoint - Catálogo de Produtos
-
-- https://5f074b869c5c250016306cbf.mockapi.io/api/v1/catalog
-
 ### Propriedades de um produto (referência):
 
 ```json
@@ -98,35 +99,3 @@ A recomendação é para que o deploy seja feito no netilify (gratuito) ou servi
 ## Layouts
 
 Os layouts abaixo servem de referência visual das funcionalidades, sintam-se livres para segui-las ou implementá-las com base em outras referências, desde que atenda às regras e aos requisitos obrigatórios.
-
-### Referência Navegável
-
-- https://viniciusvinna.netlify.app/react-fashionista
-
-### Página de cadastro
-
-![Página de cadastro](./docs/images/02.png)
-
-### Home (catálogo)
-
-![Home (catálogo)](./docs/images/03.png)
-
-### Página do produto
-
-![Página do produto](./docs/images/04.png)
-
-### Indicador de produtos no ícone do carrinho
-
-![Indicador de produtos no ícone do carrinho](./docs/images/05.png)
-
-### Carrinho de compras aberto
-
-![Carrinho de compras aberto](./docs/images/06.png)
-
-### Busca em tempo real
-
-![Busca em tempo real](./docs/images/07.png)
-
-### Checkout
-
-![Checkout](./docs/images/08.png)
