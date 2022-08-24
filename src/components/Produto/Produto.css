@@ -69,7 +69,7 @@
         right: 0;
         padding: 16px 28px;
         text-align: left;
-        width: 82.5%;
+        width: 100%;
         max-width: 300px;
         background-color: #fff;
         color: #111;
@@ -111,8 +111,9 @@
         left: 0;
         right: 0;
         padding: 16px 28px;
+        box-sizing: border-box;
         text-align: left;
-        width: 16.5rem;
+        width: 100%;
         background-color: #fff;
         color: #111;
         border-bottom-left-radius: 10px;
