@@ -1,22 +1,32 @@
-import React from 'react'
-import './Produto.css'
+import React from "react";
+import "./Produto.css"
 
-const produto = ({ link, img, name, oldPrice, actualPrice }) => {
-    return (
-        <div className="cartao-produto">
-            <a href={link}> 
-                <img src={img} className="imagem-produto" alt="imagem produto" />
-                <div className="informacao-produto">
-                    <div className="avaliacao-produto">
-                        <img src="/assets/icons/rating.png" alt="nota do produto" />
-                    </div>
-                    <div className="nome-produto">{name}</div>
-                    <span className="preco-antigo">{oldPrice}</span>
-                    <span className="preco-atual">{actualPrice}</span>
-                </div>
-            </a>
+const Produto = ({img, name, price}) => {
+  return (
+    <>
+      <div className="productContainer">
+        <div className="productImageContainer">
+          <img src={img} alt="" className="productImage" />
         </div>
-    )
-}
+        <div className="productDetailsContainer">
+          <h1 className="productName">{name}</h1>
+          <div className="productPrice">
+            <p className="price">R$ {price}</p>
+            <p className="installments">em até 3x R$ 66,63</p>
+          </div>
+          <div className="sizeContainer">
+            <p className="sizeText">Escolha o tamanho</p>
+            <div className="sizeOptions">
+              <button className="sizeOption">P</button>
+              <button className="sizeOption">M</button>
+              <button className="sizeOption">G</button>
+            </div>
+          </div>
+          <button className="addProduct">Adicionar à Sacola</button>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default produto
+export default Produto;
