@@ -1,6 +1,7 @@
 import React from 'react'
 import Produto from '../../CardProduto/CardProduto'
 import './Ofertas.css'
+import productsProm from '../../../Products/productsProm.json'
 
 const Ofertas = () => {
     return (
@@ -11,62 +12,16 @@ const Ofertas = () => {
             </div>
 
             <div className="container-melhoresOfertas">
-                <Produto
-                    link="#"
-                    img="/assets/img/feminino/01.jpg"
-                    name="Roupa Feminina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/feminino/03.jpg"
-                    name="Roupa Feminina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/feminino/05.jpg"
-                    name="Roupa Feminina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/feminino/07.jpg"
-                    name="Roupa Feminina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/masculino/09.jpg"
-                    name="Roupa Masculina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/feminino/14.jpg"
-                    name="Roupa Feminina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/masculino/12.jpg"
-                    name="Roupa Masculina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
-                <Produto
-                    link="#"
-                    img="/assets/img/masculino/11.jpg"
-                    name="Roupa Masculina"
-                    oldPrice="R$220"
-                    actualPrice="R$140"
-                />
+                {productsProm.map((produto) => {
+                    return <Produto
+                        key={produto.id}
+                        link="#"
+                        img={produto.img}
+                        name={produto.name}
+                        oldPrice="R$220"
+                        actualPrice={produto.price}
+                    />
+                })}
             </div>
         </div>
     )
