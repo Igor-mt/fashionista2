@@ -8,9 +8,9 @@ const Feminino = () => {
   const [isToggle, setToggle] = useState(false);
 
   return (
-    <>
+    <div>
       <Navbar>
-        <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
+      <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
       </Navbar>
       <Produto
       img="/assets/img/feminino/03.jpg"
@@ -18,7 +18,7 @@ const Feminino = () => {
       price="120,00"
       ></Produto>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
