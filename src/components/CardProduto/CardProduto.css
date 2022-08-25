@@ -61,6 +61,9 @@
     }
 
     .informacao-produto {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         position: absolute;
         top: 90%;
         left: 0;
