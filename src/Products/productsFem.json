@@ -3,12 +3,13 @@
         "id": 1,
         "name": "Moletom Feminino",
         "img": "/assets/img/feminino/01.jpg",
-        "price": "R$109,99"
+        "price": "R$109,99",
+        "category": "Feminino"
     },
     {
         "id": 2,
         "name": "Casaco Feminino",
-        "img": "/assets/img/feminino/01.jpg",
+        "img": "/assets/img/feminino/02.jpg",
         "price": "R$79,99"
     },
     {
@@ -20,19 +21,19 @@
     {
         "id": 4,
         "name": "Paletó Feminino",
-        "img": "/assets/img/feminino/01.jpg",
+        "img": "/assets/img/feminino/04.jpg",
         "price": "R$119,99"
     },
     {
         "id": 5,
         "name": "Casaco Feminino",
-        "img": "/assets/img/feminino/01.jpg",
+        "img": "/assets/img/feminino/05.jpg",
         "price": "R$139,99"
     },
     {
         "id": 6,
         "name": "Vestido Feminino",
-        "img": "/assets/img/feminino/01.jpg",
+        "img": "/assets/img/feminino/06.jpg",
         "price": "R$149,99"
     },
     {

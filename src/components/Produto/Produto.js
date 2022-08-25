@@ -2,6 +2,7 @@ import React from "react";
 import "./Produto.css"
 
 const Produto = ({img, name, price}) => {
+
   return (
     <>
       <div className="productContainer">
