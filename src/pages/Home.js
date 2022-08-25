@@ -11,7 +11,7 @@ const Home = () => {
   const [isToggle, setToggle] = useState(false);
 
   return (
-    <>
+    <div className="main-container">
       <Navbar>
         <ShoppingCart isToggle={isToggle} setToggle={setToggle} />
       </Navbar>
@@ -20,7 +20,7 @@ const Home = () => {
       <Novidades />
       <Ofertas />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Sobretudo Feminino",
+        "img": "/assets/img/promocoes/01.jpg",
+        "price": "R$109,99"
+    },
+    {
+        "id": 2,
+        "name": "Blusa Manga Longa Feminina",
+        "img": "/assets/img/promocoes/02.jpg",
+        "price": "R$79,99"
+    },
+    {
+        "id": 3,
+        "name": "Short Jeans Feminino",
+        "img": "/assets/img/promocoes/03.jpg",
+        "price": "R$99,99"
+    },
+    {
+        "id": 4,
+        "name": "Vestido Feminino",
+        "img": "/assets/img/promocoes/04.jpg",
+        "price": "R$99,99"
+    },
+    {
+        "id": 5,
+        "name": "Camisa Masculina",
+        "img": "/assets/img/promocoes/05.jpg",
+        "price": "R$99,99"
+    },
+    {
+        "id": 6,
+        "name": "Casaco Jeans",
+        "img": "/assets/img/promocoes/06.jpg",
+        "price": "R$109,99"
+    },
+    {
+        "id": 7,
+        "name": "Blusa Feminina",
+        "img": "/assets/img/promocoes/07.jpg",
+        "price": "R$79,99"
+    },
+    {
+        "id": 8,
+        "name": "Moletom",
+        "img": "/assets/img/promocoes/08.jpg",
+        "price": "R$109,99"
+    }
+]
