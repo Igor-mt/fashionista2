@@ -21,6 +21,9 @@
     }
 
     .informacao-produto {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
         text-align: left;
         width: 100%;
         padding: 1rem 0rem 1rem 1rem;
