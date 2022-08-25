@@ -3,120 +3,120 @@
         "id": 1,
         "name": "Suéter Infantil",
         "img": "/assets/img/infantil/01.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     },
     {
         "id": 2,
         "name": "Blusa Infantil",
         "img": "/assets/img/infantil/02.jpg",
-        "price": "R$59,99"
+        "price": "59.99"
     },
     {
         "id": 3,
         "name": "Moletom Infantil",
         "img": "/assets/img/infantil/03.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 4,
         "name": "Camisa Infantil",
         "img": "/assets/img/infantil/04.jpg",
-        "price": "R$79,99"
+        "price": "79.99"
     },
     {
         "id": 5,
         "name": "Saia Longa Infantil",
         "img": "/assets/img/infantil/05.jpg",
-        "price": "R$59,99"
+        "price": "59.99"
     },
     {
         "id": 6,
         "name": "Camisa Manga Curta Infantil",
         "img": "/assets/img/infantil/06.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     },
     {
         "id": 7,
         "name": "Casaco de Frio Infantil",
         "img": "/assets/img/infantil/07.jpg",
-        "price": "R$99,99"
+        "price": "99.99"
     },
     {
         "id": 8,
         "name": "Moletom Infantil",
         "img": "/assets/img/infantil/08.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 9,
         "name": "Vestido Infantil",
         "img": "/assets/img/infantil/09.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     },
     {
         "id": 10,
         "name": "Calça Infantil",
         "img": "/assets/img/infantil/10.jpg",
-        "price": "R$79,99"
+        "price": "79.99"
     },
     {
         "id": 11,
         "name": "Colete Infantil",
         "img": "/assets/img/infantil/11.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 12,
         "name": "Macaquito Infantil",
         "img": "/assets/img/infantil/12.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 13,
         "name": "Pijama Infantil",
         "img": "/assets/img/infantil/13.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 14,
         "name": "Vestido Infantil",
         "img": "/assets/img/infantil/14.jpg",
-        "price": "R$79,99"
+        "price": "79.99"
     },
     {
         "id": 15,
         "name": "Chapéu Infantil",
         "img": "/assets/img/infantil/15.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     },
     {
         "id": 16,
         "name": "Vestido Infantil",
         "img": "/assets/img/infantil/16.jpg",
-        "price": "R$79,99"
+        "price": "79.99"
     },
     {
         "id": 17,
         "name": "Casaco Infantil",
         "img": "/assets/img/infantil/17.jpg",
-        "price": "R$89,99"
+        "price": "89.99"
     },
     {
         "id": 18,
         "name": "Suéter Infantil",
         "img": "/assets/img/infantil/18.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     },
     {
         "id": 19,
         "name": "Camiseta Infantil",
         "img": "/assets/img/infantil/19.jpg",
-        "price": "R$49,99"
+        "price": "49.99"
     },
     {
         "id": 19,
         "name": "Blusa Infantil",
         "img": "/assets/img/infantil/19.jpg",
-        "price": "R$69,99"
+        "price": "69.99"
     }
 ]

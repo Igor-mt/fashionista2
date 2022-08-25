@@ -53,6 +53,7 @@
     }
 
     .installments {
+        font-family: 'Poppins';
         font-weight: 600;
         opacity: 0.7
     }
@@ -168,6 +169,7 @@
     }
 
     .installments {
+        font-family: 'Poppins';
         font-weight: 600;
         opacity: 0.7
     }

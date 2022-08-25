@@ -27,6 +27,7 @@ const Infantil = () => {
           name={produto.name}
           oldPrice="R$220"
           actualPrice={produto.price}
+          installment={(Number(produto.price) / 3).toFixed(2)}
         />
       })}
       <Footer />
