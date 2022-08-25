@@ -1,25 +1,19 @@
-import React, { useState } from 'react'
-import { Home } from './pages/Home'
-import Navbar from './components/Navbar/Navbar'
-import ShoppingCart from './components/ShoppingCart/ShoppingCart'
-import Footer from './components/Footer/Footer'
-import { Overlay } from './GlobalStyles'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Feminino from "./pages/Feminino";
+import Home from "./pages/Home";
+import Infantil from "./pages/Infantil";
+import Masculino from "./pages/Masculino";
 
 const App = () => {
-  const [isToggle, setToggle] = useState(false)
-  
   return (
-    <>
-      <Navbar>
-        <ShoppingCart
-          isToggle={isToggle}
-          setToggle={setToggle}
-        />
-      </Navbar>
-      <Home>{isToggle && <Overlay/>}</Home>
-      <Footer />
-    </>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/produto/feminino" element={<Feminino/>}></Route>
+      <Route path="/produto/masculino" element={<Masculino/>}></Route>
+      <Route path="/produto/infantil" element={<Infantil/>}></Route>
+    </Routes>
+  );
+};
 
-export default App
+export default App;

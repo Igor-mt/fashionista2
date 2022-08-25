@@ -1,130 +1,275 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
 
-@media screen and (max-width: 1024px) {
-    .cartao-produto {
-        position: relative;
-        width: 100%;
-        transition: all 0.5s ease-in;
-        font-family: 'Poppins';
+/* Desktop Version */
+
+@media (min-width: 1024px) {
+
+    .productContainer {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
     }
 
-    .imagem-produto {
-        width: 100%;
-        height: 20rem;
+    .productImageContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        /* height: 90%; */
+        width: 50%;
+        margin-top: 3rem;
+    }
+
+    .productImage {
+        height: 80%;
+        width: 60%;
         object-fit: cover;
-        border-radius: 10px;
     }
 
-    .cartao-produto:hover {
-        transform: scale(1.05);
+    .productDetailsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 50%;
+        padding-top: 4%;
+        gap: 0.5rem;
     }
 
-    .informacao-produto {
-        position: absolute;
-        top: 90%;
-        left: 0;
-        right: 0;
-        text-align: left;
-        width: 100%;
-        padding: 1rem 0rem 1rem 1rem;
-        box-sizing: border-box;
-        background-color: #fff;
-        color: #111;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+    .productName {
+        font-family: 'Frank Ruhl Libre', serif;
+        text-transform: uppercase;
+        font-size: 18pt;
+        font-weight: bold;
     }
 
-    .preco-antigo {
-        text-decoration: line-through;
-        color: rgba(194, 10, 10, 0.2);
-        margin-right: 10px;
+    .productPrice {
+        display: flex;
+        gap: 0.4rem;
+    }
+
+    .price {
+        font-family: 'Lato', sans-serif;
+        font-weight: 800;
+    }
+
+    .installments {
+        font-weight: 600;
+        opacity: 0.7
+    }
+
+    .sizeContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .sizeText {
+        font-family: 'Lato', sans-serif;
+        opacity: 0.6;
+        font-size: 13pt;
+    }
+
+    .sizeOptions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .sizeOption {
+        font-family: 'Lato', sans-serif;
+        font-size: 12pt;
+        background-color: inherit;
+        font-weight: bold;
+        border: 1px solid rgba(46, 46, 46, 0.3);
+        padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .sizeOption:hover {
+        transform: scale(1.07);
+    }
+
+    .addProduct {
+        background-color: rgba(46, 46, 46, 1);
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-size: 12pt;
+        font-weight: 600;
+        border: none;
+        width: 35%;
+        padding: 0.8rem;
+        border-radius: 6px;
+        box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.3);
+        margin-top: 0.5rem;
+        cursor: pointer;
+    }
+
+    .addProduct:hover {
+        transform: scale(1.04);
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.3);
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .cartao-produto {
-        position: relative;
-        width: 20rem;
-        transition: all 0.5s ease-in;
-        font-family: 'Poppins';
+/* Mobile Version */
+
+@media (max-width: 1024px) {
+    .productContainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        margin-bottom: 3rem;
     }
 
-    .imagem-produto {
+    .productImageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 30rem;
+        margin-top: 2rem;
+    }
+
+    .productImage {
+        width: 80%;
         object-fit: cover;
-        border-radius: 10px;
+        height: 80%;
     }
 
-    .cartao-produto:hover {
-        transform: scale(1.05);
+    .productDetailsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 85vw;
+        gap: 0.3rem;
+        margin-top: 1rem;
+        margin-left: 2.5rem;
+        margin-bottom: 3rem;
     }
 
-    .informacao-produto {
-        position: absolute;
-        top: 90%;
-        left: 0;
-        right: 0;
-        padding: 16px 28px;
-        text-align: left;
-        width: 100%;
-        max-width: 300px;
-        background-color: #fff;
-        color: #111;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+    .productName {
+        font-family: 'Frank Ruhl Libre', serif;
+        text-transform: uppercase;
+        font-size: 16pt;
+        font-weight: bold;
     }
 
-    .preco-antigo {
-        text-decoration: line-through;
-        color: rgba(194, 10, 10, 0.2);
-        margin-right: 10px;
+    .productPrice {
+        display: flex;
+        gap: 0.3rem;
+    }
+
+    .price {
+        font-family: 'Lato', sans-serif;
+        font-weight: 800;
+    }
+
+    .installments {
+        font-weight: 600;
+        opacity: 0.7
+    }
+
+    .sizeContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .sizeText {
+        font-family: 'Lato', sans-serif;
+        opacity: 0.6;
+        font-size: 13pt;
+    }
+
+    .sizeOptions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .sizeOption {
+        font-family: 'Lato', sans-serif;
+        font-size: 12pt;
+        background-color: inherit;
+        font-weight: bold;
+        border: 1px solid rgba(46, 46, 46, 0.3);
+        padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .sizeOption:hover {
+        transform: scale(1.07);
+    }
+
+    .addProduct {
+        background-color: rgba(46, 46, 46, 1);
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-size: 12pt;
+        font-weight: 600;
+        border: none;
+        width: 60%;
+        padding: 0.8rem;
+        border-radius: 6px;
+        box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.3);
+        margin-top: 0.5rem;
+    }
+
+    .addProduct:hover {
+        transform: scale(1.04);
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.3);
     }
 }
 
-@media screen and (min-width: 1600px) {
-    .cartao-produto {
-        position: relative;
-        width: 20rem;
-        transition: all 0.5s ease-in;
-        font-family: 'Poppins';
-    }
+.sizeOption:active, .sizeOption:focus{
+    background-color: #f9004d;
+    color: #fff;
+}
 
-    .imagem-produto {
-        width: 100%;
-        height: 30rem;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+.addProduct:focus{
+    background-color: #f9004d;
+    color: #fff;
+}
 
-    .cartao-produto:hover {
-        transform: scale(1.05);
-    }
+/* Footer */
 
-    .informacao-produto {
-        position: absolute;
-        top: 90%;
-        left: 0;
-        right: 0;
-        padding: 16px 28px;
-        box-sizing: border-box;
-        text-align: left;
-        width: 100%;
-        background-color: #fff;
-        color: #111;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
-    }
+.container-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    height: 150px;
+    background-color: rgb(46, 46, 46);
+    width: 100%;
+}
 
-    .preco-antigo {
-        text-decoration: line-through;
-        color: rgba(194, 10, 10, 0.2);
-        margin-right: 10px;
-    }
+.container-footer .nav{
+    width: 100%;
+}
+
+.container-footer .navbar-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.container-footer .navbar-item{
+    padding: 0.3rem;
+}
+
+.container-footer p {
+    color: #fff;
+    font-size: 8px;
 }
