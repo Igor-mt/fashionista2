@@ -22,10 +22,9 @@
     }
 
     .productImage {
-        /* height: 90%; */
+        height: 80%;
         width: 60%;
         object-fit: cover;
-        /* height: 70%; */
     }
 
     .productDetailsContainer {
@@ -148,7 +147,7 @@
         width: 85vw;
         gap: 0.3rem;
         margin-top: 1rem;
-        margin-left: 1.5rem;
+        margin-left: 2.5rem;
         margin-bottom: 3rem;
     }
 
