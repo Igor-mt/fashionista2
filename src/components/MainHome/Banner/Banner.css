@@ -23,6 +23,7 @@ a{
     .container-banner-image img {
         max-height: 27.5rem;
         margin-top: 3rem;
+        margin-bottom: 2rem;
     }
 
     .container-banner-text{
@@ -32,6 +33,7 @@ a{
         margin-left: 1rem;
         flex-direction: column;
         margin-top: 2rem;
+        padding: 1rem;
     }
 
     .container-banner-text h1 {
@@ -108,11 +110,12 @@ a{
         color: #f9004d;
     }
 
+    .container-banner-image{
+        height: 70%;
+    }
+
     .container-banner-image img {
-        max-height: 606px;
         height: 100%;
-        max-width: 500px;
-        width: 100%;
         border-bottom-left-radius: 60px;
         margin: 10px 0;
     }
