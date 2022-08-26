@@ -1,7 +1,8 @@
 import React from "react";
 import "./Produto.css"
 
-const Produto = ({img, name, price}) => {
+const Produto = ({img, name, price, installment}) => {
+
   return (
     <>
       <div className="productContainer">
@@ -11,8 +12,8 @@ const Produto = ({img, name, price}) => {
         <div className="productDetailsContainer">
           <h1 className="productName">{name}</h1>
           <div className="productPrice">
-            <p className="price">R$ {price}</p>
-            <p className="installments">em até 3x R$ 66,63</p>
+            <p className="price">R${price}</p>
+            <p className="installments">em até 3x R${installment}</p>
           </div>
           <div className="sizeContainer">
             <p className="sizeText">Escolha o tamanho</p>
