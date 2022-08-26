@@ -13,21 +13,10 @@ const Feminino = () => {
   let prod = productsFem.filter((produto) => { return produto.id === Number(params.id) })
   console.log(prod)
   return (
-    <div>
+    <>
       <Navbar>
       <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
       </Navbar>
-<<<<<<< HEAD
-      <Produto
-      img="/assets/img/feminino/03.jpg"
-      name="Blusa Branca Feminina"
-      price="120,00"
-      ></Produto>
-      <Footer></Footer>
-    </div>
-  );
-};
-=======
       {prod.map((produto) => {
         return <Produto
           key={produto.id}
@@ -40,8 +29,7 @@ const Feminino = () => {
       })}
       <Footer />
     </>
-  )
+  );
 }
->>>>>>> origin/alteracoes-lucas-santana
 
 export default Feminino;
