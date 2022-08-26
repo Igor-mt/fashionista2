@@ -52,15 +52,24 @@ export const SideBar = styled.div`
     padding: 1rem;
 
     &.expand{
-        transition: all ease -in -out 0.3s;
+        transition: all ease -in -out 0.6s;
         right: 0;
     }
 
     &.shrink{
-        transition: all ease -in -out 0.3s;
+        transition: all ease -in -out 0.6s;
         right: -400px;
     }
 `
+
+export const EmptyCart = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins";
+  text-align: center;
+`;
 
 export const SideBarTitle = styled.h1`
     font-family: 'Frank Ruhl Libre';

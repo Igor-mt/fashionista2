@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Moletom Marrom Masculino",
+        "img": "/assets/img/masculino/01.jpg",
+        "price": "109.99"
+    },
+    {
+        "id": 2,
+        "name": "Moletom Cinza Masculino",
+        "img": "/assets/img/masculino/02.jpg",
+        "price": "109.99"
+    },
+    {
+        "id": 3,
+        "name": "Sobretudo Masculino",
+        "img": "/assets/img/masculino/03.jpg",
+        "price": "119.99"
+    },
+    {
+        "id": 4,
+        "name": "Camisa Masculina",
+        "img": "/assets/img/masculino/04.jpg",
+        "price": "99.99"
+    },
+    {
+        "id": 5,
+        "name": "Terno Navy Masculino",
+        "img": "/assets/img/masculino/05.jpg",
+        "price": "220.00"
+    },
+    {
+        "id": 6,
+        "name": "Camiseta Masculina",
+        "img": "/assets/img/masculino/06.jpg",
+        "price": "59.99"
+    },
+    {
+        "id": 7,
+        "name": "Paletó Masculino",
+        "img": "/assets/img/masculino/07.jpg",
+        "price": "119.99"
+    },
+    {
+        "id": 8,
+        "name": "Casaco Masculino",
+        "img": "/assets/img/masculino/08.jpg",
+        "price": "109.99"
+    },
+    {
+        "id": 9,
+        "name": "Cascaco de Couro Masculino",
+        "img": "/assets/img/masculino/09.jpg",
+        "price": "139.99"
+    },
+    {
+        "id": 10,
+        "name": "Paletó Masculino",
+        "img": "/assets/img/masculino/10.jpg",
+        "price": "119.99"
+    },
+    {
+        "id": 11,
+        "name": "Suéter Masculino",
+        "img": "/assets/img/masculino/11.jpg",
+        "price": "89.99"
+    },
+    {
+        "id": 12,
+        "name": "Jaqueta Jeans Masculina",
+        "img": "/assets/img/masculino/12.jpg",
+        "price": "109.99"
+    },
+    {
+        "id": 13,
+        "name": "Terno Preto Masculino",
+        "img": "/assets/img/masculino/13.jpg",
+        "price": "220.00"
+    },
+    {
+        "id": 14,
+        "name": "Moletom Masculino",
+        "img": "/assets/img/masculino/14.jpg",
+        "price": "109.99"
+    },
+    {
+        "id": 15,
+        "name": "Calça Masculina",
+        "img": "/assets/img/masculino/15.jpg",
+        "price": "99.99"
+    },
+    {
+        "id": 16,
+        "name": "Calça Masculina",
+        "img": "/assets/img/masculino/16.jpg",
+        "price": "105,00"
+    },
+    {
+        "id": 17,
+        "name": "Paletó Masculino",
+        "img": "/assets/img/masculino/17.jpg",
+        "price": "119.99"
+    },
+    {
+        "id": 18,
+        "name": "Camisa Masculina",
+        "img": "/assets/img/masculino/18.jpg",
+        "price": "99.99"
+    },
+    {
+        "id": 19,
+        "name": "Camiseta Masculina",
+        "img": "/assets/img/masculino/19.jpg",
+        "price": "59.99"
+    },
+    {
+        "id": 20,
+        "name": "Paletó Masculino",
+        "img": "/assets/img/masculino/20.jpg",
+        "price": "119.99"
+    }
+]

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
 
-.btn-aproveite{
+.btn-aproveite {
     border: 1px solid #fff;
     background-color: transparent;
     border-radius: 3px;
@@ -10,11 +10,11 @@
     cursor: pointer;
 }
 
-.btn-aproveite:hover{
+.btn-aproveite:hover {
     background-color: #f9004d;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 767px) {
     .container-novidades {
         background-color: rgb(46, 46, 46);
         color: #fff;
@@ -33,7 +33,7 @@
 
     .novidades-text {
         font-family: 'Poppins';
-        margin: 1rem 0;
+        margin: 2rem 0;
     }
 
     .btn-aproveite {
@@ -46,7 +46,45 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        gap: 10rem;
+        gap: 3rem;
+        margin-bottom: 10rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+
+    .container-novidades {
+        background-color: rgb(46, 46, 46);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .novidades-title {
+        font-family: 'Frank Ruhl Libre';
+        font-size: 3.75rem;
+        margin-top: 3rem;
+    }
+
+    .novidades-text {
+        font-family: 'Poppins';
+        margin: 2rem 0;
+    }
+
+    .btn-aproveite {
+        padding: 19px 49px;
+        font-size: 12px;
+    }
+
+    .container-produto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
         margin-bottom: 10rem;
     }
 }
@@ -58,6 +96,7 @@
         color: #fff;
         display: flex;
         justify-content: space-around;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -79,6 +118,9 @@
     .container-produto {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 10rem;
     }
 }
