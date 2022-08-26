@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import "./Navbar.css";
-import Cart from '../ShoppingCart/ShoppingCart'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { Icon } from '../ShoppingCart/styles'
+import Cart from '../ShoppingCart/ShoppingCart';
+import Feminino from '../Produto/Produto';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { Icon } from '../ShoppingCart/styles';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isToggle, setToggle] = useState(false);
@@ -19,16 +21,17 @@ const Navbar = () => {
             <nav>
                 <ul className="navbar-items menu">
                     <li className="navbar-item">
-                        <a href="/pages/catalogo/feminino.html">FEMININO</a>
+                    <Link to={{ pathname: "/produto/feminino", hash: "" }}>FEMININO</Link>
+                    
                     </li>
                     <li className="navbar-item">
-                        <a href="/pages/catalogo/masculino.html">MASCULINO</a>
+                    <Link to={{ pathname: "/produto/masculino", hash: "" }}>MASCULINO</Link>
                     </li>
                     <li className="navbar-item">
-                        <a href="/pages/catalogo/infantil.html">INFANTIL</a>
+                    <Link to={{ pathname: "/produto/infantil", hash: "" }}>INFANTIL</Link>
                     </li>
                     <li className="navbar-item">
-                        <a href="/pages/catalogo/promocoes.html">PROMOÇÕES</a>
+                        <Link to={{ pathname: "/produto/promocoes", hash: "" }}>PROMOÇÕES</Link>
                     </li>
                 </ul>
             </nav>
