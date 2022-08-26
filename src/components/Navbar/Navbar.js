@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./Navbar.css";
 import Cart from '../ShoppingCart/ShoppingCart';
-import Feminino from '../Produto/Produto';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '../ShoppingCart/styles';
 import { Link } from 'react-router-dom';
