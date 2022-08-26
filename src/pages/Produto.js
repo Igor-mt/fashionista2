@@ -12,10 +12,21 @@ const Produto = () => {
 
   let prod = products.filter((produto) => { return produto.id === Number(params.id) })
   return (
-    <>
+    <div>
       <Navbar>
-        <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
+      <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
       </Navbar>
+<<<<<<< HEAD
+      <Produto
+      img="/assets/img/feminino/03.jpg"
+      name="Blusa Branca Feminina"
+      price="120,00"
+      ></Produto>
+      <Footer></Footer>
+    </div>
+  );
+};
+=======
       {prod.map((produto) => {
         return <ProdutoComponent
           key={produto.id}
@@ -30,5 +41,6 @@ const Produto = () => {
     </>
   )
 }
+>>>>>>> origin/alteracoes-lucas-santana
 
 export default Produto;
