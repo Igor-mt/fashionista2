@@ -14,6 +14,7 @@ const Novidades = () => {
                     </p>
                     <button
                         className="btn-branco btn-aproveite"
+                        aria-label="Aproveite as novidades"
                     >
                         APROVEITE
                     </button>

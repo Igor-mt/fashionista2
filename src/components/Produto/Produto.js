@@ -18,12 +18,12 @@ const Produto = ({img, name, price, installment}) => {
           <div className="sizeContainer">
             <p className="sizeText">Escolha o tamanho</p>
             <div className="sizeOptions">
-              <button className="sizeOption">P</button>
-              <button className="sizeOption">M</button>
-              <button className="sizeOption">G</button>
+              <button className="sizeOption" aria-label="Tamanho P">P</button>
+              <button className="sizeOption" aria-label="Tamanho M">M</button>
+              <button className="sizeOption" aria-label="Tamanho G">G</button>
             </div>
           </div>
-          <button className="addProduct">Adicionar à Sacola</button>
+          <button className="addProduct" aria-label="Adicionar à Sacola">Adicionar à Sacola</button>
         </div>
       </div>
     </>
