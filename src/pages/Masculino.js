@@ -13,7 +13,6 @@ const Masculino = () => {
   const params = useParams()
 
   let prod = productsMasc.filter((produto) => { return produto.id === Number(params.id) })
-  console.log(prod)
   return (
     <>
       <Navbar>

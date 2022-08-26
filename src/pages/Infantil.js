@@ -13,7 +13,6 @@ const Infantil = () => {
   const params = useParams()
 
   let prod = productsInf.filter((produto) => { return produto.id === Number(params.id) })
-  console.log(prod)
   return (
     <>
       <Navbar>
