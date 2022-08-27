@@ -48,7 +48,7 @@ const Navbar = () => {
                     className="btn-branco btn-login"
                     id="btn-login"
                 >
-                    LOGIN
+                    <Link to={{pathname:"/login", hash:""}}>LOGIN</Link> 
                 </button>
             </div>
         </div>
