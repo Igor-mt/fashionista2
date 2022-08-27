@@ -12,8 +12,8 @@ const produto = ({ link, img, name, oldPrice, actualPrice }) => {
                     </div>
                     <div className="nome-produto">{name}</div>
                     <div className="price-container">
-                        <span className="preco-antigo">{oldPrice}</span>
-                        <span className="preco-atual">{actualPrice}</span>
+                        <span className="preco-antigo">R${oldPrice}</span>
+                        <span className="preco-atual">R${actualPrice}</span>
                     </div>
                 </div>
             </a>

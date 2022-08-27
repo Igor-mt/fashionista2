@@ -1,26 +1,22 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"
-
+import { useParams } from "react-router"
 import Navbar from "../components/Navbar/Navbar";
-import Produto from "../components/Produto/Produto";
+import ProdutoComponent from "../components/Produto/Produto";
 import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
 import Footer from "../components/Footer/Footer";
+import products from "../Products/products.json"
 
-import productsMasc from "../Products/productsMasc.json"
-
-const Masculino = () => {
+const Produto = () => {
   const [isToggle, setToggle] = useState(false);
   const params = useParams()
 
-  let prod = productsMasc.filter((produto) => { return produto.id === Number(params.id) })
-  console.log(prod)
-  return (
-    <>
-      <Navbar>
-        <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
-      </Navbar>
+  let prod = products.filter((produto) => { return produto.id === Number(params.id) })
+  return (<>
+  <Navbar>
+    <ShoppingCart isToggle={isToggle} setToggle={setToggle}></ShoppingCart>
+  </Navbar>
       {prod.map((produto) => {
-        return <Produto
+        return <ProdutoComponent
           key={produto.id}
           link="#"
           img={produto.img}
@@ -32,6 +28,6 @@ const Masculino = () => {
       <Footer />
     </>
   )
-};
+}
 
-export default Masculino;
+export default Produto;

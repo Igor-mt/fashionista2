@@ -1,9 +1,11 @@
 import React from 'react'
 import Produto from '../../CardProduto/CardProduto'
 import './Ofertas.css'
-import productsProm from '../../../Products/productsProm.json'
+import products from '../../../Products/products.json'
 
 const Ofertas = () => {
+    const produtos = products.filter((produto) => {return produto.promotion === true})
+
     return (
         <div className="melhoresOfertas" id="melhoresOfertas">
             <div className="container-titulo-descricao">
@@ -12,7 +14,7 @@ const Ofertas = () => {
             </div>
 
             <div className="container-melhoresOfertas">
-                {productsProm.map((produto) => {
+                {produtos.map((produto) => {
                     return <Produto
                         key={produto.id}
                         link="#"
