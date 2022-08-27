@@ -25,6 +25,9 @@ i:hover {
     background-color: rgb(46, 46, 46);
     height: 100px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 1000;
+    top: 0;
     width: 100%;
 }
 
