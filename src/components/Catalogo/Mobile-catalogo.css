@@ -1,0 +1,16 @@
+
+@media (max-width: 500px){
+
+    main{
+        flex-direction: column;
+    }
+
+    .produtos{
+        width: 100%;
+    }
+
+    .filter {
+        width: 100%; 
+    }
+    
+}
