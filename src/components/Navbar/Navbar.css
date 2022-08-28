@@ -27,6 +27,7 @@ i:hover {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .menu{
@@ -169,7 +170,7 @@ i:hover {
     }
 
     .btn-login{
-        margin-left: 0.4rem !important;
+        margin: 1rem 0.4rem !important;
     }
 
     .nav-close-btn{

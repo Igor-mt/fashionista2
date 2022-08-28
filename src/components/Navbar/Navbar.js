@@ -39,31 +39,25 @@ const Navbar = (onRemove, cartItems) => {
                     </li>
                 </ul>
 
-
+                
                 <div className="container-button">
                     <button className="btn-navbar" id="btn-pesquisa">
                         <Icon icon={faMagnifyingGlass} />
                     </button>
-                    <div className="cart-desktop">
-                        <Cart className="cart-desktop"
-                            isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
-                        />
-                    </div>
+                    <Cart className="cart-desktop"
+                        isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                    />
                     <button
                         className="btn-branco btn-login"
                         id="btn-login"
                     >
                         <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>
                     </button>
-
                 </div>
                 <button className="btn-menu nav-close-btn" onClick={showNavbar}>
                     <Icon icon={faTimes} />
                 </button>
             </nav>
-            <div className="cart-mobile">
-                <Cart className="cart-mobile" isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems} />
-            </div>
             <button className="btn-menu" onClick={showNavbar}>
                 <Icon icon={faBars} />
             </button>
