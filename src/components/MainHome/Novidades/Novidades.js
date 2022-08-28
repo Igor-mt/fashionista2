@@ -25,15 +25,15 @@ const Novidades = () => {
                         link="#"
                         img="/assets/img/feminino/04.jpg"
                         name="Roupa Feminina"
-                        oldPrice="R$220"
-                        actualPrice="R$140"
+                        oldPrice="220,00"
+                        actualPrice="140,00"
                     />
                     <Produto
                         link="#"
                         img="/assets/img/masculino/01.jpg"
                         name="Roupa Masculina"
-                        oldPrice="R$220"
-                        actualPrice="R$140"
+                        oldPrice="R$220,00"
+                        actualPrice="R$140,00"
                     />
                 </div>
             </div>

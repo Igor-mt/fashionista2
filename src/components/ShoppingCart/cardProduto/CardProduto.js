@@ -1,16 +1,16 @@
 import React from 'react'
 import './CardProduto.css'
 
-const CardProduto = ({img, name, quantity, price}) => {
+const CardProduto = ({produto, onRemove}) => {
     return (
         <>
             <div className="cart-produto-container">
-                <img className="cart-produto-image" src={img} alt="" />
+                <img className="cart-produto-image" src={produto.id.img} alt="" />
                 <div className="cart-produto-info">
-                    <h1 className="cart-produto-title">{name}</h1>
-                    <p className="cart-produto-quantity">Quantidade Total <div className="cart-produto-quantity-number">({quantity})</div>R${price}</p>
+                    <h1 className="cart-produto-title">{produto.id.name}</h1>
+                    <div className="cart-produto-quantity">Quantidade Total <div className="cart-produto-quantity-number">({produto.qtd})</div>R${produto.id.price}</div>
                 </div>
-                <button className="cart-produto-remove">✖</button>
+                <button className="cart-produto-remove" onClick={() => onRemove(produto.id)}>✖</button>
             </div>
         </>
     );

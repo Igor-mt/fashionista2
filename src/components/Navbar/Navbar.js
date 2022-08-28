@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '../ShoppingCart/styles';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (onRemove, cartItems) => {
     const [isToggle, setToggle] = useState(false);
 
     return (
@@ -41,7 +41,7 @@ const Navbar = () => {
                 </button>
 
                 <Cart
-                    isToggle={isToggle} setToggle={setToggle}
+                    isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
                 />
 
                 <button
