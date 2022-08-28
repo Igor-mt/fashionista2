@@ -22,8 +22,10 @@ export const CartCount = styled.span`
     position: absolute;
     bottom: -5px;
     right: -5px;
-    padding: 3px 7px;
-    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+    padding: 10px;
+    border-radius: 50%;
     background: #C20A0A;
     color: #fff;
     font-family: 'Poppins';
@@ -89,11 +91,24 @@ export const SideBarTotal = styled.h1`
     margin-bottom: 1rem;
 `
 
-export const ClearCart = styled.button`
+export const CartBtn = styled.button`
     margin-top: 1rem;
     padding: 0.6rem;
     border: none;
     background: rgb(46, 46, 46);
+    font-family: 'Poppins';
+    color: #fff;
+
+    &:hover{
+        transform: scale(1.06);
+        transition: transform ease-in-out 0.3s;
+    }
+`
+export const ClearCartBtn = styled.button`
+    margin-top: 1rem;
+    padding: 0.6rem;
+    border: none;
+    background: #C20A0A;
     font-family: 'Poppins';
     color: #fff;
 

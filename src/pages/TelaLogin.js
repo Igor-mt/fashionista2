@@ -1,25 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import "../components/TelaLogin/TelaLogin.css";
-import "../components/TelaLogin/Mobile-login.css";
 
 import Button from "../components/TelaLogin/Button/Button";
 import Input from "../components/TelaLogin/Input/Input";
 import SelecionarOpcao from "../components/TelaLogin/SelecionarOpcao/SelecionarOpcao";
-import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
-
-import { useState } from "react";
 
 const TelaLogin = () => {
-
-  const [isToggle, setToggle] = useState(false);
-
   return (
-    <>
-       <Navbar>
-        <ShoppingCart isToggle={isToggle} setToggle={setToggle} />
-      </Navbar>
-      
+    <div className="main-container">
       <div className="container-main">
         <div className="container-login">
           <h2 className="title">Já sou cliente</h2>
@@ -93,9 +81,7 @@ const TelaLogin = () => {
           </form>
         </div>
       </div>
-
-      <Footer />
-    </>
+    </div>
   );
 };
 

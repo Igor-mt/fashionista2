@@ -10,6 +10,8 @@
         justify-content: center;
         gap: 2rem;
         margin-bottom: 3rem;
+        margin-top: 100px;
+        height: 100vh;
     }
 
     .productImageContainer {
@@ -17,12 +19,13 @@
         justify-content: flex-end;
         align-items: flex-start;
         width: 50%;
+        height: 90%;
         margin-top: 3rem;
     }
 
     .productImage {
         height: 100%;
-        width: 50%;
+        width: 65%;
         object-fit: cover;
     }
 
@@ -125,6 +128,8 @@
         width: 100%;
         gap: 1rem;
         margin-bottom: 3rem;
+        margin-top: 3rem;
+        height: 100vh;
     }
 
     .productImageContainer {
@@ -220,6 +225,7 @@
         border-radius: 6px;
         box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.3);
         margin-top: 0.5rem;
+        cursor: pointer;
     }
 
     .addProduct:hover {
@@ -234,7 +240,7 @@
     color: #fff;
 }
 
-.addProduct:focus{
+.addProduct:active{
     background-color: #f9004d;
     color: #fff;
 }
