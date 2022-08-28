@@ -13,7 +13,6 @@ export default function CartProvider({ children }) {
 
     function addProducToCart(id) {
         const copyProductsCart = [...productsCart];
-        console.log(copyProductsCart)
         const item = copyProductsCart.find((product) => product.id === id);
 
         if (!item) {

@@ -14,6 +14,8 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
     useOnClickOutside($sideBarRef, () => setToggle(false));
 
     const { productsCart, removeProductToCart, clearCart } = useContext(CartContext)
+
+    let totalPrice = 0
     return (
         <>
             <Wrapper onClick={() => setToggle(true)}>
@@ -28,6 +30,7 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
 
                 {
                     productsCart.map((produto) => {
+                        totalPrice += produto.id.price * produto.qtd
                         return (
                             <CardProduto
                                 key={produto.id}
@@ -37,6 +40,7 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
                     })
                 }
                 {productsCart.length !== 0 && <CartBtn onClick={() => { clearCart() }}>Limpar Carrinho</CartBtn>}
+                {productsCart.length !== 0 && <SideBarTotal>Total: R${totalPrice.toFixed(2)}</SideBarTotal>}
                 {productsCart.length !== 0 && <CartBtn><Link to={{ pathname: "/checkout", hash: "" }}>Comprar</Link></CartBtn>}
             </SideBar>
         </>
