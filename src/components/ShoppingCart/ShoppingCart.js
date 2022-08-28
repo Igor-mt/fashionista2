@@ -40,7 +40,7 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
                     })
                 }
                 {productsCart.length !== 0 && <ClearCartBtn onClick={() => { clearCart() }}>Limpar Carrinho</ClearCartBtn>}
-                {productsCart.length !== 0 && <SideBarTotal>Total: R${totalPrice.toFixed(2)}</SideBarTotal>}
+                {productsCart.length !== 0 && <SideBarTotal>Total: R${(totalPrice.toFixed(2)).replace('.', ',')}</SideBarTotal>}
                 {productsCart.length !== 0 && <CartBtn><Link to={{ pathname: "/checkout", hash: "" }}>Comprar</Link></CartBtn>}
             </SideBar>
         </>

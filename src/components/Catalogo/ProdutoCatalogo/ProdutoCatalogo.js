@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import "./ProdutoCatalogo.css"
 
-const ProdutoCatalogo = ({link,img,name,oldPrice,actualPrice}) => {
+const ProdutoCatalogo = ({ link, img, name, oldPrice, actualPrice }) => {
 
-    return ( 
+    return (
         <div className="cartao-produto-catalogo">
-            
+
             <Link to={link}>
                 <img src={img} className="imagem-produto-catalogo" alt="imagem produto" />
                 <div className="informacao-produto-catalogo">
@@ -22,5 +22,5 @@ const ProdutoCatalogo = ({link,img,name,oldPrice,actualPrice}) => {
         </div>
     );
 }
- 
+
 export default ProdutoCatalogo;
