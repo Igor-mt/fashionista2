@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
+
+.cartao-produto-catalogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.cartao-produto-catalogo:hover{
+    transform: scale(0.95);    
+}
+
+.imagem-produto-catalogo{
+    width: 15rem;
+    height: 14.375rem;
+    object-fit: cover;
+}
+
+.informacao-produto-catalogo{
+    text-align: center;
+}
+
+.nome-produto-catalogo{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.preco-antigo-catalogo{
+    text-decoration: line-through;
+    color: rgba(194, 10, 10, 0.2);
+    margin-right: 10px;
+}
+
+.preco{
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Catalogo from "./pages/Catalogo";
 
 import CartProvider from "./context/cart";
 
@@ -14,18 +15,22 @@ const App = () => {
 
   return (
     <>
+    
       <CartProvider>
         <BrowserRouter>
           <Navbar isToggle={isToggle} setToggle={setToggle} />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/produto/:id" element={<Produto />}></Route>
+            <Route path="/catalogo/:category" element={<Catalogo/>} />
             <Route path="/login" element={<TelaLogin />} />
           </Routes>
           <Footer />
         </BrowserRouter>
       </CartProvider>
+      
     </>
+    
   );
 };
 

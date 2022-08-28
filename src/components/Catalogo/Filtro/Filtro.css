@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
+
+:root{
+    --grey: rgba(46, 46, 46, 1);
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; 
+    margin: 3rem 1.2rem;
+    font-family: Lato;
+    font-size: 12pt;
+}
+
+.filterOptions {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 140px;
+}
+
+.filterOption{
+    cursor: pointer;
+    padding-left: 20%;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.3);
+}
+
+.filterOption:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+    color: #f9004d;
+}
+
+.selectCorBox{
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 0.5rem 0.1rem 0.5rem 1rem;
+    opacity: 0.7;
+    text-align: left;
+}
+
+.selectCorBox::after {
+    content: '▼';
+    font-size: 8pt;
+    margin-left: 4rem;
+}
+
+.colorOptions{
+    text-align: center;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.3);
+    padding-bottom: 0.8rem;
+}
+
+.colorOption {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    width: 140px;
+    cursor: pointer;
+  }
+
+.colorOption:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+    color: #f9004d;
+}
+
+.colorOptionSelected {
+    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    width: 140px;
+    font-weight: 400;
+    background-color: var(--grey);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #f9004d;
+}
+
+.colorOptionSelected:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+

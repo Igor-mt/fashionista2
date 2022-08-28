@@ -10,27 +10,28 @@ const Navbar = (onRemove, cartItems) => {
 
     return (
         <div className="navbar-container">
-            <a href="/index.html"
-            ><img
+            <Link to={{ pathname: "/", hash: ""}}>
+                <img
                     src="/assets/img/logo-fashionista.png"
                     className="logo"
                     alt="logo fashionista"
-                /></a>
+                />
+            </Link>
 
             <nav>
                 <ul className="navbar-items menu">
                     <li className="navbar-item">
-                    <Link to={{ pathname: "/produto/feminino", hash: "" }}>FEMININO</Link>
+                    <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
                     
                     </li>
                     <li className="navbar-item">
-                    <Link to={{ pathname: "/produto/masculino", hash: "" }}>MASCULINO</Link>
+                    <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
                     </li>
                     <li className="navbar-item">
-                    <Link to={{ pathname: "/produto/infantil", hash: "" }}>INFANTIL</Link>
+                    <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
                     </li>
                     <li className="navbar-item">
-                        <Link to={{ pathname: "/produto/promocoes", hash: "" }}>PROMOÇÕES</Link>
+                        <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
                     </li>
                 </ul>
             </nav>
