@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { Wrapper, CartCount, Icon, SideBar, EmptyCart, SideBarTitle, SideBarTotal, CartBtn } from './styles'
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-// eslint-disable-next-line no-unused-vars
 import CardProduto from './cardProduto/CardProduto'
 
 import { CartContext } from '../../context/cart'
