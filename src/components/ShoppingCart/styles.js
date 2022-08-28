@@ -104,3 +104,16 @@ export const CartBtn = styled.button`
         transition: transform ease-in-out 0.3s;
     }
 `
+export const ClearCartBtn = styled.button`
+    margin-top: 1rem;
+    padding: 0.6rem;
+    border: none;
+    background: #C20A0A;
+    font-family: 'Poppins';
+    color: #fff;
+
+    &:hover{
+        transform: scale(1.06);
+        transition: transform ease-in-out 0.3s;
+    }
+`

@@ -3,7 +3,7 @@ import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line no-unused-vars
-import { Wrapper, CartCount, Icon, SideBar, EmptyCart, SideBarTitle, SideBarTotal, CartBtn } from './styles'
+import { Wrapper, CartCount, Icon, SideBar, EmptyCart, SideBarTitle, SideBarTotal, CartBtn, ClearCartBtn } from './styles'
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import CardProduto from './cardProduto/CardProduto'
 
@@ -39,7 +39,7 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
                         )
                     })
                 }
-                {productsCart.length !== 0 && <CartBtn onClick={() => { clearCart() }}>Limpar Carrinho</CartBtn>}
+                {productsCart.length !== 0 && <ClearCartBtn onClick={() => { clearCart() }}>Limpar Carrinho</ClearCartBtn>}
                 {productsCart.length !== 0 && <SideBarTotal>Total: R${totalPrice.toFixed(2)}</SideBarTotal>}
                 {productsCart.length !== 0 && <CartBtn><Link to={{ pathname: "/checkout", hash: "" }}>Comprar</Link></CartBtn>}
             </SideBar>
