@@ -4,7 +4,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    height: 9rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 1rem;
@@ -26,7 +25,7 @@
 
 .cart-produto-title {
     font-family: 'Poppins';
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 .cart-produto-quantity {
@@ -34,13 +33,17 @@
     flex-direction: column;
     gap: 0.3rem;
     font-size: 10pt;
-    font-weight: bold;
     line-height: 1rem;
 }
 
 .cart-produto-quantity-number {
     font-weight: 400;
     opacity: 0.8;
+}
+
+.cart-produto-price{
+    font-size: 12pt;
+    font-weight: bold;
 }
 
 .cart-produto-remove {
