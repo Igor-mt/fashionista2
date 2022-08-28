@@ -40,12 +40,13 @@ export const SideBar = styled.div`
     flex-direction: column;
     gap: 1rem;
     font-family: 'Poppins';
-    z-index: 1000;
+    z-index: 10000;
     width: 300px;
     background: #fff;
     top: 0;
     right: 0;
     padding: 25px;
+    position: relative;
     position: fixed;
     overflow: auto;
     height: 100%;
@@ -62,6 +63,10 @@ export const SideBar = styled.div`
         transition: all ease -in -out 0.6s;
         right: -400px;
     }
+
+    @media screen and (max-width:1024px){
+        width: 60%;
+    }
 `
 
 export const EmptyCart = styled.div`
@@ -73,11 +78,16 @@ export const EmptyCart = styled.div`
   text-align: center;
 `;
 
+export const SideBarHeader = styled.div`
+display: flex;
+width: 100%;
+border-bottom: 1px solid #000;
+`
+
 export const SideBarTitle = styled.h1`
     font-family: 'Frank Ruhl Libre';
     font-size: 22px;
     text-align: center;
-    border-bottom: 1px solid #000;
     padding-bottom: 1rem;
 `
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Catalogo from "./pages/Catalogo";
 
@@ -11,14 +11,12 @@ import TelaLogin from "./pages/TelaLogin";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const [isToggle, setToggle] = useState(false);
-
   return (
     <>
     
       <CartProvider>
         <BrowserRouter>
-          <Navbar isToggle={isToggle} setToggle={setToggle} />
+          <Navbar/>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/produto/:id" element={<Produto />}></Route>

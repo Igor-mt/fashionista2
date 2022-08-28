@@ -53,3 +53,9 @@
     border:none;
     background-color: inherit;
 }
+
+@media screen and (max-width: 1024px){
+    .cart-produto-title {
+        font-weight: bold;
+    }
+}
