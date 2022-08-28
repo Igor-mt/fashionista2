@@ -10,10 +10,8 @@ const Produto = ({onAdd, onRemove}) => {
   const params = useParams()
 
   const {
-    productsCart = [],
     addProducToCart,
     removeProductToCart,
-    clearCart,
   } = useContext(CartContext);
 
   let prod = products.filter((produto) => { return produto.id === Number(params.id) })
