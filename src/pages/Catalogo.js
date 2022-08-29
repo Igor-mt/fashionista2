@@ -14,12 +14,26 @@ const Catalogo = () => {
 
     let categoria = products.filter((produto) => (produto.category === params.category))
 
+    let promocoes = products.filter((produto) => produto.promotion)
+
     return (
         <main>
             <Filtro />
             <div className='produtos'>
-                {categoria.map((categoria) => {
-                    return (
+               
+                {params.category == "Promocoes" ? (
+                    promocoes.map((promocao) => (
+                        <ProdutoCatalogo 
+                            key={promocao.id}
+                            link={`/produto/${promocao.id}`}
+                            img={promocao.img}
+                            name={promocao.name}
+                            oldPrice="R$220"
+                            actualPrice={promocao.price}
+                        />
+                    ))
+                ) : (
+                    categoria.map((categoria) => (
                         <ProdutoCatalogo
                             key={categoria.id}
                             link={`/produto/${categoria.id}`}
@@ -28,8 +42,9 @@ const Catalogo = () => {
                             oldPrice="R$220"
                             actualPrice={categoria.price}
                         />
-                        )
-                })}
+                    ))
+                 )}
+
             </div>
         </main>
     );
