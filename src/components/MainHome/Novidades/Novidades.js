@@ -2,7 +2,13 @@ import React from 'react'
 import Produto from '../../CardProduto/CardProduto'
 import './Novidades.css'
 
+import products from '../../../Products/products.json'
+import { Link } from 'react-router-dom'
+
 const Novidades = () => {
+
+    const produtos = products.filter((produto,indice) => (indice < 2))
+
     return (
         <div id="novidades">
             <div className="container-novidades">
@@ -12,29 +18,28 @@ const Novidades = () => {
                         As melhores novidades no mundo <br />
                         da moda!
                     </p>
-                    <button
+                    <a
+                        href='#melhoresOfertas'
                         className="btn-branco btn-aproveite"
                         aria-label="Aproveite as novidades"
                     >
                         APROVEITE
-                    </button>
+                    </a>
                 </div>
 
                 <div className="container-produto">
-                    <Produto
-                        link="#"
-                        img="/assets/img/feminino/04.jpg"
-                        name="Roupa Feminina"
-                        oldPrice="220,00"
-                        actualPrice="140,00"
-                    />
-                    <Produto
-                        link="#"
-                        img="/assets/img/masculino/01.jpg"
-                        name="Roupa Masculina"
-                        oldPrice="R$220,00"
-                        actualPrice="R$140,00"
-                    />
+
+                    {produtos.map((produto) => (
+                        <Produto 
+                            key={produto.id}
+                            link={`produto/${produto.id}`}
+                            img={produto.img}
+                            name={produto.name}
+                            oldPrice="220.00"
+                            actualPrice={produto.price}
+                        />
+                    ))}
+
                 </div>
             </div>
         </div>
