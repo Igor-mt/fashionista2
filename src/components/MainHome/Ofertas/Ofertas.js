@@ -17,10 +17,10 @@ const Ofertas = () => {
                 {produtos.map((produto) => {
                     return <Produto
                         key={produto.id}
-                        link="#"
+                        link={`produto/${produto.id}`}
                         img={produto.img}
                         name={produto.name}
-                        oldPrice="R$220"
+                        oldPrice="220.00"
                         actualPrice={produto.price}
                     />
                 })}
