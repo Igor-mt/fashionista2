@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Produto.css"
 
-const Produto = ({ item, onAdd, onRemove }) => {
+const Produto = ({ item, onAdd }) => {
+  const [size, setSize] = useState('M')
+
   const { img, name, price } = item;
   const installment = (Number(price) / 3).toFixed(2)
+
 
   return (
     <>
@@ -20,13 +23,15 @@ const Produto = ({ item, onAdd, onRemove }) => {
           </div>
           <div className="sizeContainer">
             <p className="sizeText">Escolha o tamanho</p>
-            <div className="sizeOptions">
-              <button className="sizeOption" aria-label="Tamanho P">P</button>
-              <button className="sizeOption" aria-label="Tamanho M">M</button>
-              <button className="sizeOption" aria-label="Tamanho G">G</button>
-            </div>
+            <select name="size" value={size} className="sizeOptions" onChange={texto => setSize(texto.target.value)}>
+              <option value="PP">PP</option>
+              <option value="P">P</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              <option value="GG">GG</option>
+            </select>
           </div>
-          <button className="addProduct" aria-label="Adicionar à Sacola" onClick={() => onAdd(item)}>Adicionar à Sacola</button>
+          <button className="addProduct" aria-label="Adicionar à Sacola" onClick={() => onAdd(item, size)}>Adicionar à Sacola</button>
         </div>
       </div>
     </>

@@ -11,12 +11,12 @@ export default function CartProvider({ children }) {
         localStorage.setItem('cart', JSON.stringify(productsCart));
     }, [productsCart])
 
-    function addProducToCart(id) {
+    function addProductToCart(id, size) {
         const copyProductsCart = [...productsCart];
-        const item = copyProductsCart.find((product) => product.id === id);
+        const item = copyProductsCart.find((product) => product.id === id && product.size === size);
 
         if (!item) {
-            copyProductsCart.push({ id: id, qtd: 1 });
+            copyProductsCart.push({ id: id, size: size, qtd: 1 });
         } else {
             item.qtd = item.qtd + 1;
         }
@@ -41,13 +41,31 @@ export default function CartProvider({ children }) {
         }
     }
 
+    function increaseProductsCart(id){
+        const copyProductsCart = [...productsCart];
+        const item = copyProductsCart.find((product) => product.id === id);
+
+        item.qtd = item.qtd + 1;
+
+        setProductsCart(copyProductsCart);
+    }
+
+    function decreaseProductsCart(id){
+        const copyProductsCart = [...productsCart];
+        const item = copyProductsCart.find((product) => product.id === id);
+
+        item.qtd = item.qtd - 1;
+
+        setProductsCart(copyProductsCart);
+    }
+
     function clearCart() {
         setProductsCart([]);
     }
 
     return (
         <CartContext.Provider
-            value={{ productsCart, addProducToCart, removeProductToCart, clearCart }}
+            value={{ productsCart, addProductToCart, removeProductToCart, increaseProductsCart, decreaseProductsCart, clearCart }}
         >
             {children}
         </CartContext.Provider>

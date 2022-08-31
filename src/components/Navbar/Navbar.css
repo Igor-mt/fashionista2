@@ -93,11 +93,7 @@ i:hover {
     display: flex;
     align-items: center;
     margin: 0 10px;
-}
-
-.container-button button {
-    margin-left: 15px;
-    cursor: pointer;
+    gap: 0.5rem;
 }
 
 .btn-menu{

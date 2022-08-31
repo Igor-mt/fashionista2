@@ -3,7 +3,6 @@ import Produto from '../../CardProduto/CardProduto'
 import './Novidades.css'
 
 import products from '../../../Products/products.json'
-import { Link } from 'react-router-dom'
 
 const Novidades = () => {
 
