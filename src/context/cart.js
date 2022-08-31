@@ -25,49 +25,42 @@ export default function CartProvider({ children }) {
         setProductsCart(copyProductsCart);
     }
 
-    function removeProductToCart(id) {
+    function removeProductToCart(id, size) {
         const copyProductsCart = [...productsCart];
 
-        const item = copyProductsCart.find((product) => product.id === id);
-
-        if (item && item.qtd > 1) {
-            item.qtd = item.qtd - 1;
-            setProductsCart(copyProductsCart);
-        } else {
-            const arrayFiltered = copyProductsCart.filter(
-                (product) => product.id !== id
-            );
-            setProductsCart(arrayFiltered);
-        }
+        const arrayFiltered = copyProductsCart.filter(
+            (product) => product.id !== id && product.size !== size
+        );
+        setProductsCart(arrayFiltered);
     }
 
-    function increaseProductsCart(id){
-        const copyProductsCart = [...productsCart];
-        const item = copyProductsCart.find((product) => product.id === id);
+function increaseProductsCart(id, size) {
+    const copyProductsCart = [...productsCart];
+    const item = copyProductsCart.find((product) => product.id === id && product.size === size);
 
-        item.qtd = item.qtd + 1;
+    item.qtd = item.qtd + 1;
 
-        setProductsCart(copyProductsCart);
-    }
+    setProductsCart(copyProductsCart);
+}
 
-    function decreaseProductsCart(id){
-        const copyProductsCart = [...productsCart];
-        const item = copyProductsCart.find((product) => product.id === id);
+function decreaseProductsCart(id, size) {
+    const copyProductsCart = [...productsCart];
+    const item = copyProductsCart.find((product) => product.id === id && product.size === size);
 
-        item.qtd = item.qtd - 1;
+    item.qtd = item.qtd - 1;
 
-        setProductsCart(copyProductsCart);
-    }
+    setProductsCart(copyProductsCart);
+}
 
-    function clearCart() {
-        setProductsCart([]);
-    }
+function clearCart() {
+    setProductsCart([]);
+}
 
-    return (
-        <CartContext.Provider
-            value={{ productsCart, addProductToCart, removeProductToCart, increaseProductsCart, decreaseProductsCart, clearCart }}
-        >
-            {children}
-        </CartContext.Provider>
-    );
+return (
+    <CartContext.Provider
+        value={{ productsCart, addProductToCart, removeProductToCart, increaseProductsCart, decreaseProductsCart, clearCart }}
+    >
+        {children}
+    </CartContext.Provider>
+);
 }
