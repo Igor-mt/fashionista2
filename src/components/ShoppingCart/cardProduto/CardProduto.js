@@ -4,9 +4,9 @@ import './CardProduto.css'
 import { CartContext } from '../../../context/cart'
 
 const CardProduto = ({ produto, onRemove }) => {
-    const { increaseProductsCart, decreaseProductsCart, clearCart } = useContext(CartContext)
+    const { increaseProductsCart, decreaseProductsCart, removeProductToCart } = useContext(CartContext)
 
-    if (produto.qtd === 0) return clearCart()
+    if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
     return (
         <>
             { }
@@ -19,11 +19,11 @@ const CardProduto = ({ produto, onRemove }) => {
                         <div className='cart-produto-price'>R${(produto.id.price).replace('.', ',')}</div>
                     </div>
                 </div>
-                <button className="cart-produto-remove" onClick={() => onRemove(produto.id)}>✖</button>
+                <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
                 <div className="quantity-control-container">
-                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id)}>+</button>
+                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
                     <span className="quantity-number">{produto.qtd}</span>
-                    <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id)}>-</button>
+                    <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id, produto.size)}>-</button>
                 </div>
 
             </div>
