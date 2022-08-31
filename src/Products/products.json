@@ -407,9 +407,9 @@
         "id": 54,
         "name": "Calça Masculina",
         "img": "/assets/img/masculino/16.jpg",
-        "price": "105,00",
+        "price": "105.00",
         "category": "Masculino",
-        "promotion": false
+        "promotion": true
     },
     {
         "id": 55,
@@ -441,87 +441,6 @@
         "img": "/assets/img/masculino/20.jpg",
         "price": "119.99",
         "category": "Masculino",
-        "promotion": false
-    },
-
-    {
-        "id": 59,
-        "name": "Roupa Feminina",
-        "img": "/assets/img/promocoes/01.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 60,
-        "name": "Blusa Feminina",
-        "img": "/assets/img/promocoes/02.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 61,
-        "name": "Short Feminino",
-        "img": "/assets/img/promocoes/03.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 62,
-        "name": "Vestido Feminino",
-        "img": "/assets/img/promocoes/04.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 63,
-        "name": "Blusa Masculina",
-        "img": "/assets/img/promocoes/05.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 64,
-        "name": "Jaqueta Masculina",
-        "img": "/assets/img/promocoes/06.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 65,
-        "name": "Calça Feminino",
-        "img": "/assets/img/promocoes/07.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 66,
-        "name": "Blusa de Frio Masculino",
-        "img": "/assets/img/promocoes/08.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
-        "promotion": false
-    },
-
-    {
-        "id": 67,
-        "name": "Jaqueta Masculina",
-        "img": "/assets/img/promocoes/09.jpg",
-        "price": "119.99",
-        "category": "Promocoes",
         "promotion": false
     }
 
