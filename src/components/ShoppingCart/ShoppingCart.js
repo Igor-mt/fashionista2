@@ -27,13 +27,12 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
             <SideBar ref={$sideBarRef} className={isToggle ? 'expand' : 'shrink'}>
                 <SideBarTitle>Carrinho de Compras</SideBarTitle>
                 {productsCart.length === 0 && <EmptyCart>Carrinho Vazio</EmptyCart>}
-
                 {
-                    productsCart.map((produto) => {
+                    productsCart.map((produto, size) => {
                         totalPrice += produto.id.price * produto.qtd
                         return (
                             <CardProduto
-                                key={produto.id}
+                                key={produto.id + size}
                                 produto={produto}
                                 onRemove={removeProductToCart} />
                         )

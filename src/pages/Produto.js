@@ -6,11 +6,11 @@ import ProdutoComponent from "../components/Produto/Produto";
 
 import products from '../Products/products.json'
 
-const Produto = ({onAdd, onRemove}) => {
+const Produto = () => {
   const params = useParams()
 
   const {
-    addProducToCart,
+    addProductToCart,
     removeProductToCart,
   } = useContext(CartContext);
 
@@ -22,7 +22,7 @@ const Produto = ({onAdd, onRemove}) => {
         key={produto.id}
         item={produto}
         installment={(Number(produto.price) / 3).toFixed(2)}
-        onAdd={addProducToCart}
+        onAdd={addProductToCart}
         onRemove={removeProductToCart}
       />
     })}

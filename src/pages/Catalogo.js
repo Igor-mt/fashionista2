@@ -20,10 +20,10 @@ const Catalogo = () => {
         <main>
             <Filtro />
             <div className='produtos'>
-               
-                {params.category == "Promocoes" ? (
+
+                {params.category === "Promocoes" ? (
                     promocoes.map((promocao) => (
-                        <ProdutoCatalogo 
+                        <ProdutoCatalogo
                             key={promocao.id}
                             link={`/produto/${promocao.id}`}
                             img={promocao.img}
@@ -43,7 +43,7 @@ const Catalogo = () => {
                             actualPrice={categoria.price}
                         />
                     ))
-                 )}
+                )}
 
             </div>
         </main>
