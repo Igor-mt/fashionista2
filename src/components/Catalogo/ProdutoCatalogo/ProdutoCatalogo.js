@@ -16,7 +16,7 @@ const ProdutoCatalogo = ({ link, img, name, oldPrice, actualPrice }) => {
                     </div>
                     <div className="nome-produto-catalogo">{name}</div>
                     <span className="preco-antigo-catalogo preco">{oldPrice}</span>
-                    <span className="preco-atual-catalogo preco">R${actualPrice}</span>
+                    <span className="preco-atual-catalogo preco">R${Number(actualPrice).toFixed(2).replace(".", ",")}</span>
                 </div>
             </Link>
         </div>
