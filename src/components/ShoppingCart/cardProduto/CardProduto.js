@@ -6,7 +6,7 @@ import { CartContext } from '../../../context/cart'
 const CardProduto = ({ produto, onRemove }) => {
     const { increaseProductsCart, decreaseProductsCart, removeProductToCart } = useContext(CartContext)
 
-    if (produto.qtd === 0) return removeProductToCart(produto.id, produto.size);
+    if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
     return (
         <>
             { }
@@ -19,7 +19,7 @@ const CardProduto = ({ produto, onRemove }) => {
                         <div className='cart-produto-price'>R${(produto.id.price).replace('.', ',')}</div>
                     </div>
                 </div>
-                <button className="cart-produto-remove" onClick={() => onRemove(produto.id)}>✖</button>
+                <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
                 <div className="quantity-control-container">
                     <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
                     <span className="quantity-number">{produto.qtd}</span>

@@ -27,10 +27,12 @@ export default function CartProvider({ children }) {
 
     function removeProductToCart(id, size) {
         const copyProductsCart = [...productsCart];
-
+        console.log(copyProductsCart)
         const arrayFiltered = copyProductsCart.filter(
-            (product) => product.id !== id && product.size !== size
+            (product) => product.id !== id || product.size !== size
         );
+
+        
         setProductsCart(arrayFiltered);
     }
 
