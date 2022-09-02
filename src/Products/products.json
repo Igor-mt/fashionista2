@@ -409,7 +409,7 @@
         "img": "/assets/img/masculino/16.jpg",
         "price": "105.00",
         "category": "Masculino",
-        "promotion": true
+        "promotion": false
     },
     {
         "id": 55,
