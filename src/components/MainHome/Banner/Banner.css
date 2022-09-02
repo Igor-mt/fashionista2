@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
 
-.container-banner{
-    background-color: #e6e6e6;
-}
 a{
     text-decoration: none;
 }
@@ -67,11 +64,11 @@ a{
 
 @media (min-width: 1024px) {
     .container-banner {
-        height: 100vh;
+        height: 80vh;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: #e6e6e6;
+        background: #e6e6e6;
 
         background-image: url('../../../../public/assets/img/background-image.svg');
         background-repeat: no-repeat;
@@ -110,7 +107,8 @@ a{
     }
 
     .container-banner-image{
-        height: 70%;
+        height: 80%;
+        margin-top: 6rem;
     }
 
     .container-banner-image img {

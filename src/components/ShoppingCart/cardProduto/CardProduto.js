@@ -21,9 +21,9 @@ const CardProduto = ({ produto, onRemove }) => {
                 </div>
                 <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
                 <div className="quantity-control-container">
-                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
-                    <span className="quantity-number">{produto.qtd}</span>
                     <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id, produto.size)}>-</button>
+                    <span className="quantity-number">{produto.qtd}</span>
+                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
                 </div>
 
             </div>

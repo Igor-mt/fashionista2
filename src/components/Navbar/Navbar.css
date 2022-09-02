@@ -58,6 +58,7 @@ i:hover {
 .btn-login {
     padding: 8px 20px;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .btn-navbar {
@@ -102,10 +103,6 @@ i:hover {
     padding: 0.2rem 0.4rem;
     background-color: inherit;
     display: none;
-}
-
-.cart-mobile{
-    display: none !important;
 }
 
 @media (max-width: 1024px){
@@ -174,13 +171,5 @@ i:hover {
         right: 0;
         top: 0;
         margin: 1rem;
-    }
-
-    .cart-desktop{
-        display: none;
-    }
-    
-    .cart-mobile{
-        display: block !important;
     }
 }

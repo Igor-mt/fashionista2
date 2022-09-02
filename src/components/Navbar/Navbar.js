@@ -13,56 +13,114 @@ const Navbar = (onRemove, cartItems) => {
         navRef.current.classList.toggle("responsive-navbar")
     }
 
-    return (
-        <div className="navbar-container">
-            <Link to={{ pathname: "/", hash: "" }}>
-                <img
-                    src="/assets/img/logo-fashionista.png"
-                    className="logo"
-                    alt="logo fashionista"
-                />
-            </Link>
-            <nav className="menu" ref={navRef}>
-                <ul className="navbar-items">
-                    <li className="navbar-item">
-                        <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
+    const isMobile = window.innerWidth <= 1024;
 
-                    </li>
-                    <li className="navbar-item">
-                        <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
-                    </li>
-                </ul>
-
-                
-                <div className="container-button">
-                    <button className="btn-navbar" id="btn-pesquisa">
-                        <Icon icon={faMagnifyingGlass} />
-                    </button>
-                    <Cart className="cart-desktop"
-                        isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+    if (isMobile) {
+        return (
+            <div className="navbar-container">
+                <Link to={{ pathname: "/", hash: "" }}>
+                    <img
+                        src="/assets/img/logo-fashionista.png"
+                        className="logo"
+                        alt="logo fashionista"
                     />
-                    <button
-                        className="btn-branco btn-login"
-                        id="btn-login"
-                    >
-                        <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>
+                </Link>
+                <Cart className="cart-desktop"
+                    isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                />
+                <nav className="menu" ref={navRef}>
+                    <ul className="navbar-items">
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
+
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
+                        </li>
+                    </ul>
+
+
+                    <div className="container-button">
+                        <button className="btn-navbar" id="btn-pesquisa">
+                            <Icon icon={faMagnifyingGlass} />
+                        </button>
+                        <button
+                            className="btn-branco btn-login"
+                            id="btn-login"
+                        >
+                            <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>
+                        </button>
+                    </div>
+                    <button className="btn-menu nav-close-btn" onClick={showNavbar}>
+                        <Icon icon={faTimes} />
                     </button>
-                </div>
-                <button className="btn-menu nav-close-btn" onClick={showNavbar}>
-                    <Icon icon={faTimes} />
+                </nav>
+                <button className="btn-menu" onClick={showNavbar}>
+                    <Icon icon={faBars} />
                 </button>
-            </nav>
-            <button className="btn-menu" onClick={showNavbar}>
-                <Icon icon={faBars} />
-            </button>
-        </div>
-    )
+            </div>
+        )
+    } else {
+        return (
+            <div className="navbar-container">
+                <Link to={{ pathname: "/", hash: "" }}>
+                    <img
+                        src="/assets/img/logo-fashionista.png"
+                        className="logo"
+                        alt="logo fashionista"
+                    />
+                </Link>
+
+                <nav className="menu" ref={navRef}>
+                    <ul className="navbar-items">
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
+
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
+                        </li>
+                    </ul>
+
+
+                    <div className="container-button">
+                        <button className="btn-navbar" id="btn-pesquisa">
+                            <Icon icon={faMagnifyingGlass} />
+                        </button>
+                        <Cart
+                            isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                        />
+                        <Link to={{ pathname: "/login", hash: "" }}><button
+                            className="btn-branco btn-login"
+                            id="btn-login"
+                        >
+                            LOGIN
+                        </button>
+                        </Link>
+                    </div>
+                    <button className="btn-menu nav-close-btn" onClick={showNavbar}>
+                        <Icon icon={faTimes} />
+                    </button>
+                </nav>
+                <button className="btn-menu" onClick={showNavbar}>
+                    <Icon icon={faBars} />
+                </button>
+            </div>
+        )
+    }
+
 }
 
 export default Navbar
