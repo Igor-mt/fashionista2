@@ -61,7 +61,7 @@ export const SideBar = styled.div`
 
     &.shrink{
         transition: all ease -in -out 0.6s;
-        right: -400px;
+        right: -1000px;
     }
 
     @media screen and (max-width:1024px){

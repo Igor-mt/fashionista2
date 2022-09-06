@@ -1,438 +1,497 @@
 [
     {
         "id": 1,
-        "name": "Moletom Feminino",
+        "name": "Moletom com Blusa Cropped",
         "img": "/assets/img/feminino/01.jpg",
-        "price": "109.99",
+        "price": "94.99",
         "category": "Feminino",
+        "color": "Amarelo",
         "promotion": true
     },
     {
         "id": 2,
-        "name": "Casaco Feminino",
+        "name": "Casaco Estilo Sobretudo",
         "img": "/assets/img/feminino/02.jpg",
-        "price": "79.99",
+        "price": "89.99",
         "category": "Feminino",
+        "color": "Cinza",
         "promotion": false
     },
     {
         "id": 3,
-        "name": "Camisa Feminina com Suspensórios",
+        "name": "Camisa com Suspensórios",
         "img": "/assets/img/feminino/03.jpg",
-        "price": "99.99",
+        "price": "89.99",
         "category": "Feminino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 4,
-        "name": "Paletó Feminino",
+        "name": "Paletó Oversized",
         "img": "/assets/img/feminino/04.jpg",
-        "price": "119.99",
+        "price": "109.99",
         "category": "Feminino",
+        "color": "Roxo",
         "promotion": false
     },
     {
         "id": 5,
-        "name": "Casaco Feminino",
+        "name": "Casaco de Pelo Curto",
         "img": "/assets/img/feminino/05.jpg",
-        "price": "139.99",
+        "price": "119.99",
         "category": "Feminino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 6,
-        "name": "Vestido Feminino",
+        "name": "Vestido Social",
         "img": "/assets/img/feminino/06.jpg",
         "price": "149.99",
         "category": "Feminino",
+        "color": "Vermelho",
         "promotion": false
     },
     {
         "id": 7,
-        "name": "Blusa Feminina",
+        "name": "Blusa",
         "img": "/assets/img/feminino/07.jpg",
         "price": "59.99",
         "category": "Feminino",
+        "color": "Bege",
         "promotion": true
     },
     {
         "id": 8,
-        "name": "Vestido Branco Feminino",
+        "name": "Vestido",
         "img": "/assets/img/feminino/08.jpg",
         "price": "89.99",
         "category": "Feminino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 9,
-        "name": "Calça Feminina Preta",
+        "name": "Calça Estilo Cargo Barra Curta",
         "img": "/assets/img/feminino/09.jpg",
         "price": "99.99",
         "category": "Feminino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 10,
-        "name": "Suéter Feminino",
+        "name": "Suéter",
         "img": "/assets/img/feminino/10.jpg",
-        "price": "99.99",
+        "price": "89.99",
         "category": "Feminino",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 11,
-        "name": "Vestido Feminino Preto",
+        "name": "Vestido",
         "img": "/assets/img/feminino/11.jpg",
-        "price": "159.99",
+        "price": "129.99",
         "category": "Feminino",
+        "color": "Preto",
         "promotion": true
     },
     {
         "id": 12,
-        "name": "Camiseta Feminina",
+        "name": "Camiseta Estampa de Mar",
         "img": "/assets/img/feminino/12.jpg",
         "price": "59.99",
         "category": "Feminino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 13,
-        "name": "Terno Feminino",
+        "name": "Paletó e Calça de Terno",
         "img": "/assets/img/feminino/13.jpg",
         "price": "149.99",
         "category": "Feminino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 14,
-        "name": "Blusa Oversized Feminina",
+        "name": "Blusa Oversized",
         "img": "/assets/img/feminino/14.jpg",
         "price": "99.99",
         "category": "Feminino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 15,
-        "name": "Camisa Feminina",
+        "name": "Camisa Social",
         "img": "/assets/img/feminino/15.jpg",
         "price": "89.99",
         "category": "Feminino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 16,
-        "name": "Vestido Azul Feminino",
+        "name": "Vestido de Cetim",
         "img": "/assets/img/feminino/16.jpg",
         "price": "119.99",
         "category": "Feminino",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 17,
-        "name": "Suéter Infantil",
+        "name": "Suéter Estilo Paletó",
         "img": "/assets/img/infantil/01.jpg",
         "price": "69.99",
         "category": "Infantil",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 18,
-        "name": "Blusa Infantil",
+        "name": "Blusa com Bolinhas",
         "img": "/assets/img/infantil/02.jpg",
         "price": "59.99",
         "category": "Infantil",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 19,
-        "name": "Moletom Infantil",
+        "name": "Moletom Star Wars",
         "img": "/assets/img/infantil/03.jpg",
         "price": "89.99",
         "category": "Infantil",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 20,
-        "name": "Camisa Infantil",
+        "name": "Camisa de Flanela",
         "img": "/assets/img/infantil/04.jpg",
         "price": "79.99",
         "category": "Infantil",
+        "color": "Amarelo",
         "promotion": true
     },
     {
         "id": 21,
-        "name": "Saia Longa Infantil",
+        "name": "Saia Longa Listrada",
         "img": "/assets/img/infantil/05.jpg",
         "price": "59.99",
         "category": "Infantil",
+        "color": "Rosa",
         "promotion": false
     },
     {
         "id": 22,
-        "name": "Camisa Manga Curta Infantil",
+        "name": "Camisa Manga Curta",
         "img": "/assets/img/infantil/06.jpg",
         "price": "69.99",
         "category": "Infantil",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 23,
-        "name": "Casaco de Frio Infantil",
+        "name": "Casaco de Frio Europeu",
         "img": "/assets/img/infantil/07.jpg",
         "price": "99.99",
         "category": "Infantil",
+        "color": "Cinza",
         "promotion": false
     },
     {
         "id": 24,
-        "name": "Moletom Infantil",
+        "name": "Moletom Com Gatinhos",
         "img": "/assets/img/infantil/08.jpg",
         "price": "89.99",
         "category": "Infantil",
+        "color": "Vermelho",
         "promotion": false
     },
     {
         "id": 25,
-        "name": "Vestido Infantil",
+        "name": "Vestido Mulher Maravilha",
         "img": "/assets/img/infantil/09.jpg",
         "price": "69.99",
         "category": "Infantil",
+        "color": "Vermelho",
         "promotion": false
     },
     {
         "id": 26,
-        "name": "Calça Infantil",
+        "name": "Calça Jeans",
         "img": "/assets/img/infantil/10.jpg",
         "price": "79.99",
         "category": "Infantil",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 27,
-        "name": "Colete Infantil",
+        "name": "Colete Formal",
         "img": "/assets/img/infantil/11.jpg",
-        "price": "89.99",
+        "price": "79.99",
         "category": "Infantil",
+        "color": "Cinza",
         "promotion": true
     },
     {
         "id": 28,
-        "name": "Pijama Infantil",
+        "name": "Pijama Estampado",
         "img": "/assets/img/infantil/13.jpg",
-        "price": "89.99",
+        "price": "69.99",
         "category": "Infantil",
+        "color": "Amarelo",
         "promotion": false
     },
     {
         "id": 29,
-        "name": "Vestido Infantil",
+        "name": "Vestido Estampado",
         "img": "/assets/img/infantil/14.jpg",
-        "price": "79.99",
+        "price": "69.99",
         "category": "Infantil",
+        "color": "Verde",
         "promotion": false
     },
     {
         "id": 30,
-        "name": "Chapéu Infantil",
+        "name": "Chapéu de Crochê",
         "img": "/assets/img/infantil/15.jpg",
-        "price": "69.99",
+        "price": "59.99",
         "category": "Infantil",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 31,
-        "name": "Vestido Infantil",
+        "name": "Vestido Com Estampa de Frutas",
         "img": "/assets/img/infantil/16.jpg",
-        "price": "79.99",
+        "price": "59.99",
         "category": "Infantil",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 32,
-        "name": "Casaco Infantil",
+        "name": "Casaco Moderno",
         "img": "/assets/img/infantil/17.jpg",
         "price": "89.99",
         "category": "Infantil",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 33,
-        "name": "Suéter Infantil",
+        "name": "Suéter Com Estampa de Urso",
         "img": "/assets/img/infantil/18.jpg",
-        "price": "69.99",
+        "price": "64.99",
         "category": "Infantil",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 34,
-        "name": "Camiseta Infantil",
+        "name": "Camiseta Estampa de Volêi",
         "img": "/assets/img/infantil/19.jpg",
-        "price": "49.99",
+        "price": "39.99",
         "category": "Infantil",
+        "color": "Verde",
         "promotion": false
     },
     {
         "id": 35,
-        "name": "Blusa Infantil",
-        "img": "/assets/img/infantil/19.jpg",
+        "name": "Blusa de Frio com Bolinhas",
+        "img": "/assets/img/infantil/20.jpg",
         "price": "69.99",
         "category": "Infantil",
+        "color": "Bege",
         "promotion": false
     },
     {
         "id": 36,
-        "name": "Moletom Marrom Masculino",
+        "name": "Moletom Básico",
         "img": "/assets/img/masculino/01.jpg",
-        "price": "109.99",
+        "price": "99.99",
         "category": "Masculino",
+        "color": "Marrom",
         "promotion": false
     },
     {
         "id": 37,
-        "name": "Moletom Cinza Masculino",
+        "name": "Moletom Básico",
         "img": "/assets/img/masculino/02.jpg",
-        "price": "109.99",
+        "price": "104.99",
         "category": "Masculino",
+        "color": "Cinza",
         "promotion": false
     },
     {
         "id": 38,
-        "name": "Sobretudo Masculino",
+        "name": "Sobretudo",
         "img": "/assets/img/masculino/03.jpg",
         "price": "119.99",
         "category": "Masculino",
+        "color": "Marrom",
         "promotion": true
     },
     {
         "id": 39,
-        "name": "Camisa Masculina",
+        "name": "Camisa Casual",
         "img": "/assets/img/masculino/04.jpg",
         "price": "99.99",
         "category": "Masculino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 40,
-        "name": "Terno Navy Masculino",
+        "name": "Terno Navy",
         "img": "/assets/img/masculino/05.jpg",
-        "price": "220.00"
+        "price": "220.00",
+        "category": "Masculino",
+        "color": "Azul",
+        "promotion": false
     },
     {
         "id": 41,
-        "name": "Camiseta Masculina",
+        "name": "Camiseta Básica",
         "img": "/assets/img/masculino/06.jpg",
         "price": "59.99",
         "category": "Masculino",
+        "color": "Bege",
         "promotion": true
     },
     {
         "id": 42,
-        "name": "Paletó Masculino",
+        "name": "Paletó Estilo Sobretudo",
         "img": "/assets/img/masculino/07.jpg",
         "price": "119.99",
         "category": "Masculino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 43,
-        "name": "Casaco Masculino",
+        "name": "Casaco com Pelo Curto",
         "img": "/assets/img/masculino/08.jpg",
-        "price": "109.99",
+        "price": "99.99",
         "category": "Masculino",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 44,
-        "name": "Cascaco de Couro Masculino",
+        "name": "Cascaco de Couro com Pelo Curto",
         "img": "/assets/img/masculino/09.jpg",
-        "price": "139.99",
+        "price": "129.99",
         "category": "Masculino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 45,
-        "name": "Paletó Masculino",
+        "name": "Paletó Casual",
         "img": "/assets/img/masculino/10.jpg",
         "price": "119.99",
         "category": "Masculino",
+        "color": "Bege",
         "promotion": true
     },
     {
         "id": 46,
-        "name": "Suéter Masculino",
+        "name": "Suéter Listrado",
         "img": "/assets/img/masculino/11.jpg",
         "price": "89.99",
         "category": "Masculino",
+        "color": "Vermelho",
         "promotion": false
     },
     {
         "id": 47,
-        "name": "Jaqueta Jeans Masculina",
+        "name": "Jaqueta Jeans Rasgada",
         "img": "/assets/img/masculino/12.jpg",
-        "price": "109.99",
+        "price": "104.99",
         "category": "Masculino",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 48,
-        "name": "Terno Preto Masculino",
+        "name": "Terno Masculino",
         "img": "/assets/img/masculino/13.jpg",
-        "price": "220.00"
+        "price": "220.00",
+        "category": "Masculino",
+        "color": "Preto",
+        "promotion": false
     },
     {
         "id": 49,
-        "name": "Moletom Masculino",
+        "name": "Moletom Básico",
         "img": "/assets/img/masculino/14.jpg",
         "price": "109.99",
         "category": "Masculino",
+        "color": "Rosa",
         "promotion": false
     },
     {
         "id": 50,
-        "name": "Calça Masculina",
+        "name": "Calça Jeans",
         "img": "/assets/img/masculino/15.jpg",
         "price": "99.99",
         "category": "Masculino",
+        "color": "Azul",
         "promotion": false
     },
     {
         "id": 51,
-        "name": "Calça Masculina",
+        "name": "Calça Estampada",
         "img": "/assets/img/masculino/16.jpg",
         "price": "105.00",
         "category": "Masculino",
+        "color": "Amarelo",
         "promotion": false
     },
     {
         "id": 52,
-        "name": "Paletó Masculino",
+        "name": "Paletó e Calça de Terno",
         "img": "/assets/img/masculino/17.jpg",
-        "price": "119.99",
+        "price": "139.99",
         "category": "Masculino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 53,
-        "name": "Camisa Masculina",
+        "name": "Camisa Básica Casual",
         "img": "/assets/img/masculino/18.jpg",
         "price": "99.99",
         "category": "Masculino",
+        "color": "Preto",
         "promotion": false
     },
     {
         "id": 54,
-        "name": "Camiseta Masculina",
+        "name": "Camiseta Masculina Básica",
         "img": "/assets/img/masculino/19.jpg",
-        "price": "59.99",
+        "price": "69.99",
         "category": "Masculino",
+        "color": "Branco",
         "promotion": false
     },
     {
         "id": 55,
-        "name": "Paletó Masculino",
+        "name": "Paletó Listrado de Terno",
         "img": "/assets/img/masculino/20.jpg",
         "price": "119.99",
         "category": "Masculino",
+        "color": "Preto",
         "promotion": false
     }
 
