@@ -9,11 +9,11 @@
         background-color: rgb(46, 46, 46);
         width: 100%;
     }
-    
+
     .container-footer .nav {
         width: 100%;
     }
-    
+
     .container-footer .navbar-items {
         display: flex;
         flex-direction: row;
@@ -24,11 +24,11 @@
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .container-footer .navbar-item {
         padding: 0.3rem;
     }
-    
+
     .container-footer p {
         color: #fff;
         font-size: 8px;
@@ -46,11 +46,11 @@
         background-color: rgb(46, 46, 46);
         width: 100%;
     }
-    
+
     .container-footer .nav {
         width: 100%;
     }
-    
+
     .container-footer .navbar-items {
         display: flex;
         justify-content: center;
@@ -60,11 +60,11 @@
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .container-footer .navbar-item {
         padding: 0.3rem;
     }
-    
+
     .container-footer p {
         color: #fff;
         font-size: 8px;

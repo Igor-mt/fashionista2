@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import "./Navbar.css";
+import SearchBar from '../SearchBar/SearchBar'
 import Cart from '../ShoppingCart/ShoppingCart';
-import { faMagnifyingGlass, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '../ShoppingCart/styles';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +13,8 @@ const Navbar = (onRemove, cartItems) => {
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive-navbar")
     }
+
+
 
     const isMobile = window.innerWidth <= 1024;
 
@@ -47,9 +50,7 @@ const Navbar = (onRemove, cartItems) => {
 
 
                     <div className="container-button">
-                        <button className="btn-navbar" id="btn-pesquisa">
-                            <Icon icon={faMagnifyingGlass} />
-                        </button>
+                        <SearchBar/>
                         <button
                             className="btn-branco btn-login"
                             id="btn-login"
@@ -96,9 +97,7 @@ const Navbar = (onRemove, cartItems) => {
 
 
                     <div className="container-button">
-                        <button className="btn-navbar" id="btn-pesquisa">
-                            <Icon icon={faMagnifyingGlass} />
-                        </button>
+                        <SearchBar/>
                         <Cart
                             isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
                         />
