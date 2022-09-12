@@ -44,6 +44,13 @@
         font-weight: bold;
     }
 
+    .productInfo {
+        font-family: 'Poppins';
+        font-weight: 400;
+        opacity: 0.8;
+        font-size: 12pt;
+    }
+
     .productPrice {
         display: flex;
         gap: 0.4rem;
@@ -64,7 +71,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        margin-top: 0.5rem;
     }
 
     .sizeText {
@@ -166,6 +172,13 @@
         text-transform: uppercase;
         font-size: 16pt;
         font-weight: bold;
+    }
+
+    .productInfo {
+        font-family: 'Poppins';
+        font-weight: 400;
+        opacity: 0.8;
+        font-size: 12pt;
     }
 
     .productPrice {

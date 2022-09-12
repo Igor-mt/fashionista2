@@ -5,7 +5,7 @@ import "./Produto.css"
 const Produto = ({ item, onAdd }) => {
   const [size, setSize] = useState('M')
 
-  const { img, name, price } = item;
+  const { img, name, price, color, category } = item;
   const installment = (Number(price) / 3).toFixed(2)
 
 
@@ -17,6 +17,10 @@ const Produto = ({ item, onAdd }) => {
         </div>
         <div className="productDetailsContainer">
           <h1 className="productName">{name}</h1>
+          <div className="productInfoContainer">
+            <p className="productInfo"><strong>Categoria:</strong> {category}</p>
+            <p className="productInfo"><strong>Cor:</strong> {color}</p>
+          </div>
           <div className="productPrice">
             <p className="price">R${price.replace(".", ",")}</p>
             <p className="installments">em até 3x R${installment.replace(".", ",")}</p>

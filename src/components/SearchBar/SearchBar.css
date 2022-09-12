@@ -25,3 +25,9 @@
     padding: 10px 10px;
     font-family: 'Poppins';
 }
+
+@media screen and (max-width: 1024px) {
+    #searchBar{
+        width: 80%;
+    }
+}
