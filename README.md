@@ -10,7 +10,6 @@ Projeto prático em grupo de longo prazo que vai simular ambiente das empresas.
 - Lucas Santana
 - Gustavo Araújo
 - Davi Silveira
-- Gustavo Ferreira
 - Pedro Paulo
 
 ## Papel do Monitor:
