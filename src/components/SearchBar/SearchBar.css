@@ -1,0 +1,33 @@
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.searchBtn {
+    border: none;
+    background-color: transparent;
+    border-radius: 3px;
+    color: #fff;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.searchBtn:hover {
+    transform: scale(1.1);
+    transition: transform ease 0.5s;
+}
+
+#searchBar{
+    border: none;
+    border-radius:4px;
+    padding: 10px 10px;
+    font-family: 'Poppins';
+}
+
+@media screen and (max-width: 1024px) {
+    #searchBar{
+        width: 80%;
+    }
+}

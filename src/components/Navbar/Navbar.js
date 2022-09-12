@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import "./Navbar.css";
+import SearchBar from '../SearchBar/SearchBar'
 import Cart from '../ShoppingCart/ShoppingCart';
-import { faMagnifyingGlass, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '../ShoppingCart/styles';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +13,8 @@ const Navbar = (onRemove, cartItems) => {
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive-navbar")
     }
-
+    
     const isMobile = window.innerWidth <= 1024;
-
     if (isMobile) {
         return (
             <div className="navbar-container">
@@ -44,12 +44,8 @@ const Navbar = (onRemove, cartItems) => {
                             <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
                         </li>
                     </ul>
-
-
                     <div className="container-button">
-                        <button className="btn-navbar" id="btn-pesquisa">
-                            <Icon icon={faMagnifyingGlass} />
-                        </button>
+                        <SearchBar />
                         <button
                             className="btn-branco btn-login"
                             id="btn-login"
@@ -93,27 +89,23 @@ const Navbar = (onRemove, cartItems) => {
                             <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
                         </li>
                     </ul>
-
-
-                    <div className="container-button">
-                        <button className="btn-navbar" id="btn-pesquisa">
-                            <Icon icon={faMagnifyingGlass} />
-                        </button>
-                        <Cart
-                            isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
-                        />
-                        <Link to={{ pathname: "/login", hash: "" }}><button
-                            className="btn-branco btn-login"
-                            id="btn-login"
-                        >
-                            LOGIN
-                        </button>
-                        </Link>
-                    </div>
-                    <button className="btn-menu nav-close-btn" onClick={showNavbar}>
-                        <Icon icon={faTimes} />
-                    </button>
                 </nav>
+                <div className="container-button">
+                    <SearchBar />
+                    <Cart
+                        isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                    />
+                    <Link to={{ pathname: "/login", hash: "" }}><button
+                        className="btn-branco btn-login"
+                        id="btn-login"
+                    >
+                        LOGIN
+                    </button>
+                    </Link>
+                </div>
+                <button className="btn-menu nav-close-btn" onClick={showNavbar}>
+                    <Icon icon={faTimes} />
+                </button>
                 <button className="btn-menu" onClick={showNavbar}>
                     <Icon icon={faBars} />
                 </button>

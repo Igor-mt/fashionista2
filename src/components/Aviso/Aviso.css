@@ -1,0 +1,12 @@
+.container-aviso{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aviso-text{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16pt;
+}
