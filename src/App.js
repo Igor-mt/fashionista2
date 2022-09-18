@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Produto from "./pages/Produto";
 import TelaLogin from "./pages/TelaLogin";
 import Footer from "./components/Footer/Footer";
+import TelaCheckout from "./pages/TelaCheckout";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/produto/:id" element={<Produto />}></Route>
               <Route path="/catalogo/:category" element={<Catalogo />} />
               <Route path="/login" element={<TelaLogin />} />
+              <Route path="/checkout" element={<TelaCheckout />} />
             </Routes>
             <Footer />
           </BrowserRouter>
