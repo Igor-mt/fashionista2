@@ -1,0 +1,62 @@
+
+.pagamentoContainer{
+    height: 100%;
+    max-width: 31.25rem;
+    margin: 0 50px;
+}
+
+.perguntaCadastro{
+    display: flex;
+}
+
+.perguntaCadastro p{
+    font-weight: bolder;
+    margin: auto;
+    padding-right: 1rem;
+}
+
+.perguntaCadastro__containerButton{
+    width: 17.56rem;
+}
+
+.opcoesPagamento{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 20px 50px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.opcoesPagamento__label{
+    width: 210px;
+    margin-bottom: 10px;
+}
+
+.boleto__img{
+    max-width: 500px;
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.pix__container{
+    margin: 2px 0;
+    background-color: white;
+    text-align: center;    
+    border-radius: 10px;
+}
+
+.pix__img{
+    width: 300px;
+    /* height: 250px; */
+}
+
+.boleto__botoes {
+    text-align: center;
+}
+
+.boleto__botoes Button{
+    max-width: 40%;
+    margin: 10px;
+}
