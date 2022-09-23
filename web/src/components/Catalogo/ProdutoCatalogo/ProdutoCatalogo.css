@@ -12,6 +12,10 @@
     transform: scale(0.95);    
 }
 
+.image-container{
+    position: relative;
+}
+
 .imagem-produto-catalogo{
     width: 15rem;
     height: 14.375rem;

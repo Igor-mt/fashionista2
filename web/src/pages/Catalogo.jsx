@@ -58,6 +58,7 @@ const Catalogo = () => {
                             name={categoria.name}
                             oldPrice="R$220"
                             actualPrice={categoria.price}
+                            onSale={categoria.promotion}
                         />
                     ))
                     }
@@ -78,6 +79,7 @@ const Catalogo = () => {
                                 name={param.name}
                                 oldPrice="R$220"
                                 actualPrice={param.price}
+                                onSale={param.promotion}
                             />
                         ))
                         }

@@ -20,6 +20,17 @@
         width: 50%;
         height: 90%;
         margin-top: 3rem;
+        position: relative;
+    }
+
+    .saleLabel {
+        position: absolute;
+        background-color: #C20A0A;
+        color: #fff;
+        padding: 0.2rem 0.5rem;
+        z-index: 1;
+        right: 0;
+        top: 0;
     }
 
     .productImage {
@@ -149,7 +160,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        position: relative;
+    }
+
+    .saleLabel {
+        position: absolute;
+        background-color: #C20A0A;
+        color: #fff;
+        padding: 0.2rem 0.5rem;
+        z-index: 1;
+        top: 0;
+        right: 0;
     }
 
     .productImage {

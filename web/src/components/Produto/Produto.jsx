@@ -5,13 +5,14 @@ import "./Produto.css"
 const Produto = ({ item, onAdd }) => {
   const [size, setSize] = useState('M')
 
-  const { img, name, price, color, category } = item;
+  const { img, name, price, color, category} = item;
   const installment = (Number(price) / 3).toFixed(2)
 
 
   return (
     <>
       <div className="productContainer">
+
         <div className="productImageContainer">
           <img src={img} alt="" className="productImage" />
         </div>
