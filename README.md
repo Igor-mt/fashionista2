@@ -32,7 +32,7 @@ Projeto prático em grupo de longo prazo que vai simular ambiente das empresas d
 
 Estimular o trabalho em grupo, comunicação e organização. Auxiliar no desenvolvimento das habilidades técnicas. Simular ambiente de trabalho em uma empresa.
 
-## Regras
+## 📝 Regras
 
 - Deve-se implementar todas funcionalidades pedidas em cada fase.
 - Deve ser mobile first, possuindo uma experiência satisfatória tanto em mobile quanto em desktop.
@@ -40,7 +40,7 @@ Estimular o trabalho em grupo, comunicação e organização. Auxiliar no desenv
 - Deve-se fazer deploy do projeto, servindo-o no Netlify.
 - Não utilize frameworks CSS como Bootstrap, Foundation e afins.
 
-## Requisitos obrigatórios
+## ❗ Requisitos obrigatórios
 
 - Para cada item do catálogo de produtos as seguintes informações devem estar na página:
   - Imagem
@@ -54,7 +54,7 @@ Estimular o trabalho em grupo, comunicação e organização. Auxiliar no desenv
 - Deve ser possível visualizar os itens adicionados no carrinho de compras, exibindo imagem, nome, preço e quantidade.
 - Deve ser possível remover itens do carrinho de compras.
 
-### Propriedades de um produto (referência):
+### ✏ Propriedades de um produto (referência):
 
 ```json
 {
@@ -77,7 +77,7 @@ Estimular o trabalho em grupo, comunicação e organização. Auxiliar no desenv
 }
 ```
 
-## Deploy
+## 📁 Deploy
 
 A recomendação é para que o deploy seja feito no Netlify ou similar para o Front-End e Heroku ou similar para o back-end.
 
