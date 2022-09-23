@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const pgPromise = require('pg-promise')()
 
 const database = pgPromise(
