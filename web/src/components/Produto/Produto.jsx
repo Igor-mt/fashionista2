@@ -5,26 +5,24 @@ import "./Produto.css"
 const Produto = ({ item, onAdd }) => {
   const [size, setSize] = useState('M')
 
-  const { img, name, price, color, category} = item;
-  const installment = (Number(price) / 3).toFixed(2)
-
+  const { img_url, name, regular_price, actual_price, color, installments, onSale} = item;
+  const installment = (Number(actual_price) / installments).toFixed(2)
 
   return (
     <>
       <div className="productContainer">
-
         <div className="productImageContainer">
-          <img src={img} alt="" className="productImage" />
+          <img src={img_url} alt="" className="productImage" />
         </div>
         <div className="productDetailsContainer">
           <h1 className="productName">{name}</h1>
           <div className="productInfoContainer">
-            <p className="productInfo"><strong>Categoria:</strong> {category}</p>
             <p className="productInfo"><strong>Cor:</strong> {color}</p>
           </div>
           <div className="productPrice">
-            <p className="price">R${price.replace(".", ",")}</p>
-            <p className="installments">em até 3x R${installment.replace(".", ",")}</p>
+            {onSale ? <p className="old_price">R${regular_price}</p> : ''}
+            <p className="price">R${actual_price}</p>
+            <p className="installments">em até {installments}x R${installment}</p>
           </div>
           <div className="sizeContainer">
             <p className="sizeText">Escolha o tamanho</p>

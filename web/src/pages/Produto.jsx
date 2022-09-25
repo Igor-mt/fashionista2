@@ -1,32 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import { useParams } from "react-router"
 
 import { CartContext } from '../context/cart'
 import ProdutoComponent from "../components/Produto/Produto";
 
-import products from '../Products/products.json'
-
 const Produto = () => {
   const params = useParams()
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    axios.get(`http://localhost:5450/produtos/${params.id}`)
+      .then(res => setProduct(res.data))
+  }, [params])
 
   const {
     addProductToCart,
-    removeProductToCart,
   } = useContext(CartContext);
 
-  let prod = products.filter((produto) => { return produto.id === Number(params.id) })
   return (
-  <div className="main-container">
-    {prod.map((produto) => {
-      return <ProdutoComponent
-        key={produto.id}
-        item={produto}
-        installment={(Number(produto.price) / 3).toFixed(2)}
-        onAdd={addProductToCart}
-        onRemove={removeProductToCart}
-      />
-    })}
-  </div>
+    <div className="main-container">
+      {product.map((produto) => {
+        return <ProdutoComponent
+          key={produto.product_id}
+          item={produto}
+          onAdd={addProductToCart}
+        />
+      })}
+    </div>
   )
 }
 

@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, {  useState, useEffect } from 'react'
 import { useParams } from "react-router"
+import axios from 'axios'
 
 import "../components/Catalogo/Catalogo.css"
 import "../components/Catalogo/Mobile-catalogo.css"
@@ -7,89 +8,99 @@ import "../components/Catalogo/Mobile-catalogo.css"
 import Filtro from "../components/Catalogo/Filtro/Filtro";
 import ProdutoCatalogo from "../components/Catalogo/ProdutoCatalogo/ProdutoCatalogo"
 import Aviso from '../components/Aviso/Aviso'
-import products from "../Products/products.json"
-
-import { SearchContext } from '../context/search'
 
 const Catalogo = () => {
+    const [products, setProducts] = useState([])
+    const [saleProducts, setSaleProducts] = useState([])
+    const [searchProducts, setSearchProducts] = useState([])
+
     const params = useParams()
+    const category = params.category
 
-    const { query } = useContext(SearchContext)
+    useEffect(() => {
+        axios.get(`http://localhost:5450/categorias/${category}`)
+            .then(res => setProducts(res.data))
+    }, [category])
 
-    let categoria = products.filter((produto) => (produto.category === params.category))
+    useEffect(() => {
+        axios.get('http://localhost:5450/promocao/produtos')
+            .then(res => setSaleProducts(res.data))
+    }, [])
 
-    let promocoes = products.filter((produto) => produto.promotion)
+    useEffect(() => {
+        axios.get(`http://localhost:5450/pesquisa/produtos/${category}`)
+            .then(res => setSearchProducts(res.data))
+    }, [category])
 
-    let searchQuery = products.filter((produto) => {
-        return produto.name.toLowerCase().includes(query.toLowerCase())
-    })
-
-    let searchQueryLength = searchQuery.length > 0;
-
-    if (params.category === "Promocoes") {
+    if (category === 'Masculino' || category === 'Feminino' || category === 'Infantil') {
         return (
             <main>
                 <Filtro />
                 <div className='produtos'>
-                    {promocoes.map((promocao) => (
+                    {products.map((product) => (
                         <ProdutoCatalogo
-                            key={promocao.id}
-                            link={`/produto/${promocao.id}`}
-                            img={promocao.img}
-                            name={promocao.name}
-                            oldPrice="R$220"
-                            actualPrice={promocao.price}
+                            key={product.product_id}
+                            link={`/produto/${product.product_id}`}
+                            img={product.img_url}
+                            name={product.name}
+                            oldPrice={product.regular_price}
+                            actualPrice={product.actual_price}
+                            onSale={product.on_sale}
                         />
                     ))
                     }
                 </div>
             </main>
         );
-    } else if (params.category === "Masculino" || params.category === "Feminino" || params.category === "Infantil") {
+    } else if (category === 'Promocoes') {
         return (
             <main>
                 <Filtro />
                 <div className='produtos'>
-                    {categoria.map((categoria) => (
+                    {saleProducts.map((product) => (
                         <ProdutoCatalogo
-                            key={categoria.id}
-                            link={`/produto/${categoria.id}`}
-                            img={categoria.img}
-                            name={categoria.name}
-                            oldPrice="R$220"
-                            actualPrice={categoria.price}
-                            onSale={categoria.promotion}
+                            key={product.product_id}
+                            link={`/produto/${product.product_id}`}
+                            img={product.img_url}
+                            name={product.name}
+                            oldPrice={product.regular_price}
+                            actualPrice={product.actual_price}
+                            onSale={product.on_sale}
                         />
                     ))
                     }
                 </div>
             </main>
-        );
+        )
     } else {
-        if (searchQueryLength) {
+        if (searchProducts.length > 0) {
             return (
                 <main>
                     <Filtro />
                     <div className='produtos'>
-                        {searchQuery.map((param) => (
+                        {searchProducts.map((product) => (
                             <ProdutoCatalogo
-                                key={param.id}
-                                link={`/produto/${param.id}`}
-                                img={param.img}
-                                name={param.name}
-                                oldPrice="R$220"
-                                actualPrice={param.price}
-                                onSale={param.promotion}
+                                key={product.product_id}
+                                link={`/produto/${product.product_id}`}
+                                img={product.img_url}
+                                name={product.name}
+                                oldPrice={product.regular_price}
+                                actualPrice={product.actual_price}
+                                onSale={product.on_sale}
                             />
                         ))
                         }
                     </div>
                 </main>
-            );
+            )
         } else {
-            return <Aviso/>
+            return (
+                <Aviso />
+            )
         }
+
     }
+
 }
 
 export default Catalogo;

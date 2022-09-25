@@ -12,11 +12,11 @@ const CardProduto = ({ produto, onRemove }) => {
             { }
             <div className="cart-produto-container">
                 <div className="product-container">
-                    <img className="cart-produto-image" src={produto.id.img} alt="" />
+                    <img className="cart-produto-image" src={produto.id.img_url} alt="" />
                     <div className="cart-produto-info">
                         <h1 className="cart-produto-title">{produto.id.name}</h1>
                         <div className="cart-produto-size">Tamanho: {produto.size}</div>
-                        <div className='cart-produto-price'>R${(produto.id.price).replace('.', ',')}</div>
+                        <div className='cart-produto-price'>R${(produto.id.actual_price)}</div>
                     </div>
                 </div>
                 <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
