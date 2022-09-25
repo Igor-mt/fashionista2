@@ -33,6 +33,36 @@ router.route('/pedidos')
         }
     })
 
+// Buscar itens do pedido por ID e inserir itens no pedido
+
+router.route('/pedido/:id/items')
+    .get(async (req, res) => {
+        const orderId = req.params.id
+
+        try {
+            orderData.getOrderItemsByOrderId(orderId)
+            res.status(201).json({ messagem: "Produtos do pedido retornados com sucesso!" })
+        } catch (e) {
+            res.status(422).json({
+                message: "Ocorreu um erro ao encontrar os itens do pedido.",
+                erro: e.message
+            })
+        }
+    })
+
+    .post(async (req, res) => {
+        const orderItems = req.body
+        try {
+            orderData.setOrderItems(await orderData.getOrderIdByCostumerId(orderData.costumerId), orderItems)
+            res.status(201).json({ messagem: "Produtos do pedido definidos com sucesso!" })
+        } catch (e) {
+            res.status(422).json({
+                message: "Ocorreu um erro ao definir os itens do pedido.",
+                erro: e.message
+            })
+        }
+    })
+
 // Buscar pedidos por id
 
 router.route('/pedidos/:id')

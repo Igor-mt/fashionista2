@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 
 const userData = require('../data/userData')
@@ -14,10 +13,8 @@ router.route('/cadastro')
                 message: "Alguns dados necessários para criação do usuário não foram fornecidos.",
             })
         } else if (signUpData.password.length < 6) {
-            return res.status(400).json({ message: "A senha não pode ter menos de  6 caracteres." })
+            return res.status(400).json({ message: "A senha não pode ter menos de 6 caracteres." })
         }
-
-
 
         try {
             userData.createNewUser(signUpData)
@@ -25,7 +22,7 @@ router.route('/cadastro')
 
         } catch (e) {
             res.status(422).json({
-                message: "Ocorreu um erro ao entrar.",
+                message: "Ocorreu um erro ao registrar.",
                 Erro: e.message
             })
         }
@@ -33,13 +30,12 @@ router.route('/cadastro')
 
 router.route('/login')
     .get((req, res) => {
-        const { username, password } = req.body
+        const loginData = req.body
 
-        if (!username || !password) {
+        if (!loginData.email || !loginData.password) {
             return res.status(400).json({
                 message: "Nome de usuário ou senha não fornecidos.",
             })
-
         }
 
         try {
@@ -47,7 +43,7 @@ router.route('/login')
             res.status(200).json({ message: "Usuário logado com sucesso!" })
         } catch (e) {
             res.status(404).json({
-                message: "Ocorreu um erro ao logar o usuário.",
+                message: "Ocorreu um erro ao logar no sistema.",
                 Erro: e.message
             })
         }
