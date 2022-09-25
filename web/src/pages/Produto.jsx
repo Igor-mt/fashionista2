@@ -16,7 +16,6 @@ const Produto = () => {
 
   const {
     addProductToCart,
-    removeProductToCart,
   } = useContext(CartContext);
 
   return (
