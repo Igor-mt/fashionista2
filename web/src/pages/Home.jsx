@@ -10,7 +10,7 @@ const Home = () => {
     <div className="main-container">
       <Banner />
       <Categorias />
-      <Novidades />
+      <Novidades/>
       <Ofertas />
     </div>
   );

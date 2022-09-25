@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+
 import Produto from '../../CardProduto/CardProduto'
 import './Novidades.css'
 
-import products from '../../../Products/products.json'
-
 const Novidades = () => {
+    const [newProducts, setNewProducts] = useState([])
 
-    const produtos = products.filter((produto,indice) => (indice < 2))
+    useEffect(() => {
+        axios.get('http://localhost:5450/novidades/produtos/')
+            .then(res => setNewProducts(res.data))
+    }, [])
 
     return (
         <div id="novidades">
@@ -28,14 +32,14 @@ const Novidades = () => {
 
                 <div className="container-produto">
 
-                    {produtos.map((produto) => (
-                        <Produto 
-                            key={produto.id}
-                            link={`produto/${produto.id}`}
-                            img={produto.img}
-                            name={produto.name}
-                            oldPrice="220.00"
-                            actualPrice={produto.price}
+                    {newProducts.slice(0, 2).map((produto) => (
+                        <Produto
+                            key={produto.product_id}
+                            product_id={produto.product_id}
+                            img_url={produto.img_url}
+                            name={produto.name} 
+                            regular_price={produto.regular_price}
+                            actual_price={produto.actual_price}
                         />
                     ))}
 

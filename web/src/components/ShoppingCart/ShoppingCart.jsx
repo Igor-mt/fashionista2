@@ -29,7 +29,7 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
                 {productsCart.length === 0 && <EmptyCart>Carrinho Vazio</EmptyCart>}
                 {
                     productsCart.map((produto, size) => {
-                        totalPrice += produto.id.price * produto.qtd
+                        totalPrice += produto.id.actual_price * produto.qtd
                         return (
                             <CardProduto
                                 key={produto.id + size}

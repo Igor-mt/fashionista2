@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import Produto from '../../CardProduto/CardProduto'
 import './Ofertas.css'
-import products from '../../../Products/products.json'
 
 const Ofertas = () => {
-    const produtos = products.filter((produto) => {return produto.promotion === true})
+    const [saleProducts, setSaleProducts] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:5450/promocao/produtos/')
+            .then(res => setSaleProducts(res.data))
+    }, [])
 
     return (
         <div className="melhoresOfertas" id="melhoresOfertas">
@@ -14,16 +19,16 @@ const Ofertas = () => {
             </div>
 
             <div className="container-melhoresOfertas">
-                {produtos.map((produto) => {
-                    return <Produto
-                        key={produto.id}
-                        link={`produto/${produto.id}`}
-                        img={produto.img}
+                {saleProducts.slice(0, 8).map((produto) => (
+                    <Produto
+                        key={produto.product_id}
+                        product_id={produto.product_id}
+                        img_url={produto.img_url}
                         name={produto.name}
-                        oldPrice="220.00"
-                        actualPrice={produto.price}
+                        regular_price={produto.regular_price}
+                        actual_price={produto.actual_price}
                     />
-                })}
+                ))}
             </div>
         </div>
     )
