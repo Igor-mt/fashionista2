@@ -12,7 +12,7 @@ const TelaLogin = () => {
         <div className="container-login">
           <h2 className="title">Já sou cliente</h2>
 
-          <form className="form" action="">
+          <form className="form" action="" name="login">
             <label>
               <span>CPF ou Email</span>
               <Input type="text" name="inputCPF_email" />
@@ -22,6 +22,7 @@ const TelaLogin = () => {
               <span>Senha</span>
               <Input type="password" name="input_senha" />
             </label>
+
 
             <a href="#" className="a-esqueciSenha">
               Esqueci minha senha
@@ -34,7 +35,7 @@ const TelaLogin = () => {
         <div className="divider"></div>
 
         <div className="container-cadastro">
-          <form className="form" action="">
+          <form className="form" action="" name="cadastro">
             <h2 className="title">Quero me cadastrar</h2>
 
             <label>

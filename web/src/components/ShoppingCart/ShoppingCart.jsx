@@ -34,7 +34,8 @@ const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
                             <CardProduto
                                 key={produto.id + size}
                                 produto={produto}
-                                onRemove={removeProductToCart} />
+                                onRemove={removeProductToCart}
+                            />
                         )
                     })
                 }
