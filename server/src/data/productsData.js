@@ -48,3 +48,27 @@ exports.getNewProducts = () => {
     ORDER BY date_of_addition DESC LIMIT 8
     `)
 }
+
+exports.getProductVariationId = (productId, productSize) => {
+    return database.oneOrNone(`
+    SELECT product_variation_id
+    FROM public.product_variation
+    WHERE product_id = '${productId}' AND size = '${productSize}'
+    `)
+}
+
+exports.updateStockByVariationId = (qtd, variationId) => {
+    return database.oneOrNone(`
+    UPDATE public.stock
+	SET quantity= quantity - ${qtd}
+	WHERE product_variation_id = '${variationId.product_variation_id}';
+    `)
+}
+
+exports.getStockByVariationId = (variationId) => {
+    return database.oneOrNone(`
+    SELECT stock_id, product_variation_id, quantity
+	FROM public.stock;
+    WHERE product_variation_id = '${variationId}'
+    `)
+}

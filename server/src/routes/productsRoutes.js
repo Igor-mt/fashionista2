@@ -92,4 +92,38 @@ router.route('/novidades/produtos/')
         }
     })
 
+// Buscar id do tamanho do produto pelo id do produto e tamanho
+router.route('/productvariationid/:productId/:size')
+    .get(async (req, res) => {
+        const {productId, size} = req.params
+
+        try {
+            const productVariationId = await productsData.getProductVariationId(productId, size)
+            res.json(productVariationId)
+        } catch (e) {
+            res.status(404).json({
+                message: "Ocorreu um erro ao encontrar o id da variação do produto.",
+                Erro: e.message
+            })
+        }
+    })
+
+
+router.route('/stock/:productVariationId')
+    .get(async (req, res) => {
+        const productVariationId = req.params.productVariationId
+
+        try {
+            const stock = await productsData.getStockByVariationId(productVariationId)
+            res.status(200).json({
+                stock
+            })
+        } catch (e) {
+            res.status(404).json({
+                message: "Ocorreu um erro ao buscar o estoque do produto",
+                Erro: e.message
+            })
+        }
+    })
+
 module.exports = router;

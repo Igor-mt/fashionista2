@@ -39,8 +39,12 @@ router.route('/login')
         }
 
         try {
-            userData.getExistentUser(loginData)
-            res.status(200).json({ message: "Usuário logado com sucesso!" })
+            const validatedUserData = userData.getExistentUser(loginData)
+            if (validatedUserData) {
+                res.status(200).json({ message: "Usuário validado com sucesso!" })
+            } else {
+                res.status(404).json({ message: "Usuário não encontrado." })
+            }
         } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao logar no sistema.",
