@@ -21,8 +21,8 @@ const Produto = ({ item, onAdd }) => {
           </div>
           <div className="productPrice">
             {onSale ? <p className="old_price">R${regular_price}</p> : ''}
-            <p className="price">R${actual_price}</p>
-            <p className="installments">em até {installments}x R${installment}</p>
+            <p className="price">R${actual_price.toFixed(2).replace('.', ',')}</p>
+            <p className="installments">em até {installments}x R${installment.replace('.', ',')}</p>
           </div>
           <div className="sizeContainer">
             <p className="sizeText">Escolha o tamanho</p>

@@ -9,14 +9,13 @@ const CardProduto = ({ produto, onRemove }) => {
     if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
     return (
         <>
-            { }
             <div className="cart-produto-container">
                 <div className="product-container">
                     <img className="cart-produto-image" src={produto.id.img_url} alt="" />
                     <div className="cart-produto-info">
                         <h1 className="cart-produto-title">{produto.id.name}</h1>
                         <div className="cart-produto-size">Tamanho: {produto.size}</div>
-                        <div className='cart-produto-price'>R${(produto.id.actual_price)}</div>
+                        <div className='cart-produto-price'>R${(produto.id.actual_price).toFixed(2).replace('.', ',')}</div>
                     </div>
                 </div>
                 <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>

@@ -6,42 +6,37 @@ exports.getAllOrders = () => {
 
 exports.getOrderById = (id) => {
     return database.oneOrNone(`
-    SELECT order_id, costumer_id, products, payment_mode_id, order_date
-    FROM public.orders;
-    WHERE order_id = '${id}'`)
-}
-
-exports.getOrderIdByCostumerId = (costumerId) => {
-    return database.query(`
-    SELECT order_id
-    FROM public.orders
-    WHERE costumer_id = '${costumerId}'
+        SELECT order_id, customer_id, products, payment_mode_id, order_date
+        FROM public.orders;
+        WHERE order_id = '${id}'
     `)
 }
 
-exports.createOrder = (order, costumerId) => {
-    return database.query(`
-    INSERT INTO public.orders
-    (order_id, costumer_id, payment_mode_id, order_date)
-    VALUES(gen_random_uuid(), '$1', $2, now())
-    RETURNING order_id;
-    `), [costumerId, order.payment_mode]
+exports.createOrder = (order, customerId) => {
+    return database.oneOrNone(`
+        INSERT INTO public.orders
+        (order_id, customer_id, payment_mode_id)
+        VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode}')
+        RETURNING order_id
+    `)
 }
 
-exports.setOrderItems = (pedido_id, products) => {
-    for (let product of products) {
-        database.query(`
+exports.setOrderItems = (pedido_id, product) => {
+        const productInfo = product.id
+        const { product_id, actual_price } = productInfo
+
+        return database.query(`
         INSERT INTO public.order_items
         (order_items_id, order_id, product_id, quantity, "size", value)
-        VALUES(gen_random_uuid(), $1, $2, $3, $4, $5);    
-    `), [pedido_id, product.id.product_id, product.qtd, product.size, product.id.actual_price]
-    }
+        VALUES(gen_random_uuid(), '${pedido_id}', '${product_id}', ${product.qtd}, '${product.size}', '${actual_price}');    
+    `)
+
 }
 
 exports.getOrderItemsByOrderId = (orderId) => {
     return database.query(`
-    SELECT order_items_id, order_id, product_id, quantity, "size", value
-    FROM public.order_items
-    WHERE order_id = '${orderId}'
+        SELECT order_items_id, order_id, product_id, quantity, "size", value
+        FROM public.order_items
+        WHERE order_id = '${orderId}';
     `)
 }

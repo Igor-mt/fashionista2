@@ -10,7 +10,7 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const port = process.env.PORT || 5450;
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
 // Rotas de Produtos
