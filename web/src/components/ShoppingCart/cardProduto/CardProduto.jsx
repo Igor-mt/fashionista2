@@ -9,7 +9,6 @@ const CardProduto = ({ produto, onRemove }) => {
     if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
     return (
         <>
-            { }
             <div className="cart-produto-container">
                 <div className="product-container">
                     <img className="cart-produto-image" src={produto.id.img_url} alt="" />

@@ -1,0 +1,13 @@
+
+@media (max-width: 1101px){
+    .TelaCheckout__container  .barraLateral:nth-child(2){
+        display: none;
+    } 
+
+}
+
+@media (max-width: 919px){
+    .TelaCheckout__container  .barraLateral:nth-child(4){
+        display: none;
+    } 
+}

@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import Produto from "./pages/Produto";
 import TelaLogin from "./pages/TelaLogin";
 import Footer from "./components/Footer/Footer";
-import TelaCheckout from "./pages/TelaCheckout";
+import TelaCheckout from "./pages/TelaCheckout/TelaCheckout";
 
 const App = () => {
   return (

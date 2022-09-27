@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "../components/TelaLogin/TelaLogin.css";
 
-import Button from "../components/TelaLogin/Button/Button";
+import Button from "../components/Button/Button";
 import Input from "../components/TelaLogin/Input/Input";
 import SelecionarOpcao from "../components/TelaLogin/SelecionarOpcao/SelecionarOpcao";
 

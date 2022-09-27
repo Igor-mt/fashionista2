@@ -54,6 +54,17 @@ export const SideBar = styled.div`
     transition: all ease -in -out 0.3s;
     padding: 1rem;
 
+    ::-webkit-scrollbar{
+        background-color: white;
+        width: 10px;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color: #5b5b5b;
+        border-radius: 5px;
+    }
+
     &.expand{
         transition: all ease -in -out 0.6s;
         right: 0;
@@ -70,12 +81,12 @@ export const SideBar = styled.div`
 `
 
 export const EmptyCart = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Poppins";
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: "Poppins";
+    color: rgb(46, 46, 46);
 `;
 
 export const SideBarHeader = styled.div`
