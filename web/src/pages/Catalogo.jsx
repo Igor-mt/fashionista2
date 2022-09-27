@@ -10,7 +10,7 @@ import ProdutoCatalogo from "../components/Catalogo/ProdutoCatalogo/ProdutoCatal
 import Aviso from '../components/Aviso/Aviso'
 
 const Catalogo = () => {
-    const [products, setProducts] = useState([])
+    const [categoryProducts, setCategoryProducts] = useState([])
     const [saleProducts, setSaleProducts] = useState([])
     const [searchProducts, setSearchProducts] = useState([])
 
@@ -19,7 +19,7 @@ const Catalogo = () => {
 
     useEffect(() => {
         axios.get(`http://localhost:5450/categorias/${category}`)
-            .then(res => setProducts(res.data))
+            .then(res => setCategoryProducts(res.data))
     }, [category])
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const Catalogo = () => {
             <main>
                 <Filtro />
                 <div className='produtos'>
-                    {products.map((product) => (
+                    {categoryProducts.map((product) => (
                         <ProdutoCatalogo
                             key={product.product_id}
                             link={`/produto/${product.product_id}`}

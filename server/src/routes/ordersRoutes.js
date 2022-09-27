@@ -1,6 +1,7 @@
 const express = require('express');
 
-const orderData = require('../data/orderData')
+const orderData = require('../data/orderData');
+const productsData = require('../data/productsData')
 
 const router = express.Router();
 
@@ -15,19 +16,6 @@ router.route('/pedidos')
         } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao buscar todos pedidos.",
-                Erro: e.message
-            })
-        }
-    })
-    .post(async (req, res) => {
-        const orderData = req.body
-
-        try {
-            await orderData.createOrder(orderData)
-            res.status(201).json({ message: "Pedido criado com sucesso!" })
-        } catch (e) {
-            res.status(422).json({
-                message: "Ocorreu um erro ao criar o pedido.",
                 Erro: e.message
             })
         }
@@ -50,19 +38,6 @@ router.route('/pedido/:id/items')
         }
     })
 
-    .post(async (req, res) => {
-        const orderItems = req.body
-        try {
-            orderData.setOrderItems(await orderData.getOrderIdByCostumerId(orderData.costumerId), orderItems)
-            res.status(201).json({ messagem: "Produtos do pedido definidos com sucesso!" })
-        } catch (e) {
-            res.status(422).json({
-                message: "Ocorreu um erro ao definir os itens do pedido.",
-                erro: e.message
-            })
-        }
-    })
-
 // Buscar pedidos por id
 
 router.route('/pedidos/:id')
@@ -75,6 +50,28 @@ router.route('/pedidos/:id')
         } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao buscar o pedido especificado.",
+                Erro: e.message
+            })
+        }
+    })
+    .post(async (req, res) => {
+        const orderInfo = req.body
+        const customerID = req.params.id
+
+        try {
+            const orderId = await orderData.createOrder(orderInfo, customerID)
+            
+            for (let product of orderInfo.products) {
+                await orderData.setOrderItems(orderId.order_id, product)
+
+                const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
+                await productsData.updateStockByVariationId(product.qtd, productVariationId)
+            }
+
+            res.status(201).json({ message: "Pedido criado com sucesso!" })
+        } catch (e) {
+            res.status(422).json({
+                message: "Ocorreu um erro ao criar o pedido.",
                 Erro: e.message
             })
         }
