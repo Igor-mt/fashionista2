@@ -1,0 +1,161 @@
+.TelaCheckout__container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+}
+
+.pagamentoContainer{
+    max-width: 31.25rem;
+    margin: 0 50px;
+}
+
+.pagamentoContainer .titulo{
+    margin-bottom: 9.3rem;
+}
+
+
+.perguntaCadastro{
+    display: flex;
+}
+
+.perguntaCadastro__p{
+    font-weight: bolder;
+    margin: auto;
+    padding-right: 1rem;
+}
+
+.perguntaCadastro .button{
+    width: 17.56rem;
+}
+
+
+.opcoesPagamento{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 20px 50px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.boleto__img{
+    max-width: 500px;
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.informacoesEntrega{
+    max-width: 500px;
+    padding: 0 1rem;
+}
+
+.informacoesEntrega .titulo{
+    margin: 1.87rem 0 7.8rem 0;
+}
+
+.informacoesEntrega input{
+    margin-bottom: 0.6rem;
+}
+
+.informacoesEntrega__divCEP--largura{
+    width: 36%;
+}
+
+
+.cidadeEstado__container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+#estados{
+    padding: 0.5rem 1rem;
+    height: 2rem;
+    margin: 9px 0;
+    border-radius: 5px;
+}
+
+
+.opcoesTipoEntrega{
+    background-color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.opcoesTipoEntrega h1{
+    font-weight: 800;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.opcoesTipoEntrega__label{
+    display: flex;
+    margin-top: 0.6rem;
+    gap: 0.6rem;
+}
+
+.opcoesTipoEntrega__label--negrito{
+    font-weight: 800;
+}
+
+
+.resumoCompra{
+    height: 100%;
+    max-width: 100%;
+    margin: 0 1.2rem;
+}
+
+.resumoCompra .titulo{
+    margin: 4rem 0 2.5rem 0;
+}
+
+
+.resumoCompra__listaProdutos{
+    margin: 0 auto;
+    max-width: 23.69rem;
+    height: 32.5rem;
+    overflow: auto;
+}
+
+.resumoCompra__listaProdutos::-webkit-scrollbar{
+    background-color: white;
+    width: 10px;
+    border-radius: 5px;
+}
+
+.resumoCompra__listaProdutos::-webkit-scrollbar-thumb{
+    background-color: #5b5b5b;
+    border-radius: 5px;
+}
+
+.resumoCompra__listaProdutos .cart-produto-container{
+    background-color: white;
+}
+
+.resumoCompra__listaProdutos .cart-produto-container:not(:first-child){
+    margin-top: 1rem;
+}
+
+
+.resumoCompra__informacao{
+    margin-top: 1.5rem;
+    border-bottom: 1px solid #111;
+}
+
+.resumoCompra__informacao p{
+    margin-bottom: 10px;
+}
+
+.resumoCompra__informacao--negrito {
+    font-weight: 800;
+}
+
+
+
+
+

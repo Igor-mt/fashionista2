@@ -11,7 +11,6 @@
 
 .product-container{
     display: flex;
-    flex-direction: row;
     gap: 1rem;
 }
 
@@ -49,6 +48,7 @@
     right: 2%;
     top: 5%;
     border:none;
+    color: red;
     background-color: inherit;
     cursor: pointer;
 }
