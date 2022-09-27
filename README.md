@@ -6,11 +6,15 @@ Projeto prático em grupo de longo prazo que vai simular ambiente das empresas d
 
 ## Membros do Grupo
 
-- Igor Matheus (Líder) - https://github.com/Igor-mt | https://www.linkedin.com/in/igor-matheus-lopes-de-lima-800788163/
-- Lucas Santana - https://github.com/LukSantana | https://www.linkedin.com/in/luksantana/
+- Lucas Santana (Líder) - https://github.com/LukSantana | https://www.linkedin.com/in/luksantana/
 - Gustavo Araújo - https://github.com/Gustavo-Ae | https://www.linkedin.com/in/gustavoae/
 - Davi Silveira - https://github.com/Kayzwk | https://www.linkedin.com/in/kayzwk/
 - Pedro Paulo - https://github.com/pp-gomes | https://www.linkedin.com/in/pp-gomes/
+
+## Ex-Membros do Grupo
+
+- Igor Matheus (Líder) - https://github.com/Igor-mt | https://www.linkedin.com/in/igor-matheus-lopes-de-lima-800788163/
+- Jodair Neves (Líder) - https://github.com/jodairneves | | https://www.linkedin.com/in/jodair-neves-55268017b/
 
 ## 💻 Construção da aplicação:
 
