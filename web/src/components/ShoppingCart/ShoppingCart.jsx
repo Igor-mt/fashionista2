@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { Wrapper, CartCount, Icon, SideBar, EmptyCart, SideBarTitle, SideBarTotal, CartBtn, ClearCartBtn } from './styles'
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-import CardProduto from './CardProduto/CardProduto'
+import CardProduto from '../CardProduto/CardProduto'
 
 import { CartContext } from '../../context/cart'
 
-const ShoppingCart = ({ isToggle, setToggle, onRemove }) => {
+const ShoppingCart = ({ isToggle, setToggle }) => {
     const $sideBarRef = useRef();
     useOnClickOutside($sideBarRef, () => setToggle(false));
 

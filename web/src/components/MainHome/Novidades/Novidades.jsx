@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-import Produto from '../../CardProduto/CardProduto'
+import Produto from '../CardProduto/CardProduto'
 import './Novidades.css'
 
 const Novidades = () => {

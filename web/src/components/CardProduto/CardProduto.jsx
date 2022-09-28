@@ -1,27 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CardProduto.css'
 
-const produto = ({ product_id, img_url, name, regular_price, actual_price }) => {
-    // const { img_url, name, regular_price, actual_price } = item;
-    const link = `http://localhost:3000/produto/${product_id}`
+import { CartContext } from '../../context/cart'
 
+const CardProduto = ({ produto, onRemove }) => {
+    const { increaseProductsCart, decreaseProductsCart, removeProductToCart } = useContext(CartContext)
+
+    if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
     return (
-        <div className="cartao-produto">
-            <a href={link}>
-                <img src={img_url} className="imagem-produto" alt="imagem produto" />
-                <div className="informacao-produto">
-                    <div className="avaliacao-produto">
-                        <img src="/assets/icons/rating.png" alt="nota do produto" />
-                    </div>
-                    <div className="nome-produto">{name}</div>
-                    <div className="price-container">
-                        <span className="preco-antigo">R${Number(regular_price).toFixed(2).replace('.', ',')}</span>
-                        <span className="preco-atual">R${Number(actual_price).toFixed(2).replace('.', ',')}</span>
+        <>
+            <div className="cart-produto-container">
+                <div className="product-container">
+                    <img className="cart-produto-image" src={produto.id.img_url} alt="" />
+                    <div className="cart-produto-info">
+                        <h1 className="cart-produto-title">{produto.id.name}</h1>
+                        <div className="cart-produto-size">Tamanho: {produto.size}</div>
+                        <div className='cart-produto-price'>R${(produto.id.actual_price).toFixed(2).replace('.', ',')}</div>
                     </div>
                 </div>
-            </a>
-        </div>
-    )
+                <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
+                <div className="quantity-control-container">
+                    <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id, produto.size)}>-</button>
+                    <span className="quantity-number">{produto.qtd}</span>
+                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
+                </div>
+
+            </div>
+        </>
+    );
 }
 
-export default produto
+export default CardProduto

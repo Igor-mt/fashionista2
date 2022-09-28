@@ -26,7 +26,7 @@ const Navbar = (onRemove, cartItems) => {
                     />
                 </Link>
                 <Cart className="cart-desktop"
-                    isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                    isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                 />
                 <nav className="menu" ref={navRef}>
                     <ul className="navbar-items">
@@ -93,7 +93,7 @@ const Navbar = (onRemove, cartItems) => {
                 <div className="container-button">
                     <SearchBar />
                     <Cart
-                        isToggle={isToggle} setToggle={setToggle} onRemove={onRemove} cartItems={cartItems}
+                        isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                     />
                     <Link to={{ pathname: "/login", hash: "" }}><button
                         className="btn-branco btn-login"
