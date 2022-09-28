@@ -51,9 +51,15 @@ const TelaCheckout = () => {
     { nome: "Tocantins", sigla: "TO" },
   ];
 
-  let totalPrice = 0;
+  let totalPrice = 0
 
-  const [escolhaEstado, setEscolhaEstado] = useState();
+  let totalItems = 0
+
+  for(let product of productsCart){
+    totalItems += product.qtd
+  }
+
+  
 
   return (
     <main className="TelaCheckout__container">
@@ -141,8 +147,6 @@ const TelaCheckout = () => {
             <select
               name="estados"
               id="estados"
-              value="UF"
-              onChange={(escolha) => setEscolhaEstado(escolha.target.value)}
             >
               <option selected disabled>UF</option>
               {estados.map((estado) => (
@@ -215,20 +219,13 @@ const TelaCheckout = () => {
           <p>
             <span className="resumoCompra__informacao--negrito">
               Quantidade total de produtos:
-            </span>{" "}
-            8
+            </span> {totalItems}
           </p>
+
           <p>
             <span className="resumoCompra__informacao--negrito">
-              Desconto:{" "}
-            </span>{" "}
-            10%
-          </p>
-          <p>
-            <span className="resumoCompra__informacao--negrito">
-              Valor Total:{" "}
-            </span>{" "}
-            R$ 1.808,00
+              Valor Total: 
+            </span> R$ {totalPrice.toFixed(2).replace(".",",")}
           </p>
         </div>
 
