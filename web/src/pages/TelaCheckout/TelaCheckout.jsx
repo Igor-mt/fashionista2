@@ -4,7 +4,7 @@ import Titulo from "../../components/Titulo/Titulo";
 
 import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
 
-import CardProduto from "../../components/ShoppingCart/CardProduto/CardProduto.jsx";
+import CardProduto from "../../components/ShoppingCart/CardProduto/CardProduto";
 
 import { EmptyCart, Icon } from "../../components/ShoppingCart/styles";
 
