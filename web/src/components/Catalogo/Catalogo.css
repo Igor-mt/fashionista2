@@ -8,6 +8,11 @@ main{
     display: flex;
     padding: 100px 0;
     min-height: 85vh;
+    background: #e6e6e6;
+    background-image: url('../../../public/assets/img/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom 0;
+    background-size: 100%; 
 }
 
 a{

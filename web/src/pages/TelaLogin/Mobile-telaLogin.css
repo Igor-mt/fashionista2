@@ -1,0 +1,15 @@
+
+
+@media(max-width:1195px){
+    .telaLogin__container{
+        height: 100%;
+        flex-direction: column;
+        padding: 100px 0;
+    }
+
+    .telaLogin__container .barraLateral:nth-child(2){
+        height: 0;
+        width: 350px;
+    }
+
+}

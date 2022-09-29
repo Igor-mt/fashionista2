@@ -1,0 +1,51 @@
+
+.telaLogin__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e6e6e6;
+    background-image: url('../../../public/assets/img/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+}
+
+.login__container {
+    max-width: 31.25rem;
+    width: 100%;
+    margin: 0 50px;
+    padding: 30px;
+}
+
+.login__container .titulo, .cadastro__container .titulo{
+    margin: 35px;
+}
+
+.cadastro__container{
+    max-width: 700px;
+    padding: 20px;
+}
+
+#cadastro{
+    display: flex;
+}
+
+.cadastro--ladoDireito{
+    margin-right: 10px;
+}
+
+.sobrenomeESexo__container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.selected{
+    height: 2rem;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+

@@ -25,7 +25,7 @@ a{
         align-items: center;
         background-image: url('../../../../public/assets/img/background-image.svg');
         background-repeat: no-repeat;
-        background-position: center bottom 0;
+        background-position: center bottom;
     }
 
     .container-banner-image img {
