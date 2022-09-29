@@ -48,7 +48,7 @@ router.route('/categorias/:categoria')
         }
     })
 
-// Buscar produtos por categoria
+// Buscar produtos em promoção
 router.route('/promocao/produtos')
     .get(async (req, res) => {
         try {
@@ -62,7 +62,7 @@ router.route('/promocao/produtos')
         }
     })
 
-// Buscar produtos por categoria
+// Buscar produtos por busca personalizada
 router.route('/pesquisa/produtos/:query')
     .get(async (req, res) => {
         const query = req.params.query
@@ -78,7 +78,7 @@ router.route('/pesquisa/produtos/:query')
         }
     })
 
-// Buscar produtos novidade
+// Buscar produtos novos na loja
 router.route('/novidades/produtos/')
     .get(async (req, res) => {
         try {
@@ -92,7 +92,7 @@ router.route('/novidades/produtos/')
         }
     })
 
-// Buscar id do tamanho do produto pelo id do produto e tamanho
+// Buscar id da variação do produto pelo id do produto e tamanho
 router.route('/productvariationid/:productId/:size')
     .get(async (req, res) => {
         const {productId, size} = req.params
@@ -108,7 +108,7 @@ router.route('/productvariationid/:productId/:size')
         }
     })
 
-
+// Buscar estoque de variação de produto por id
 router.route('/stock/:productVariationId')
     .get(async (req, res) => {
         const productVariationId = req.params.productVariationId
