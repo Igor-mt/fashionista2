@@ -1,18 +1,27 @@
 const database = require('../infra/connection')
 
 exports.getAllOrders = () => {
-    return database.query('SELECT * FROM pedidos')
+    return database.query('SELECT * FROM orders')
 }
 
 exports.getOrderById = (id) => {
     return database.oneOrNone(`
-        SELECT order_id, customer_id, products, payment_mode_id, order_date
-        FROM public.orders;
-        WHERE order_id = '${id}'
+        SELECT order_id, customer_id, payment_mode_id, order_date
+        FROM orders 
+        WHERE orders.order_id = '${id}'
     `)
 }
 
-exports.createOrder = (order, customerId) => {
+exports.createOrder = (novoPedido) => {
+    return database.query(`
+        INSERT INTO orders
+        (order_id, customer_id, payment_mode_id)
+        VALUES(gen_random_uuid(), '${novoPedido.customer_id}', '${novoPedido.payment_mode_id}')
+    `)
+}
+
+
+exports.createOrder_id = (order, customerId) => {
     return database.oneOrNone(`
         INSERT INTO public.orders
         (order_id, customer_id, payment_mode_id)

@@ -20,6 +20,27 @@ router.route('/pedidos')
             })
         }
     })
+    .post(async (req, res) => {
+        const orderInfo = req.body
+        const customerID = req.params.id
+
+        try {
+            const orderId = await orderData.createOrder(orderInfo, customerID)
+            for (let product of orderInfo.products) {
+                await orderData.setOrderItems(orderId.order_id, product)
+                const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
+                await productsData.updateStockByVariationId(product.qtd, productVariationId)
+            }
+
+            res.status(201).json({ message: "Pedido criado com sucesso!" })
+        } catch (e) {
+            res.status(422).json({
+                message: "Ocorreu um erro ao criar o pedido.",
+                Erro: e.message
+            })
+        }
+    })
+
 
 // Buscar itens do pedido por ID e inserir itens no pedido
 
@@ -38,6 +59,7 @@ router.route('/pedido/:id/items')
         }
     })
 
+
 // Buscar pedidos por id
 
 router.route('/pedidos/:id')
@@ -54,26 +76,5 @@ router.route('/pedidos/:id')
             })
         }
     })
-    .post(async (req, res) => {
-        const orderInfo = req.body
-        const customerID = req.params.id
-
-        try {
-            const orderId = await orderData.createOrder(orderInfo, customerID)            
-            for (let product of orderInfo.products) {
-                await orderData.setOrderItems(orderId.order_id, product)
-                const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
-                await productsData.updateStockByVariationId(product.qtd, productVariationId)
-            }
-
-            res.status(201).json({ message: "Pedido criado com sucesso!" })
-        } catch (e) {
-            res.status(422).json({
-                message: "Ocorreu um erro ao criar o pedido.",
-                Erro: e.message
-            })
-        }
-    })
-
 
 module.exports = router;
