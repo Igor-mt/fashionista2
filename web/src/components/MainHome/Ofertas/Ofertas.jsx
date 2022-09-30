@@ -7,7 +7,7 @@ const Ofertas = () => {
     const [saleProducts, setSaleProducts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5450/promocao/produtos/')
+        axios.get('https://fashionista-ecommerce.herokuapp.com/promocao/produtos/')
             .then(res => setSaleProducts(res.data))
     }, [])
 

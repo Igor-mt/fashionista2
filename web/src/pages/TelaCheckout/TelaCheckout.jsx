@@ -1,25 +1,61 @@
+import { useState, useContext, useEffect } from "react";
+import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+
 import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Button/Button";
 import Titulo from "../../components/Titulo/Titulo";
-
-import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
-
 import CardProduto from "../../components/CardProduto/CardProduto";
-
 import { EmptyCart, Icon } from "../../components/ShoppingCart/styles";
+import BarraLateral from "../../components/BarraLateral/BarraLateral";
 
 import "./TelaCheckout.css";
 import "./Mobile-telaCheckout.css";
 
-import { useState, useContext } from "react";
-
 import { CartContext } from "../../context/cart";
-import BarraLateral from "../../components/BarraLateral/BarraLateral";
 
 const TelaCheckout = () => {
-  const [opcaoPagamento, setOpcaoPagamento] = useState(null);
+  const [paymentMode, setPaymentMode] = useState("");
+  const [userId, setUserId] = useState("")
+
+  useEffect(() => {
+    setUserId(window.localStorage.getItem('customer_id'))
+  }, [])
 
   const { productsCart, removeProductToCart } = useContext(CartContext);
+
+  const handleCreateOrder = () => {
+    let paymentModeId = ''
+
+    if (paymentMode === 'boleto') {
+      paymentModeId = '73c9f163-5cd4-4367-a1f4-ac8d5f48df5c'
+    }
+
+    try {
+      axios.post(`http://localhost:5450/pedidos/${userId}`, {
+        customer_id: userId,
+        payment_mode_id: paymentModeId,
+        products: productsCart
+      })
+    } catch (e) {
+      console.log(e);
+      alert('Ocorreu um erro ao criar o pedido.')
+    }
+  }
+
+  const handleOpcaoPagamentoChange = (event) => {
+    setPaymentMode(event.target.value)
+  }
+
+  let totalPrice = 0
+
+  let totalItems = 0
+
+  for (let product of productsCart) {
+    totalItems += product.qtd
+  }
 
   const estados = [
     { nome: "Acre", sigla: "AC" },
@@ -48,150 +84,116 @@ const TelaCheckout = () => {
     { nome: "Santa Catarina", sigla: "SC" },
     { nome: "São Paulo", sigla: "SP" },
     { nome: "Sergipe", sigla: "SE" },
-    { nome: "Tocantins", sigla: "TO" },
+    { nome: "Tocantins", sigla: "TO" }
   ];
-
-  let totalPrice = 0
-
-  let totalItems = 0
-
-  for(let product of productsCart){
-    totalItems += product.qtd
-  }
-
-  
 
   return (
     <main className="TelaCheckout__container">
-      <section className="pagamentoContainer">
-        <Titulo>Forma de Pagamento</Titulo>
+      <section className="checkoutInfo__container">
+        <Titulo>Informações de Compra</Titulo>
 
-        <div className="perguntaCadastro">
-          <p className="perguntaCadastro__p">Já possui cadastro ?</p>
-
-          <Button type="button">IDENTIFIQUE-SE</Button>
+        <div className="perguntaCadastro__container">
+          <div className="perguntaCadastro">
+            <p className="perguntaCadastro__p">Não possui uma conta?</p>
+            <Link to="/login"><Button type="button">CADASTRE-SE</Button></Link>
+          </div>
+          <div className="perguntaCadastro">
+            <p className="perguntaCadastro__p">Já possui cadastro ?</p>
+            <Link to="/login"><Button type="button">FAÇA SEU LOGIN</Button></Link>
+          </div>
         </div>
 
-        <form className="opcoesPagamento" action="">
+        <form name="checkout-form" className="opcoesPagamento">
           <Input
             type="radio"
             img="/assets/icons/boleto.png"
             name="pagamento"
             value="boleto"
-            handleInputChange={setOpcaoPagamento}
+            onChange={() => handleOpcaoPagamentoChange}
           />
-        </form>
 
-        {opcaoPagamento === "boleto" && (
-          <>
-            <div>
-              <img
-                src="/assets/img/checkout/exemploBoleto.png"
-                alt="boleto"
-                className="boleto__img"
-              />
-            </div>
-          </>
-        )}
+
+          {paymentMode === "boleto" && (
+            <>
+              <div>
+                <img
+                  src="/assets/img/checkout/exemploBoleto.png"
+                  alt="boleto"
+                  className="boleto__img"
+                />
+              </div>
+            </>
+          )}
+        </form>
       </section>
 
       <BarraLateral />
 
       <section className="informacoesEntrega">
         <Titulo>Dados Para Entrega</Titulo>
-
-        <form className="informacoesEntrega__form">
-          <div className="informacoesEntrega__divCEP--largura">
-            <Input
-              title="CEP"
-              type="text"
-              name="numeroDoCEP"
-              placeholder="12345678"
-              pattern="\d*"
-              maxLenght={8}
-              handleInputChange=""
-            />
-          </div>
-
+        <div className="informacoesEntrega__divCEP--largura">
           <Input
-            title="Endereço"
+            title="CEP"
             type="text"
-            name="endereco"
-            placeholder="Rua"
+            name="numeroDoCEP"
+            placeholder="12345678"
+            pattern="\d*"
+            maxLenght={8}
+          />
+        </div>
+        <Input
+          title="Telefone"
+          type="text"
+          name="phone"
+          placeholder="62999998888"
+          pattern="\d*"
+          maxLenght={11}
+        />
+        <Input
+          title="Endereço"
+          type="text"
+          name="endereco"
+          placeholder="Rua"
+        />
+
+        <Input
+          title="Bairro"
+          type="text"
+          name="bairro"
+          placeholder="Bairro"
+        />
+
+        <Input title="Numero" type="text" name="numero" placeholder="Nº" />
+
+        <Input
+          title="Complemento"
+          type="text"
+          name="complemento"
+          placeholder="Complemento"
+        />
+
+        <div className="cidadeEstado__container">
+          <Input
+            title="Cidade"
+            type="text"
+            name="cidade"
+            placeholder="Cidade"
           />
 
-          <Input
-            title="Bairro"
-            type="text"
-            name="bairro"
-            placeholder="Bairro"
-          />
-
-          <Input title="Numero" type="text" name="numero" placeholder="Nº" />
-
-          <Input
-            title="Complemento"
-            type="text"
-            name="complemento"
-            placeholder="Complemento"
-          />
-
-          <div className="cidadeEstado__container">
-            <Input
-              title="Cidade"
-              type="text"
-              name="cidade"
-              placeholder="Cidade"
-            />
-
-            <select
-              name="estados"
-              id="estados"
-            >
-              <option selected disabled>UF</option>
-              {estados.map((estado) => (
-                <option key={estado.sigla} value={estado.sigla}>
-                  {estado.sigla}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="opcoesTipoEntrega">
-            <h1>Tipo de entrega</h1>
-
-            <label className="opcoesTipoEntrega__label">
-              <input type="radio" name="tipoEntrega" value="1" />
-              <p>
-                <span className="opcoesTipoEntrega__label--negrito">
-                  SEDEX: {" "}
-                </span>
-                R$50,00
-              </p>
-            </label>
-
-            <label className="opcoesTipoEntrega__label">
-              <input type="radio" name="tipoEntrega" value="2" />
-              <p>
-                <span className="opcoesTipoEntrega__label--negrito">
-                  Encomenda PAC: {" "}
-                </span>
-                R$25,00
-              </p>
-            </label>
-
-            <label className="opcoesTipoEntrega__label">
-              <input type="radio" name="tipoEntrega" value="3" />
-              <p>
-                <span className="opcoesTipoEntrega__label--negrito">
-                  Transportadora:{" "}
-                </span>
-                R$35,00
-              </p>
-            </label>
-          </div>
-        </form>
+          <select
+            name="estados"
+            id="estados"
+          >
+            <option selected disabled>UF</option>
+            {estados.map((estado) => (
+              <option key={estado.sigla} value={estado.sigla}>
+                {estado.sigla}
+              </option>
+            ))}
+          </select>
+        </div>
       </section>
+
 
       <BarraLateral />
 
@@ -200,7 +202,7 @@ const TelaCheckout = () => {
 
         <div className="resumoCompra__listaProdutos">
           {productsCart.length === 0 ? (
-            <EmptyCart>Carrinho Vazio <Icon icon={faFaceSadCry} style={{color: "rgb(46, 46, 46)"}} /></EmptyCart>
+            <EmptyCart>Carrinho Vazio <Icon icon={faFaceSadCry} style={{ color: "rgb(46, 46, 46)" }} /></EmptyCart>
           ) : (
             productsCart.map((produto, size) => {
               totalPrice += produto.id.actual_price * produto.qtd;
@@ -224,14 +226,14 @@ const TelaCheckout = () => {
 
           <p>
             <span className="resumoCompra__informacao--negrito">
-              Valor Total: 
-            </span> R$ {totalPrice.toFixed(2).replace(".",",")}
+              Valor Total:
+            </span> R$ {totalPrice.toFixed(2).replace(".", ",")}
           </p>
         </div>
 
-        <Button type="submit">Finalizar Compra</Button>
+        <Button type="submit" onClick={() => handleCreateOrder()}>Finalizar Compra</Button>
       </div>
-    </main>
+    </main >
   );
 };
 
