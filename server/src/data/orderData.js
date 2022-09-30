@@ -1,14 +1,14 @@
 const database = require('../infra/connection')
 
 exports.getAllOrders = () => {
-    return database.query('SELECT * FROM pedidos')
+    return database.query('SELECT * FROM orders')
 }
 
 exports.getOrderById = (id) => {
     return database.oneOrNone(`
-        SELECT order_id, customer_id, products, payment_mode_id, order_date
-        FROM public.orders;
-        WHERE order_id = '${id}'
+        SELECT order_id, customer_id, payment_mode_id, order_date
+        FROM orders 
+        WHERE orders.order_id = '${id}'
     `)
 }
 
