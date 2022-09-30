@@ -2,7 +2,7 @@ drop table if exists products;
 
 create table products (
 	product_id uuid default gen_random_uuid() primary key not null,
-	name varchar not null,
+	"name" varchar not null,
 	img_url varchar not null,
 	category_id uuid not null,
 	color varchar not null,

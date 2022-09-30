@@ -5,6 +5,6 @@ create table order_items (
     order_id uuid not null,
 	product_id uuid not null,
 	quantity int not null,
-	size varchar not null,
-	value double precision not null
+	"size" varchar not null,
+	"value" double precision not null
 )
