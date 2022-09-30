@@ -94,7 +94,7 @@ const TelaCheckout = () => {
   return (
     <main className="TelaCheckout__container">
       <section className="checkoutInfo__container">
-        <Titulo>Login e Cadastro</Titulo>
+        <Titulo>Dados do Pedido</Titulo>
 
         <div className="perguntaCadastro__container">
           <div className="perguntaCadastro">
@@ -106,6 +106,15 @@ const TelaCheckout = () => {
             <Link to="/login"><Button type="button">FAÇA SEU LOGIN</Button></Link>
           </div>
         </div>
+        <form name="checkout-form" className="opcoesPagamento">
+          <Input
+            type="radio"
+            img="/assets/icons/boleto.png"
+            name="pagamento"
+            value="boleto"
+            onChange={handleOpcaoPagamentoChange}
+          />
+        </form>
       </section>
 
       <BarraLateral />
@@ -173,15 +182,6 @@ const TelaCheckout = () => {
             ))}
           </select>
         </div>
-        <form name="checkout-form" className="opcoesPagamento">
-          <Input
-            type="radio"
-            img="/assets/icons/boleto.png"
-            name="pagamento"
-            value="boleto"
-            onChange={handleOpcaoPagamentoChange}
-          />
-        </form>
       </section>
 
 

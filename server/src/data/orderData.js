@@ -12,18 +12,9 @@ exports.getOrderById = (id) => {
     `)
 }
 
-exports.createOrder = (novoPedido) => {
-    return database.query(`
-        INSERT INTO orders
-        (order_id, customer_id, payment_mode_id)
-        VALUES(gen_random_uuid(), '${novoPedido.customer_id}', '${novoPedido.payment_mode_id}')
-    `)
-}
-
-
-exports.createOrder_id = (order, customerId) => {
+exports.createOrder = (order, customerId) => {
     return database.oneOrNone(`
-        INSERT INTO public.orders
+        INSERT INTO orders
         (order_id, customer_id, payment_mode_id)
         VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode_id}')
         RETURNING order_id

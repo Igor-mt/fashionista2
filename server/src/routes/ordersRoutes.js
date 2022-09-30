@@ -9,33 +9,12 @@ const router = express.Router();
 
 router.route('/pedidos')
     .get(async (req, res) => {
-
         try {
             const orders = await orderData.getAllOrders()
             res.status(200).json(orders)
         } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao buscar todos pedidos.",
-                Erro: e.message
-            })
-        }
-    })
-    .post(async (req, res) => {
-        const orderInfo = req.body
-        const customerID = req.params.id
-
-        try {
-            const orderId = await orderData.createOrder(orderInfo, customerID)
-            for (let product of orderInfo.products) {
-                await orderData.setOrderItems(orderId.order_id, product)
-                const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
-                await productsData.updateStockByVariationId(product.qtd, productVariationId)
-            }
-
-            res.status(201).json({ message: "Pedido criado com sucesso!" })
-        } catch (e) {
-            res.status(422).json({
-                message: "Ocorreu um erro ao criar o pedido.",
                 Erro: e.message
             })
         }
@@ -72,6 +51,25 @@ router.route('/pedidos/:id')
         } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao buscar o pedido especificado.",
+                Erro: e.message
+            })
+        }
+    })
+    .post(async (req, res) => {
+        const orderInfo = req.body
+        const customerID = req.params.id
+
+        try {
+            const orderId = await orderData.createOrder(orderInfo, customerID)
+            for (let product of orderInfo.products) {
+                await orderData.setOrderItems(orderId.order_id, product)
+                const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
+                await productsData.updateStockByVariationId(product.qtd, productVariationId)
+            }
+            res.status(201).json({ message: "Pedido criado com sucesso!" })
+        } catch (e) {
+            res.status(422).json({
+                message: "Ocorreu um erro ao criar o pedido.",
                 Erro: e.message
             })
         }
