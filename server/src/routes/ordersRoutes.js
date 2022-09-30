@@ -20,6 +20,20 @@ router.route('/pedidos')
             })
         }
     })
+    .post(async (req, res) => {
+ 
+        const dados = req.body;
+ 
+        console.log(dados)
+       
+        try {
+            const newOrder = await orderData.createOrder(dados);
+            res.status(201).send("Pedido Cadastrado");
+        } catch(e){
+            res.status(422).send(e.message);
+        }
+    });
+
 
 // Buscar itens do pedido por ID e inserir itens no pedido
 
@@ -37,6 +51,7 @@ router.route('/pedido/:id/items')
             })
         }
     })
+    
 
 // Buscar pedidos por id
 
@@ -59,7 +74,7 @@ router.route('/pedidos/:id')
         const customerID = req.params.id
 
         try {
-            const orderId = await orderData.createOrder(orderInfo, customerID)
+            const orderId = await orderData.createOrder_id(orderInfo, customerID)
             
             for (let product of orderInfo.products) {
                 await orderData.setOrderItems(orderId.order_id, product)
