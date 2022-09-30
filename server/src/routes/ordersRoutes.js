@@ -59,11 +59,9 @@ router.route('/pedidos/:id')
         const customerID = req.params.id
 
         try {
-            const orderId = await orderData.createOrder(orderInfo, customerID)
-            
+            const orderId = await orderData.createOrder(orderInfo, customerID)            
             for (let product of orderInfo.products) {
                 await orderData.setOrderItems(orderId.order_id, product)
-
                 const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
                 await productsData.updateStockByVariationId(product.qtd, productVariationId)
             }

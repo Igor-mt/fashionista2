@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .checkoutInfo__container{
@@ -43,7 +42,7 @@
 .opcoesPagamento{
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
+    margin: 1rem;
     padding: 20px 50px;
     background-color: white;
     border-radius: 10px;

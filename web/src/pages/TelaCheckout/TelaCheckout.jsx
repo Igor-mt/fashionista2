@@ -26,16 +26,20 @@ const TelaCheckout = () => {
 
   const { productsCart, removeProductToCart } = useContext(CartContext);
 
-  const handleCreateOrder = () => {
+  const handleCreateOrder = async () => {
     let paymentModeId = ''
 
     if (paymentMode === 'boleto') {
       paymentModeId = '73c9f163-5cd4-4367-a1f4-ac8d5f48df5c'
     }
 
+    if (paymentModeId.length < 1) {
+      alert('Informe o modo de pagamento.')
+      return
+    };
+
     try {
-      axios.post(`http://localhost:5450/pedidos/${userId}`, {
-        customer_id: userId,
+      await axios.post(`http://localhost:5450/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         products: productsCart
       })
@@ -90,7 +94,7 @@ const TelaCheckout = () => {
   return (
     <main className="TelaCheckout__container">
       <section className="checkoutInfo__container">
-        <Titulo>Informações de Compra</Titulo>
+        <Titulo>Login e Cadastro</Titulo>
 
         <div className="perguntaCadastro__container">
           <div className="perguntaCadastro">
@@ -102,29 +106,6 @@ const TelaCheckout = () => {
             <Link to="/login"><Button type="button">FAÇA SEU LOGIN</Button></Link>
           </div>
         </div>
-
-        <form name="checkout-form" className="opcoesPagamento">
-          <Input
-            type="radio"
-            img="/assets/icons/boleto.png"
-            name="pagamento"
-            value="boleto"
-            onChange={() => handleOpcaoPagamentoChange}
-          />
-
-
-          {paymentMode === "boleto" && (
-            <>
-              <div>
-                <img
-                  src="/assets/img/checkout/exemploBoleto.png"
-                  alt="boleto"
-                  className="boleto__img"
-                />
-              </div>
-            </>
-          )}
-        </form>
       </section>
 
       <BarraLateral />
@@ -192,6 +173,15 @@ const TelaCheckout = () => {
             ))}
           </select>
         </div>
+        <form name="checkout-form" className="opcoesPagamento">
+          <Input
+            type="radio"
+            img="/assets/icons/boleto.png"
+            name="pagamento"
+            value="boleto"
+            onChange={handleOpcaoPagamentoChange}
+          />
+        </form>
       </section>
 
 

@@ -16,7 +16,7 @@ exports.createOrder = (order, customerId) => {
     return database.oneOrNone(`
         INSERT INTO public.orders
         (order_id, customer_id, payment_mode_id)
-        VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode}')
+        VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode_id}')
         RETURNING order_id
     `)
 }

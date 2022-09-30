@@ -2,7 +2,7 @@
 @media (max-width: 1101px){
     .TelaCheckout__container{
         flex-wrap: wrap;
-        gap: 3rem;
+        gap: 7rem;
     }
 
     .TelaCheckout__container  .barraLateral:nth-child(2){
