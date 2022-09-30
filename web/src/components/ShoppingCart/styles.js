@@ -112,19 +112,6 @@ export const SideBarTotal = styled.h1`
     margin-bottom: 1rem;
 `
 
-export const CartBtn = styled.button`
-    margin-top: 1rem;
-    padding: 0.6rem;
-    border: none;
-    background: rgb(46, 46, 46);
-    font-family: 'Poppins';
-    color: #fff;
-
-    &:hover{
-        transform: scale(1.06);
-        transition: transform ease-in-out 0.3s;
-    }
-`
 export const ClearCartBtn = styled.button`
     margin-top: 1rem;
     padding: 0.6rem;
@@ -132,6 +119,7 @@ export const ClearCartBtn = styled.button`
     background: #C20A0A;
     font-family: 'Poppins';
     color: #fff;
+    cursor: pointer;
 
     &:hover{
         transform: scale(1.06);

@@ -1,10 +1,24 @@
 
 @media (max-width: 1101px){
+    .TelaCheckout__container{
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+
     .TelaCheckout__container  .barraLateral:nth-child(2){
         display: none;
     } 
 
-}
+    .checkoutInfo__container{
+        margin-right: 0;
+        height: 110%;
+        padding: 0 1rem;
+    }  
+
+    .boleto__img{
+        object-fit: contain;
+    }
+}  
 
 @media (max-width: 919px){
     .TelaCheckout__container  .barraLateral:nth-child(4){

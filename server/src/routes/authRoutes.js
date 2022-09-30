@@ -5,7 +5,7 @@ const userData = require('../data/userData')
 const router = express.Router();
 
 router.route('/cadastro')
-    .post((req, res) => {
+    .post(async (req, res) => {
         const signUpData = req.body
 
         if (!signUpData) {
@@ -17,7 +17,7 @@ router.route('/cadastro')
         }
 
         try {
-            userData.createNewUser(signUpData)
+            await userData.createNewUser(signUpData)
             res.status(201).json({ message: "Usuário criado com sucesso!" })
 
         } catch (e) {
@@ -29,25 +29,21 @@ router.route('/cadastro')
     })
 
 router.route('/login')
-    .get((req, res) => {
+    .post(async (req, res) => {
         const loginData = req.body
 
-        if (!loginData.email || !loginData.password) {
-            return res.status(400).json({
-                message: "Nome de usuário ou senha não fornecidos.",
-            })
-        }
-
         try {
-            const validatedUserData = userData.getExistentUser(loginData)
-            if (validatedUserData) {
-                res.status(200).json({ message: "Usuário validado com sucesso!" })
-            } else {
-                res.status(404).json({ message: "Usuário não encontrado." })
+            const validatedUserData = await userData.getExistentUser(loginData)
+
+            var ret = validatedUserData;
+            if (validatedUserData == null) {
+                ret = { "customer_id": "", "email": "", "password": "" }
             }
+
+            res.status(200).json({ message: "Busca feita com sucesso!", userData: ret })
         } catch (e) {
             res.status(404).json({
-                message: "Ocorreu um erro ao logar no sistema.",
+                message: "Ocorreu um erro na busca do usuário no banco de dados.",
                 Erro: e.message
             })
         }

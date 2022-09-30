@@ -1,0 +1,14 @@
+.cart-btn{
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.6rem;
+    border: none;
+    background: rgb(46, 46, 46);
+    font-family: 'Poppins';
+    color: #fff;
+}
+
+.cart-btn:hover{
+    transform: scale(1.06);
+    transition: transform ease-in-out 0.3s;
+}

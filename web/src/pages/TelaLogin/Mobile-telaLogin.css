@@ -7,9 +7,21 @@
         padding: 100px 0;
     }
 
+    #login{
+        margin-bottom: 1rem;
+    }
+
     .telaLogin__container .barraLateral:nth-child(2){
         height: 0;
         width: 350px;
     }
 
+    .cadastro__container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cidadeEstado__container{
+        margin-bottom: 1rem;
+    }
 }
