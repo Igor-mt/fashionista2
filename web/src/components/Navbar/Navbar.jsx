@@ -1,19 +1,25 @@
 import React, { useState, useRef } from 'react'
-import "./Navbar.css";
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 import SearchBar from '../SearchBar/SearchBar'
 import Cart from '../ShoppingCart/ShoppingCart';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '../ShoppingCart/styles';
-import { Link } from 'react-router-dom';
+
+import "./Navbar.css";
+
 
 const Navbar = (onRemove, cartItems) => {
     const [isToggle, setToggle] = useState(false);
     const navRef = useRef();
 
+    const isLoggedIn = Cookies.get('authToken')
+
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive-navbar")
     }
-    
+
     const isMobile = window.innerWidth <= 1024;
     if (isMobile) {
         return (
@@ -50,7 +56,7 @@ const Navbar = (onRemove, cartItems) => {
                             className="btn-branco btn-login"
                             id="btn-login"
                         >
-                            <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>
+                            {isLoggedIn ? <Link to={{ pathname: "/pedidos" }}>PEDIDOS</Link> : <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>}
                         </button>
                     </div>
                     <button className="btn-menu nav-close-btn" onClick={showNavbar}>
@@ -95,13 +101,12 @@ const Navbar = (onRemove, cartItems) => {
                     <Cart
                         isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                     />
-                    <Link to={{ pathname: "/login", hash: "" }}><button
+                    <button
                         className="btn-branco btn-login"
                         id="btn-login"
                     >
-                        LOGIN
+                        {isLoggedIn ? <Link to={{ pathname: "/pedidos" }}>PEDIDOS</Link> : <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>}
                     </button>
-                    </Link>
                 </div>
                 <button className="btn-menu nav-close-btn" onClick={showNavbar}>
                     <Icon icon={faTimes} />

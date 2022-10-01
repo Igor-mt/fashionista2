@@ -11,6 +11,31 @@
     background-size: 100%;
 }
 
+.telaLoggedIn__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    height: 100vh;
+    background: #e6e6e6;
+    background-image: url('../../../public/assets/img/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    padding: 1rem;
+}
+
+.telaLoggedIn__container .tituloLoggedIn{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 22%
+}
+
+.telaLoggedIn__container button{
+    width: 40%;
+}
+
 .login__container {
     max-width: 31.25rem;
     width: 100%;
