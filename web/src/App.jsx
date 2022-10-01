@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Catalogo from "./pages/Catalogo";
 
 import "./App.css"
 
@@ -8,10 +7,12 @@ import SearchProvider from './context/search'
 import CartProvider from "./context/cart";
 
 import Navbar from './components/Navbar/Navbar'
+import Footer from "./components/Footer/Footer";
+
 import Home from "./pages/Home/Home";
 import Produto from "./pages/Produto";
+import Catalogo from "./pages/Catalogo/Catalogo";
 import TelaLogin from "./pages/TelaLogin/TelaLogin";
-import Footer from "./components/Footer/Footer";
 import TelaCheckout from "./pages/TelaCheckout/TelaCheckout";
 import TelaUsuario from "./pages/TelaUsuario/TelaUsuario";
 

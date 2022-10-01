@@ -42,10 +42,10 @@ const TelaCheckout = () => {
       alert('Informe o modo de pagamento.')
       return
     };
-
     try {
       await axios.post(`http://localhost:5450/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
+        order_total: totalPrice,
         products: productsCart
       })
       alert('Pedido criado com sucesso!')
