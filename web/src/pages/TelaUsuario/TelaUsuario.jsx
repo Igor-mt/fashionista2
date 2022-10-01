@@ -15,7 +15,7 @@ const TelaUsuario = () => {
   const userId = Cookies.get('user_id')
 
   useEffect(() => {
-    axios.get(`http://localhost:5450/${userId}/pedidos`)
+    axios.get(`https://fashionista-ecommerce.herokuapp.com/${userId}/pedidos`)
       .then(res => setOrders(res.data))
   }, [userId])
 
