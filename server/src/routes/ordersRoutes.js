@@ -75,4 +75,21 @@ router.route('/pedidos/:id')
         }
     })
 
+// Buscar pedidos por id do cliente
+
+router.route('/:userId/pedidos')
+    .get(async (req, res) => {
+        const userId = req.params.userId;
+
+        try {
+            const orders = await orderData.getOrderByUserId(userId)
+            res.status(201).json(orders)
+        } catch (e) {
+            res.status(404).json({
+                message: "Ocorreu um erro ao buscar o pedido especificado.",
+                Erro: e.message
+            })
+        }
+    })
+
 module.exports = router;

@@ -4,6 +4,14 @@ exports.getAllOrders = () => {
     return database.query('SELECT * FROM orders')
 }
 
+exports.getOrderByUserId = (userId) => {
+    return database.query(`
+        SELECT order_id, customer_id, payment_mode_id, TO_CHAR(order_date :: DATE, 'dd-mm-yyyy') as date 
+        FROM orders 
+        WHERE orders.customer_id = '${userId}'
+    `)
+}
+
 exports.getOrderById = (id) => {
     return database.oneOrNone(`
         SELECT order_id, customer_id, payment_mode_id, order_date
