@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import Cookies from 'js-cookie'
 
 import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Button/Button";
@@ -21,7 +21,7 @@ const TelaCheckout = () => {
   const [userId, setUserId] = useState("")
 
   useEffect(() => {
-    setUserId(window.localStorage.getItem('customer_id'))
+    setUserId(Cookies.get('user_id'))
   }, [])
 
   const { productsCart, removeProductToCart } = useContext(CartContext);
@@ -33,16 +33,22 @@ const TelaCheckout = () => {
       paymentModeId = '73c9f163-5cd4-4367-a1f4-ac8d5f48df5c'
     }
 
+    if(!Cookies.get('authToken')){
+      alert('Crie uma conta para poder fazer seu pedido')
+      return
+    }
+
     if (paymentModeId.length < 1) {
       alert('Informe o modo de pagamento.')
       return
     };
 
     try {
-      await axios.post(`http://localhost:5450/pedidos/${userId}`, {
+      await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         products: productsCart
       })
+      alert('Pedido criado com sucesso!')
     } catch (e) {
       console.log(e);
       alert('Ocorreu um erro ao criar o pedido.')

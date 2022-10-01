@@ -13,6 +13,7 @@ import Produto from "./pages/Produto";
 import TelaLogin from "./pages/TelaLogin/TelaLogin";
 import Footer from "./components/Footer/Footer";
 import TelaCheckout from "./pages/TelaCheckout/TelaCheckout";
+import TelaPedidos from "./pages/TelaPedidos/TelaPedidos";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/catalogo/:category" element={<Catalogo />} />
               <Route path="/login" element={<TelaLogin />} />
               <Route path="/checkout" element={<TelaCheckout />} />
+              <Route path="/pedidos" element={<TelaPedidos/>} />
             </Routes>
             <Footer />
           </BrowserRouter>

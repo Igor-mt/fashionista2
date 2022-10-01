@@ -59,11 +59,9 @@ router.route("/login").post(async (req, res) => {
   try {
     const validatedUserData = await userData.getExistentUser(email);
 
-    console.log(validatedUserData);
-
     if(validatedUserData) {
       bcrypt
-        .compare(loginData.password, validatedUserData.password)
+        .compare(password, validatedUserData.password)
         .then((result) => {
           if (result) {
             const maxAge = 3 * 60 * 60;
@@ -78,10 +76,10 @@ router.route("/login").post(async (req, res) => {
               httpOnly: true,
               maxAge: maxAge * 1000, // 3hrs in ms
             });
-            console.log(req.cookies.jwt)
             res.status(201).json({
               message: "User successfully Logged in",
-              user: validatedUserData.customer_id,
+              user_id: validatedUserData.customer_id,
+              loginToken: token
             });
           } else {
             res.status(400).json({ message: "Login not succesful" });
