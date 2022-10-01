@@ -19,8 +19,6 @@ const TelaPedidos = () => {
       .then(res => setOrders(res.data))
   }, [userId])
 
-  console.log(orders[0])
-
   return (
     <main>
       <div className='orders-main-container'>
