@@ -24,7 +24,7 @@ const TelaCheckout = () => {
     setUserId(Cookies.get('user_id'))
   }, [])
 
-  const { productsCart, removeProductToCart } = useContext(CartContext);
+  const { productsCart, removeProductToCart, clearCart } = useContext(CartContext);
 
   const handleCreateOrder = async () => {
     let paymentModeId = ''
@@ -42,13 +42,14 @@ const TelaCheckout = () => {
       alert('Informe o modo de pagamento.')
       return
     };
-
     try {
       await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
+        order_total: totalPrice,
         products: productsCart
       })
       alert('Pedido criado com sucesso!')
+      clearCart()
     } catch (e) {
       console.log(e);
       alert('Ocorreu um erro ao criar o pedido.')

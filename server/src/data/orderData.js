@@ -6,7 +6,7 @@ exports.getAllOrders = () => {
 
 exports.getOrderByUserId = (userId) => {
     return database.query(`
-        SELECT order_id, customer_id, payment_mode_id, TO_CHAR(order_date :: DATE, 'dd-mm-yyyy') as date 
+        SELECT order_id, customer_id, payment_mode_id, TO_CHAR(order_date :: DATE, 'dd-mm-yyyy') as date , order_total
         FROM orders 
         WHERE orders.customer_id = '${userId}'
     `)
@@ -14,7 +14,7 @@ exports.getOrderByUserId = (userId) => {
 
 exports.getOrderById = (id) => {
     return database.oneOrNone(`
-        SELECT order_id, customer_id, payment_mode_id, order_date
+        SELECT order_id, customer_id, payment_mode_id, order_date, order_total
         FROM orders 
         WHERE orders.order_id = '${id}'
     `)
@@ -23,8 +23,8 @@ exports.getOrderById = (id) => {
 exports.createOrder = (order, customerId) => {
     return database.oneOrNone(`
         INSERT INTO orders
-        (order_id, customer_id, payment_mode_id)
-        VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode_id}')
+        (order_id, customer_id, payment_mode_id, order_total)
+        VALUES(gen_random_uuid(), '${customerId}', '${order.payment_mode_id}', ${order.order_total})
         RETURNING order_id
     `)
 }

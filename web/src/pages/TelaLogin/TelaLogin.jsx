@@ -11,11 +11,20 @@ import Titulo from "../../components/Titulo/Titulo";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
 import Warning from '../../components/Form/Warning/Warning';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const TelaLogin = () => {
   const [validatedUser, setValidatedUser] = useState(true)
-  const [validationPasswordLength, setValidationPasswordLength] = useState(true)
-  const [validationMatchPasswords, setValidationMatchPasswords] = useState(true)
+  const [toggleShowPassword, setToggleShowPassword] = useState(false)
+
+  const handleToggleShowPassword = () => {
+    if (toggleShowPassword) {
+      setToggleShowPassword(false)
+    } else {
+      setToggleShowPassword(true)
+    }
+  }
 
   const estados = [
     { nome: "Acre", sigla: "AC" },
@@ -69,6 +78,10 @@ const TelaLogin = () => {
       genderId = '6d6655f6-57de-4b87-8f26-1eaf5f0d4a48'
     }
 
+    if (data.password !== data.confirm_password) alert('As senhas não são iguais.')
+
+    if (data.password.length < 6) alert('A senha precisa ter mais que 6 caracteres.')
+
     axios.defaults.withCredentials = true;
 
     try {
@@ -100,11 +113,8 @@ const TelaLogin = () => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData)
 
-    if (data.password.length < 6) setValidationPasswordLength(false)
-    if (data.password !== data.confirm_password) setValidationMatchPasswords(false)
-
     try {
-      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login/`, {
+      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
         email: data.email,
         password: data.password
       })
@@ -131,13 +141,15 @@ const TelaLogin = () => {
                 name="email"
                 placeholder="Email"
               />
-
-              <Input
-                title="Senha"
-                type="password"
-                name="password"
-                placeholder="Senha"
-              />
+              <div className="password-container">
+                <Input
+                  title="Senha"
+                  type={toggleShowPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Senha"
+                />
+                <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /></Button>
+              </div>
             </div>
             <Button type="submit">ACESSAR CONTA</Button>
             {!validatedUser && <Warning>* Email ou senha incorretos.</Warning>}
@@ -168,16 +180,19 @@ const TelaLogin = () => {
                     placeholder="Sobrenome"
                   />
 
-                  <select name="gender" id="sexo" className="selected">
-                    <option selected disabled>
-                      Sexo
-                    </option>
-                    {generos.map((genero) => (
-                      <option key={genero.id} value={genero.nome}>
-                        {genero.nome}
+                  <div className="sexo-container">
+                    <span>Sexo</span>
+                    <select name="gender" id="sexo" className="selected">
+                      <option selected disabled>
+                        Sexo
                       </option>
-                    ))}
-                  </select>
+                      {generos.map((genero) => (
+                        <option key={genero.id} value={genero.nome}>
+                          {genero.nome}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <Input
@@ -201,12 +216,15 @@ const TelaLogin = () => {
                   placeholder="Nascimento"
                 />
 
-                <Input
-                  title="Senha"
-                  type="password"
-                  name="password"
-                  placeholder="******"
-                />
+                <div className="password-container-register">
+                  <Input
+                    title="Senha"
+                    type={toggleShowPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Senha"
+                  />
+                  <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /></Button>
+                </div>
 
                 <Input
                   title="Confirmar Senha"
@@ -270,24 +288,24 @@ const TelaLogin = () => {
                     name="city"
                     placeholder="Cidade"
                   />
-
-                  <select
-                    name="uf"
-                    className="selected"
-                  >
-                    <option selected disabled>UF</option>
-                    {estados.map((estado) => (
-                      <option key={estado.sigla} value={estado.sigla}>
-                        {estado.sigla}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="estado_container">
+                    <span>Sexo</span>
+                    <select
+                      name="uf"
+                      className="selected"
+                    >
+                      <option selected disabled>UF</option>
+                      {estados.map((estado) => (
+                        <option key={estado.sigla} value={estado.sigla}>
+                          {estado.sigla}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
             <Button>CRIAR CONTA</Button>
-            {!validationPasswordLength && <Warning>* A senha deve ter mais de 6 caracteres.</Warning>}
-            {!validationMatchPasswords && <Warning>* As duas senhas não são iguais.</Warning>}
           </form>
 
 
@@ -297,11 +315,12 @@ const TelaLogin = () => {
   } else if (Cookies.get('authToken')) {
     return (
       <div className='telaLoggedIn__container'>
-          <h1 className='tituloLoggedIn'>Você já está logado</h1>
-          <Button><Link to={{ pathname: "/" }}>Voltar à home</Link></Button>
+        <h1 className='tituloLoggedIn'>Você já está logado</h1>
+        <Button><Link to={{ pathname: "/" }}>Voltar à home</Link></Button>
       </div>
     )
   }
+
 
 }
 export default TelaLogin;
