@@ -5,7 +5,7 @@ const productsData = require('../data/productsData')
 
 const router = express.Router();
 
-// Buscar todos pedidos e criar pedidos
+// Buscar todos pedidos
 
 router.route('/pedidos')
     .get(async (req, res) => {
@@ -39,7 +39,7 @@ router.route('/pedido/:id/items')
     })
 
 
-// Buscar pedidos por id
+// Buscar pedidos por id e criar pedidos
 
 router.route('/pedidos/:id')
     .get(async (req, res) => {

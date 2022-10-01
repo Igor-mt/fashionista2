@@ -24,7 +24,7 @@ const TelaCheckout = () => {
     setUserId(Cookies.get('user_id'))
   }, [])
 
-  const { productsCart, removeProductToCart } = useContext(CartContext);
+  const { productsCart, removeProductToCart, clearCart } = useContext(CartContext);
 
   const handleCreateOrder = async () => {
     let paymentModeId = ''
@@ -49,6 +49,7 @@ const TelaCheckout = () => {
         products: productsCart
       })
       alert('Pedido criado com sucesso!')
+      clearCart()
     } catch (e) {
       console.log(e);
       alert('Ocorreu um erro ao criar o pedido.')
