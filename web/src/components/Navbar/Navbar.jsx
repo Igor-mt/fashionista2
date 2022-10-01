@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -8,7 +8,6 @@ import Cart from '../ShoppingCart/ShoppingCart';
 import { Icon } from '../ShoppingCart/styles';
 
 import "./Navbar.css";
-
 
 const Navbar = (onRemove, cartItems) => {
     const [isToggle, setToggle] = useState(false);
@@ -31,7 +30,7 @@ const Navbar = (onRemove, cartItems) => {
                         alt="logo fashionista"
                     />
                 </Link>
-                <Cart className="cart-desktop"
+                <Cart
                     isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                 />
                 <nav className="menu" ref={navRef}>
@@ -56,7 +55,10 @@ const Navbar = (onRemove, cartItems) => {
                             className="btn-branco btn-login"
                             id="btn-login"
                         >
-                            {isLoggedIn ? <Link to={{ pathname: "/pedidos" }}>PEDIDOS</Link> : <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>}
+                            {isLoggedIn ? <Link to={{ pathname: "/usuario" }}><Icon icon={faUser} /></Link> : <button
+                                className="btn-branco btn-login"
+                                id="btn-login"
+                            ><Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link></button>}
                         </button>
                     </div>
                     <button className="btn-menu nav-close-btn" onClick={showNavbar}>
@@ -101,12 +103,10 @@ const Navbar = (onRemove, cartItems) => {
                     <Cart
                         isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                     />
-                    <button
+                    {isLoggedIn ? <Link to={{ pathname: "/usuario" }}><Icon icon={faUser} /></Link> : <button
                         className="btn-branco btn-login"
                         id="btn-login"
-                    >
-                        {isLoggedIn ? <Link to={{ pathname: "/pedidos" }}>PEDIDOS</Link> : <Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link>}
-                    </button>
+                    ><Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link></button>}
                 </div>
                 <button className="btn-menu nav-close-btn" onClick={showNavbar}>
                     <Icon icon={faTimes} />

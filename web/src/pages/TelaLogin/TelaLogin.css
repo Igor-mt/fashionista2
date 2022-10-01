@@ -51,6 +51,31 @@
     margin: 35px;
 }
 
+.password-container{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.password-container-register{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.password-container-register button{
+    margin-top: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.login__form--container button{
+    margin-top: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+
 .cadastro__container{
     max-width: 700px;
     padding: 20px;
@@ -84,6 +109,11 @@
     justify-content: flex-start;
     align-items: flex-end;
     gap: 1rem;
+}
+
+.estado_container{
+    display: flex;
+    flex-direction: column;
 }
 
 #estados{

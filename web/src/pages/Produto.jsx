@@ -10,7 +10,7 @@ const Produto = () => {
   const [product, setProduct] = useState([])
 
   useEffect(() => {
-    axios.get(`https://fashionista-ecommerce.herokuapp.com/produtos/${params.id}`)
+    axios.get(`http://localhost:5450/produtos/${params.id}`)
       .then(res => setProduct(res.data))
   }, [params])
 
