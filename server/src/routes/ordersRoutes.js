@@ -1,7 +1,10 @@
 const express = require('express');
 
 const orderData = require('../data/orderData');
+const userData = require("../data/userData")
 const productsData = require('../data/productsData')
+const twilio = require("../functions/twilio")
+
 
 const router = express.Router();
 
@@ -61,11 +64,17 @@ router.route('/pedidos/:id')
 
         try {
             const orderId = await orderData.createOrder(orderInfo, customerID)
+            
             for (let product of orderInfo.products) {
                 await orderData.setOrderItems(orderId.order_id, product)
                 const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
                 await productsData.updateStockByVariationId(product.qtd, productVariationId)
             }
+            const customer = await userData.getUserInfoByUserId(customerID)
+            const order = await orderData.getOrderById(orderId.order_id)
+
+            twilio.sendOrderNotification(customer,order)
+
             res.status(201).json({ message: "Pedido criado com sucesso!" })
         } catch (e) {
             res.status(422).json({

@@ -85,7 +85,7 @@ const TelaLogin = () => {
     axios.defaults.withCredentials = true;
 
     try {
-      axios.post(`https://fashionista-ecommerce.herokuapp.com/cadastro`, {
+      axios.post(`http://localhost:5450/cadastro`, {
         name: data.name + " " + data.surname,
         gender_id: genderId,
         email: data.email,
@@ -114,7 +114,7 @@ const TelaLogin = () => {
     const data = Object.fromEntries(formData)
 
     try {
-      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
+      const response = await axios.post(`http://localhost:5450/login`, {
         email: data.email,
         password: data.password
       })

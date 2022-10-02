@@ -9,6 +9,15 @@ exports.getExistentUser = (email) => {
     `)
 }
 
+exports.getUserInfoByUserId = (userId) => {
+
+    return database.oneOrNone(`
+        SELECT customer_id, name, email, gender_id, cpf, birth, password, cep, address, city, uf, district, address_number, phone
+        FROM public.customers
+        WHERE customer_id = '${userId}' 
+    `)
+}
+
 exports.createNewUser = (userData, hashPassword) => {
     return database.query(`
     INSERT INTO public.customers
