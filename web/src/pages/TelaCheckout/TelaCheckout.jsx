@@ -43,7 +43,7 @@ const TelaCheckout = () => {
       return
     };
     try {
-      await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
+      await axios.post(`http://localhost:5450/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         order_total: totalPrice,
         products: productsCart

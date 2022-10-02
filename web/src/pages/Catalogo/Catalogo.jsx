@@ -17,17 +17,17 @@ const Catalogo = () => {
     const category = params.category
 
     useEffect(() => {
-        axios.get(`https://fashionista-ecommerce.herokuapp.com/categorias/${category}`)
+        axios.get(`http://localhost:5450/categorias/${category}`)
             .then(res => setCategoryProducts(res.data))
     }, [category])
 
     useEffect(() => {
-        axios.get('https://fashionista-ecommerce.herokuapp.com/promocao/produtos')
+        axios.get('http://localhost:5450/promocao/produtos')
             .then(res => setSaleProducts(res.data))
     }, [])
 
     useEffect(() => {
-        axios.get(`https://fashionista-ecommerce.herokuapp.com/pesquisa/produtos/${category}`)
+        axios.get(`http://localhost:5450/pesquisa/produtos/${category}`)
             .then(res => setSearchProducts(res.data))
     }, [category])
 
