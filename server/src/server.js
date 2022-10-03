@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 5450;
 
 let corsOptions = {
-    origin: ['https://fashionista-hackadev.netlify.app', 'http://localhost:3000'],
+    origin: ['https://fashionista-hackadev.netlify.app'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200,
