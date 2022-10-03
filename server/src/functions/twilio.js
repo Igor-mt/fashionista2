@@ -25,8 +25,8 @@ exports.sendOrderNotification = (userData, orderData) => {
     client.messages 
     .create({ 
        body: message,
-       from: `whatsapp:+${process.env.TWILIO_NUMBER}`,
-       to: 'whatsapp:+55'
+       from: `whatsapp:+${process.env.TWILIO_FROM_NUMBER}`,
+       to: `whatsapp:+55${process.env.TWILIO_TO_NUMBER}`
      }) 
     .then(message => console.log(message.sid)) 
     .done();
