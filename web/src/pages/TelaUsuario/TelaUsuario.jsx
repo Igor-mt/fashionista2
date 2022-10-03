@@ -25,7 +25,7 @@ const TelaUsuario = () => {
         <div className="orders-container">
           <Titulo>Seus pedidos:</Titulo>
           <div className="orders">
-            {orders ? orders.map(order => <OrderCard order={order} />) : <div className='no-orders-container'><h1 className='no-orders-title'>Você não possui pedidos.</h1><Button><Link to={{ pathname: "/" }}>Voltar à home</Link></Button></div>}
+            {orders ? orders.map((order) => <OrderCard order={order} />) : <div className='no-orders-container'><h1 className='no-orders-title'>Você não possui pedidos.</h1><Button><Link to={{ pathname: "/" }}>Voltar à home</Link></Button></div>}
           </div>
         </div>
         {/* <div className='divider' />
