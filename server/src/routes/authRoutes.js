@@ -101,25 +101,4 @@ router.route("/login").post(async (req, res) => {
   }
 });
 
-// router.route("/basic").get(async (req, res, next) => {
-//   const token = req.cookies.jwt;
-//   if (token) {
-//     jwt.verify(token, jwtSecret, (err, decodedToken) => {
-//       if (err) {
-//         return res.status(401).json({ message: "Not authorized" });
-//       } else {
-//         if (decodedToken.role !== "Basic") {
-//           return res.status(401).json({ message: "Not authorized" });
-//         } else {
-//           next();
-//         }
-//       }
-//     });
-//   } else {
-//     return res
-//       .status(401)
-//       .json({ message: "Autenticação não autorizada, o token não é valido" });
-//   }
-// });
-
 module.exports = router;
