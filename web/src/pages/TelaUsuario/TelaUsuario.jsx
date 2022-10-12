@@ -14,6 +14,12 @@ const TelaUsuario = () => {
 
   const userId = Cookies.get('user_id')
 
+  const handleLogout = () => {
+    Cookies.remove('user_id')
+    Cookies.remove('authToken')
+    document.location.reload()
+  }
+
   useEffect(() => {
     axios.get(`https://fashionista-ecommerce.herokuapp.com/${userId}/pedidos`)
       .then(res => setOrders(res.data))
@@ -31,6 +37,7 @@ const TelaUsuario = () => {
         {/* <div className='divider' />
         <div className="wish-list-container">
         </div> */}
+        <Button onClick={handleLogout} type="button">Deslogar</Button>
       </div>
     </main>
   )

@@ -55,14 +55,23 @@
     margin-top: 10px;
 }
 
+.heading{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.informacoesEntrega__aviso{
+    color: #121214;
+}
+
 .informacoesEntrega{
     height: 25rem;
     max-width: 500px;
     padding: 0 1rem;
-}
-
-.informacoesEntrega .titulo{
-    margin-bottom: 2rem;
 }
 
 .informacoesEntrega__divCEP--largura{

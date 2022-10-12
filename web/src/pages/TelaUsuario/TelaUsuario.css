@@ -1,10 +1,12 @@
 .user-main-container{
     display: flex;
+    flex-direction: column;
     flex: 1;
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    min-height: 50vh;
+    min-height: 60vh;
+    padding-top: 2rem;
 }
 
 .orders-container{
@@ -47,11 +49,30 @@
     justify-content: space-between;
 }
 
+.user-main-container button{
+    width: 40%;
+}
+
 @media screen and (max-width: 1024px){
+    .user-main-container{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        min-height: 60vh;
+        padding-top: 0rem;
+    }    
+
     .orders{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-row-gap: 1rem;
         padding: 1rem;
+    }
+
+    .user-main-container button{
+        width: 100%;
     }
 }
