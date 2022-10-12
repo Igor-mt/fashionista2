@@ -24,6 +24,8 @@ const TelaCheckout = () => {
     setUserId(Cookies.get('user_id'))
   }, [])
 
+  const isLogged = Cookies.get('authToken')
+
   const { productsCart, removeProductToCart, clearCart } = useContext(CartContext);
 
   const handleCreateOrder = async () => {
@@ -33,7 +35,7 @@ const TelaCheckout = () => {
       paymentModeId = '73c9f163-5cd4-4367-a1f4-ac8d5f48df5c'
     }
 
-    if(!Cookies.get('authToken')){
+    if (!isLogged) {
       alert('Crie uma conta para poder fazer seu pedido')
       return
     }
@@ -101,9 +103,9 @@ const TelaCheckout = () => {
   return (
     <main className="TelaCheckout__container">
       <section className="checkoutInfo__container">
-        <Titulo>Dados do Pedido</Titulo>
+        <Titulo>{isLogged ? 'Modo de Pagamento' : 'Dados do Pedido'}</Titulo>
 
-        <div className="perguntaCadastro__container">
+        {!isLogged && <div className="perguntaCadastro__container">
           <div className="perguntaCadastro">
             <p className="perguntaCadastro__p">Não possui uma conta?</p>
             <Link to="/login"><Button type="button">CADASTRE-SE</Button></Link>
@@ -112,7 +114,7 @@ const TelaCheckout = () => {
             <p className="perguntaCadastro__p">Já possui cadastro ?</p>
             <Link to="/login"><Button type="button">FAÇA SEU LOGIN</Button></Link>
           </div>
-        </div>
+        </div>}
         <form name="checkout-form" className="opcoesPagamento">
           <Input
             type="radio"
@@ -127,7 +129,10 @@ const TelaCheckout = () => {
       <BarraLateral />
 
       <section className="informacoesEntrega">
-        <Titulo>Dados Para Entrega</Titulo>
+        <div className="heading">
+          <Titulo>Dados Para Entrega</Titulo>
+          <h2 className="informacoesEntrega__aviso">Opcional</h2>
+        </div>
         <div className="informacoesEntrega__divCEP--largura">
           <Input
             title="CEP"
