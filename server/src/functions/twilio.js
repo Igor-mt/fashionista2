@@ -30,5 +30,4 @@ Muito obrigado por comprar na Fashionista ❤(●'◡'●)✨!!`
     })
     .then(message => console.log(message.sid))
     .done();
-
 }
