@@ -20,9 +20,30 @@ const TelaCheckout = () => {
   const [paymentMode, setPaymentMode] = useState("");
   const [userId, setUserId] = useState("")
 
+  const [infoUser, setInfoUser] = useState([]);
+  
   useEffect(() => {
     setUserId(Cookies.get('user_id'))
   }, [])
+
+
+  useEffect(() => {
+
+    const getInfoUserById = async () => {
+
+      if(userId){
+        await axios.get(`https://fashionista-ecommerce.herokuapp.com/user/${userId}`)
+          .then(res => setInfoUser(res.data))
+          .catch(function(error){
+            console.log(error.response)
+          })
+      }
+       
+    };
+
+    getInfoUserById();
+
+  }, [userId]);
 
   const isLogged = Cookies.get('authToken')
 
@@ -134,13 +155,14 @@ const TelaCheckout = () => {
           <h2 className="informacoesEntrega__aviso">Opcional</h2>
         </div>
         <div className="informacoesEntrega__divCEP--largura">
-          <Input
+          <Input 
             title="CEP"
             type="text"
             name="numeroDoCEP"
             placeholder="12345678"
             pattern="\d*"
             maxLenght={8}
+            value={infoUser?.cep}
           />
         </div>
         <Input
@@ -150,12 +172,14 @@ const TelaCheckout = () => {
           placeholder="62999998888"
           pattern="\d*"
           maxLenght={11}
+          value={infoUser?.phone}
         />
         <Input
           title="Endereço"
           type="text"
           name="endereco"
           placeholder="Rua"
+          value={infoUser?.address}
         />
 
         <Input
@@ -163,9 +187,10 @@ const TelaCheckout = () => {
           type="text"
           name="bairro"
           placeholder="Bairro"
+          value={infoUser?.district}
         />
 
-        <Input title="Numero" type="text" name="numero" placeholder="Nº" />
+        <Input title="Numero" type="text" name="numero" placeholder="Nº" value={infoUser?.address_number}/>
 
         <Input
           title="Complemento"
@@ -180,13 +205,14 @@ const TelaCheckout = () => {
             type="text"
             name="cidade"
             placeholder="Cidade"
+            value={infoUser?.city}
           />
 
           <select
             name="estados"
             id="estados"
           >
-            <option selected disabled>UF</option>
+            <option selected disabled >{userId ? infoUser?.uf : 'UF'}</option>
             {estados.map((estado) => (
               <option key={estado.sigla} value={estado.sigla}>
                 {estado.sigla}
