@@ -1,0 +1,45 @@
+:root{
+    --grey: rgba(46, 46, 46, 1);
+}
+
+.filterSubOptions{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0.4rem 0;
+    text-align: center;
+}
+
+.filterSubOption {
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: transparent;
+    font-weight: 400;
+    width: 140px;
+    cursor: pointer;
+}
+
+.filterSubOption:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+    color: #f9004d;
+}
+
+.filterSubOptionSelected {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 140px;
+    font-weight: 400;
+    background-color: var(--grey);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #f9004d;
+}
+
+.filterSubOptionSelected:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}

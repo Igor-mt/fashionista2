@@ -20,11 +20,7 @@ a{
     color: inherit;
 }
 
-:root{
-    --grey: rgba(46, 46, 46, 1);
-}
-
-.filter {
+.filterContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +31,21 @@ a{
     gap: 0.2rem;
 }
 
+@media screen and (max-width: 1024px){
+    .filterContainer{
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.filterTitle{
+    font-family: Lato;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--grey);
+    width: 25%;
+}
+
 .filterOptions {
     display: flex;
     flex-direction: column;
@@ -42,71 +53,11 @@ a{
     width: 140px;
 }
 
-.filterOption{
-    text-align: center;
-    cursor: pointer;
-    font-weight: 900;
-    padding-bottom: 0.3rem;
-    padding-top: 0.3rem;
-    border-bottom: 1px solid rgba(46, 46, 46, 0.3);
-}
-
 .filterOption:hover{
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
     color: #f9004d;
 }
-
-.selectCorBox{
-    border-radius: 5px;
-    padding: 0.5rem 0.1rem 0.5rem 1rem;
-    opacity: 0.7;
-    text-align: left;
-}
-
-.selectCorBox::after {
-    content: '▼';
-    font-size: 8pt;
-    margin-left: 4rem;
-}
-
-.colorOptions{
-    text-align: center;
-    padding-bottom: 0.8rem;
-}
-
-.colorOption {
-    margin-top: 0.5rem;
-    font-weight: 400;
-    width: 140px;
-    cursor: pointer;
-  }
-
-.colorOption:hover {
-    transform: scale(1.1);
-    transition: 0.3s ease-in-out;
-    color: #f9004d;
-}
-
-.colorOptionSelected {
-    margin-top: 0.4rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    width: 140px;
-    font-weight: 400;
-    background-color: var(--grey);
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #f9004d;
-}
-
-.colorOptionSelected:hover{
-    transform: scale(1.1);
-    transition: 0.3s ease-in-out;
-}
-
-
 
 .produtos{
     display: grid;

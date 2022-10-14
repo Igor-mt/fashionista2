@@ -1,0 +1,24 @@
+.filterOptionContainer{
+    text-align: center;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.3);
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.filterOption{
+    font-family: Lato;
+    font-size: 12pt;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.closed::before{
+    content: "▼"
+}
+
+.open::before {
+    content: "▲"
+}
