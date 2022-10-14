@@ -7,7 +7,7 @@ const client = require('twilio')(accountSid, authToken);
 
 exports.sendOrderNotification = (userData, orderData) => {
 
-  const { name, phone } = userData
+  const { name } = userData
 
   const { order_id, order_total, order_date } = orderData
 
@@ -22,7 +22,7 @@ Seu pedido acaba de ser aprovado ✔.
     
 Muito obrigado por comprar na Fashionista ❤(●'◡'●)✨!!`
 
-  client.messages
+client.messages
     .create({
       body: message,
       from: `whatsapp:+${process.env.TWILIO_FROM_NUMBER}`,

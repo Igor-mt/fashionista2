@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const productsRoutes = require('./routes/productsRoutes');
 const orderRoutes = require('./routes/ordersRoutes');
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const port = process.env.PORT || 5450;
@@ -30,6 +31,9 @@ app.use('/', orderRoutes)
 
 // Rota de Autenticação
 app.use('/', authRoutes)
+
+// Rota de usuário
+app.use('/', userRoutes)
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

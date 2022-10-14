@@ -289,7 +289,6 @@ const TelaLogin = () => {
                     placeholder="Cidade"
                   />
                   <div className="estado_container">
-                    <span>UF</span>
                     <select
                       name="uf"
                       className="selected"
