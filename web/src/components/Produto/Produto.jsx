@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 import "./Produto.css"
 
-const Produto = ({ item, onAdd }) => {
+const Produto = ({ item, onAddToCart, onAddToWishList }) => {
   const [size, setSize] = useState('M')
+  const [addToCart, setAddToCart] = useState(false)
+  const [addToWishlist, setAddToWishlist] = useState(false)
 
-  const { img_url, name, regular_price, actual_price, color, installments, onSale} = item;
+  const { img_url, name, regular_price, actual_price, color, installments, onSale } = item;
   const installment = (Number(actual_price) / installments).toFixed(2)
 
   return (
@@ -34,7 +36,10 @@ const Produto = ({ item, onAdd }) => {
               <option value="GG">GG</option>
             </select>
           </div>
-          <button className="addProduct" aria-label="Adicionar à Sacola" onClick={() => onAdd(item, size)}>Adicionar à Sacola</button>
+          {addToCart && <h2 className="cartWarning">Seu produto foi adicionado à sacola.</h2>}
+          <button className="addProduct" aria-label="Adicionar à Sacola" onClick={() => { setAddToCart(true); return onAddToCart(item, size) }}>Adicionar à Sacola</button>
+          <button className="wishlistBtn" aria-label="Adicionar à Sacola" onClick={() => { setAddToWishlist(true); return onAddToWishList(item) }}>Adicionar à lista de desejos</button>
+          {addToWishlist && <h2 className="cartWarning">O produto foi adicionado à sua lista de desejos.</h2>}
         </div>
       </div>
     </>

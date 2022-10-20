@@ -81,6 +81,10 @@
     padding: 20px;
 }
 
+.cadastro__container button{
+    margin-top: 1rem;
+}
+
 .cadastro__form--container{
     display: flex;
     margin-bottom: 1rem;
@@ -117,8 +121,6 @@
 }
 
 #estados{
-    padding: 0.5rem 1rem;
-    margin-bottom: 4px;
     border-radius: 5px;
 }
 

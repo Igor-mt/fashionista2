@@ -11,15 +11,15 @@ const SearchBar = () => {
     const { query, setQuery } = useContext(SearchContext)
     const [timer, setTimer] = useState(null)
 
-    const inputChanged = e => {    
+    const inputChanged = e => {
         clearTimeout(timer)
-    
+
         const newTimer = setTimeout(() => {
             setQuery(e.target.value)
         }, 500)
-    
+
         setTimer(newTimer)
-      }
+    }
 
     return (
         <div className="search-container">

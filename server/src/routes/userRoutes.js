@@ -11,10 +11,10 @@ router.route("/user/:id")
 
         console.log(userId)
 
-        try{
+        try {
             const user = await userData.getUserInfoByUserId(userId)
             res.status(201).json(user)
-        }catch(e){
+        } catch (e) {
             res.status(404).json({
                 message: "Ocorreu um erro ao buscar o usuário pelo id",
                 Error: e.message

@@ -2,6 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+    min-height: 90vh;
+}
+
+@media screen and (max-width: 1024px){
+    .TelaCheckout__container{
+        padding: 2rem 0rem;
+    }
 }
 
 .checkoutInfo__container{
@@ -85,7 +94,7 @@
 }
 
 .resumoCompra .titulo{
-    margin: 4rem 0 2.5rem 0;
+    margin: 6rem 0 2.5rem 0;
 }
 
 

@@ -17,28 +17,27 @@ import "./Mobile-telaCheckout.css";
 import { CartContext } from "../../context/cart";
 
 const TelaCheckout = () => {
+
   const [paymentMode, setPaymentMode] = useState("");
   const [userId, setUserId] = useState("")
 
   const [infoUser, setInfoUser] = useState([]);
-  
+
   useEffect(() => {
     setUserId(Cookies.get('user_id'))
   }, [])
 
 
   useEffect(() => {
-
     const getInfoUserById = async () => {
-
-      if(userId){
-        await axios.get(`https://fashionista-ecommerce.herokuapp.com/user/${userId}`)
+      if (userId) {
+        await axios.get(`http://localhost:5450/user/${userId}`)
           .then(res => setInfoUser(res.data))
-          .catch(function(error){
+          .catch(function (error) {
             console.log(error.response)
           })
       }
-       
+
     };
 
     getInfoUserById();
@@ -66,7 +65,7 @@ const TelaCheckout = () => {
       return
     };
     try {
-      await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
+      await axios.post(`http://localhost:5450/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         order_total: totalPrice,
         products: productsCart
@@ -82,6 +81,18 @@ const TelaCheckout = () => {
   const handleOpcaoPagamentoChange = (event) => {
     setPaymentMode(event.target.value)
   }
+
+  let args = {
+    sCepOrigem: '74030010',
+    sCepDestino: infoUser.cep,
+    nVlPeso: '1',
+    nCdFormato: '1',
+    nVlComprimento: '20',
+    nVlAltura: '20',
+    nVlLargura: '20',
+    nCdServico: ['04014', '04510'],
+    nVlDiametro: '0',
+  };
 
   let totalPrice = 0
 
@@ -155,7 +166,7 @@ const TelaCheckout = () => {
           <h2 className="informacoesEntrega__aviso">Opcional</h2>
         </div>
         <div className="informacoesEntrega__divCEP--largura">
-          <Input 
+          <Input
             title="CEP"
             type="text"
             name="numeroDoCEP"
@@ -190,7 +201,7 @@ const TelaCheckout = () => {
           value={infoUser?.district}
         />
 
-        <Input title="Numero" type="text" name="numero" placeholder="Nº" value={infoUser?.address_number}/>
+        <Input title="Numero" type="text" name="numero" placeholder="Nº" value={infoUser?.address_number} />
 
         <Input
           title="Complemento"
@@ -211,6 +222,7 @@ const TelaCheckout = () => {
           <select
             name="estados"
             id="estados"
+            className="selected"
           >
             <option selected disabled >{userId ? infoUser?.uf : 'UF'}</option>
             {estados.map((estado) => (

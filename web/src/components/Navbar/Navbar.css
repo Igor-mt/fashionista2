@@ -94,6 +94,10 @@ i:hover {
     gap: 0.5rem;
 }
 
+.container-button button{
+    width: auto;
+}
+
 .btn-menu{
     border: 1px solid rgb(28, 28, 28);
     border-radius: 6px;

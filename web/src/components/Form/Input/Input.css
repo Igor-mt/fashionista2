@@ -11,3 +11,8 @@ input[type="date"]  {
     margin: 5px 0;
 }
 
+.input-label{
+    display: flex;
+    gap: 0.2rem;
+}
+

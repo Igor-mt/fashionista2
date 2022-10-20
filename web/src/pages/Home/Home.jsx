@@ -11,12 +11,12 @@ const Home = () => {
   const [saleProducts, setSaleProducts] = useState([])
 
   useEffect(() => {
-    axios.get('https://fashionista-ecommerce.herokuapp.com/promocao/produtos/')
+    axios.get('http://localhost:5450/promocao/produtos/')
       .then(res => setSaleProducts(res.data))
   }, [])
 
   useEffect(() => {
-    axios.get('https://fashionista-ecommerce.herokuapp.com/novidades/produtos/')
+    axios.get('http://localhost:5450/novidades/produtos/')
       .then(res => setNewProducts(res.data))
   }, [])
 
