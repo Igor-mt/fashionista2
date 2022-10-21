@@ -11,7 +11,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home/Home";
-import Produto from "./pages/Produto";
+import Produto from "./pages/TelaProduto/Produto";
 import Catalogo from "./pages/Catalogo/Catalogo";
 import TelaLogin from "./pages/TelaLogin/TelaLogin";
 import TelaCheckout from "./pages/TelaCheckout/TelaCheckout";

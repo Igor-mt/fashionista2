@@ -1,7 +1,7 @@
 import React from 'react'
 import './CardProduto.css'
 
-const produto = ({ product_id, img_url, name, regular_price, actual_price }) => {
+const CartaoProduto = ({ product_id, img_url, name, regular_price, actual_price }) => {
     // const { img_url, name, regular_price, actual_price } = item;
     const link = `http://localhost:3000/produto/${product_id}`
 
@@ -24,4 +24,4 @@ const produto = ({ product_id, img_url, name, regular_price, actual_price }) => 
     )
 }
 
-export default produto
+export default CartaoProduto

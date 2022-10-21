@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+@media screen and (max-width: 1024px) {
+    .carousel-card-container {
+        position: relative;
+        width: 100%;
+        transition: all 0.5s ease-in;
+        font-family: 'Poppins';
+    }
+
+    .carousel-card-img {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .carousel-card-container:hover {
+        transform: scale(1.05);
+    }
+
+    .carousel-card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: left;
+        width: 100%;
+        padding: 1rem 0rem 1rem 1rem;
+        box-sizing: border-box;
+        background-color: #fff;
+        color: #111;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+        margin-right: 20px;
+    }
+
+    .carousel-regular-price {
+        text-decoration: line-through;
+        color: rgba(194, 10, 10, 0.2);
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .carousel-card-container {
+        width: 30rem;
+        transition: all 0.5s ease-in;
+        font-family: 'Poppins';
+    }
+
+    .carousel-card-img {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .carousel-card-container:hover {
+        transform: scale(1.05);
+    }
+
+    .carousel-card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        top: 90%;
+        left: 0;
+        right: 0;
+        padding: 16px 28px;
+        text-align: left;
+        width: 100%;
+        background-color: #fff;
+        color: #111;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-regular-price {
+        text-decoration: line-through;
+        color: rgba(194, 10, 10, 0.2);
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .carousel-card-container {
+        position: relative;
+        width: 30rem;
+        transition: all 0.5s ease-in;
+        font-family: 'Poppins';
+    }
+
+    .carousel-card-container {
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .carousel-card-container:hover {
+        transform: scale(1.05);
+    }
+
+    .carousel-card-info {
+        padding: 16px 28px;
+        box-sizing: border-box;
+        text-align: left;
+        width: 100%;
+        background-color: #fff;
+        color: #111;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        -webkit-box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 7px 18px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-regular-price {
+        text-decoration: line-through;
+        color: rgba(194, 10, 10, 0.2);
+        margin-right: 10px;
+    }
+}

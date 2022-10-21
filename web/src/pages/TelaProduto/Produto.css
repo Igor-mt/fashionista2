@@ -1,0 +1,52 @@
+.carousel-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.carousel{
+    width: 70%
+}
+
+.swiper-wrapper{
+    gap: 2rem;
+}
+
+@media screen and (max-width: 1024px){
+    .carousel-container{
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        padding: 0 1rem;
+    }
+
+    .carousel{
+        width: 100%
+    }
+
+    .swiper-wrapper{
+        margin-bottom: 3rem;
+    }
+}
+
+.carousel-btn-prev, .carousel-btn-next{
+    width: 50px;
+    height: 50px;
+    color: rgb(46, 46, 46);
+    position: absolute;
+    cursor: pointer;
+}
+
+.carousel-btn-prev{
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+}
+
+.carousel-btn-next{
+    left: auto;
+    right: 10%;
+    bottom: -26.5%;
+}

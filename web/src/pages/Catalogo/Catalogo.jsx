@@ -24,11 +24,9 @@ const Catalogo = () => {
     }
 
     const handleFilterOption = async (event) => {
-        const filter = event.target.value
+        const filterValue = event.target.value
 
-        if(products.length < 1) document.location.reload()
-
-        setProducts(products.filter(product => product.color === filter))
+        setProducts(products.filter(product => product.color === filterValue))
     }
 
 
