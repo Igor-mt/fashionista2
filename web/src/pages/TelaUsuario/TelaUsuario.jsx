@@ -20,7 +20,7 @@ const TelaUsuario = () => {
   const [content, setContent] = useState('orders')
   const [toggleShowPassword, setToggleShowPassword] = useState(false)
   const [isPasswordLenghtValid, setIsPasswordLenghtValid] = useState(true)
-  const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true)
+  const [successfulUpdate, setSuccessfulUpdate] = useState(false)
   const [infoUser, setInfoUser] = useState([]);
 
   const { wishlist } = useContext(WishlistContext)
@@ -43,6 +43,107 @@ const TelaUsuario = () => {
 
   }, [userId]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:5450/${userId}/pedidos`)
+      .then(res => setOrders(res.data))
+  }, [userId])
+
+  const handleUpdateUserInfo = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData)
+
+    let genderId = ''
+
+    if (data.gender === 'Masculino') {
+      genderId = 'f5269b82-70c9-461d-a26c-61e753d71142'
+    } else if (data.gender === 'Feminino') {
+      genderId = 'db2ffff2-bd33-4fc7-aef9-3cdc3306a103'
+    } else {
+      genderId = '6d6655f6-57de-4b87-8f26-1eaf5f0d4a48'
+    }
+
+    axios.defaults.withCredentials = true;
+
+    try {
+      await axios.put(`http://localhost:5450/update/user/account`, {
+        customer_id: userId,
+        name: data.name + " " + data.surname,
+        gender_id: genderId,
+        cpf: data.cpf,
+        birth: data.birthdate,
+        phone: data.phone,
+      })
+      setSuccessfulUpdate(true)
+    } catch (e) {
+      console.log(e);
+      alert('Ocorreu um erro ao criar o usuário.')
+    }
+  }
+
+  const handleUpdateAddressInfo = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData)
+
+    axios.defaults.withCredentials = true;
+
+    try {
+      await axios.put(`http://localhost:5450/update/user/address`, {
+        customer_id: userId,
+        cep: data.cep,
+        address: data.address + data.complement,
+        district: data.district,
+        address_number: data.address_number,
+        city: data.city,
+        uf: data.uf
+      })
+      setSuccessfulUpdate(true)
+    } catch (e) {
+      console.log(e);
+      alert('Ocorreu um erro ao atualizar os dados do usuário.')
+    }
+  }
+
+  const handleUpdateAuthInfo = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData)
+
+    axios.defaults.withCredentials = true;
+
+    try {
+      if (data.newPassword.length < 6) {
+        setIsPasswordLenghtValid(false)
+        return
+      }
+      try {
+        await axios.post(`http://localhost:5450/login`, {
+          email: data.email,
+          password: data.oldPassword
+        })
+      } catch (e) {
+        alert("A senha ou email digitados não correspondem aos dados do usuário.")
+        return
+      }
+
+      await axios.put(`http://localhost:5450/update/user/auth`, {
+        customer_id: userId,
+        email: data.email,
+        password: data.newPassword
+      })
+
+      setSuccessfulUpdate(true)
+    } catch (e) {
+      console.log(e);
+      alert('Ocorreu um erro ao atualizar os dados do usuário.')
+    }
+  }
+
+
   const handleLogout = () => {
     Cookies.remove('user_id')
     Cookies.remove('authToken')
@@ -58,33 +159,33 @@ const TelaUsuario = () => {
   }
 
   const estados = [
-    { nome: "Acre", sigla: "AC" },
-    { nome: "Alagoas", sigla: "AL" },
-    { nome: "Amapá", sigla: "AP" },
-    { nome: "Amazonas", sigla: "AM" },
-    { nome: "Bahia", sigla: "BA" },
-    { nome: "Ceará", sigla: "CE" },
-    { nome: "Distrito Federal", sigla: "DF" },
-    { nome: "Espírito Santo", sigla: "ES" },
-    { nome: "Goiás", sigla: "GO" },
-    { nome: "Maranhão", sigla: "MA" },
-    { nome: "Mato Grosso", sigla: "MT" },
-    { nome: "Mato Grosso do Sul", sigla: "MS" },
-    { nome: "Minas Gerais", sigla: "MG" },
-    { nome: "Pará", sigla: "PA" },
-    { nome: "Paraíba", sigla: "PB" },
-    { nome: "Paraná", sigla: "PR" },
-    { nome: "Pernambuco", sigla: "PE" },
-    { nome: "Piauí", sigla: "PI" },
-    { nome: "Rio de Janeiro", sigla: "RJ" },
-    { nome: "Rio Grande do Norte", sigla: "RN" },
-    { nome: "Rio Grande do Sul", sigla: "RS" },
-    { nome: "Rondônia", sigla: "RO" },
-    { nome: "Roraima", sigla: "RR" },
-    { nome: "Santa Catarina", sigla: "SC" },
-    { nome: "São Paulo", sigla: "SP" },
-    { nome: "Sergipe", sigla: "SE" },
-    { nome: "Tocantins", sigla: "TO" },
+    { sigla: "AC" },
+    { sigla: "AL" },
+    { sigla: "AP" },
+    { sigla: "AM" },
+    { sigla: "BA" },
+    { sigla: "CE" },
+    { sigla: "DF" },
+    { sigla: "ES" },
+    { sigla: "GO" },
+    { sigla: "MA" },
+    { sigla: "MT" },
+    { sigla: "MS" },
+    { sigla: "MG" },
+    { sigla: "PA" },
+    { sigla: "PB" },
+    { sigla: "PR" },
+    { sigla: "PE" },
+    { sigla: "PI" },
+    { sigla: "RJ" },
+    { sigla: "RN" },
+    { sigla: "RS" },
+    { sigla: "RO" },
+    { sigla: "RR" },
+    { sigla: "SC" },
+    { sigla: "SP" },
+    { sigla: "SE" },
+    { sigla: "TO" },
   ];
 
   const generos = [
@@ -93,10 +194,6 @@ const TelaUsuario = () => {
     { id: "3", nome: "Prefiro Não Informar" },
   ];
 
-  useEffect(() => {
-    axios.get(`http://localhost:5450/${userId}/pedidos`)
-      .then(res => setOrders(res.data))
-  }, [userId])
 
   if (userId) {
     return (
@@ -116,7 +213,12 @@ const TelaUsuario = () => {
             }
 
             {content === 'updateUser' &&
-              <UpdateUser genderList={generos} />
+              <UpdateUser
+                genderList={generos}
+                successfulUpdate={successfulUpdate}
+                onSubmit={handleUpdateUserInfo}
+                infoUser={infoUser}
+              />
             }
 
             {content === 'updateAddress' &&
@@ -124,6 +226,8 @@ const TelaUsuario = () => {
                 estados={estados}
                 infoUser={infoUser}
                 userId={userId}
+                successfulUpdate={successfulUpdate}
+                onSubmit={handleUpdateAddressInfo}
               />
             }
 
@@ -133,7 +237,9 @@ const TelaUsuario = () => {
                 toggleShowPassword={toggleShowPassword}
                 setToggleShowPassword={setToggleShowPassword}
                 isPasswordLenghtValid={isPasswordLenghtValid}
-                isConfirmPasswordValid={isConfirmPasswordValid}
+                successfulUpdate={successfulUpdate}
+                infoUser={infoUser}
+                onSubmit={handleUpdateAuthInfo}
               />
             }
 

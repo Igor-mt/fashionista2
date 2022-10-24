@@ -136,8 +136,8 @@ const TelaLogin = () => {
         password: data.password
       })
       alert("Usuário logado com sucesso!!")
-      Cookies.set('user_id', response.data.user_id)
       Cookies.set('authToken', response.data.loginToken)
+      Cookies.set('user_id', response.data.user_id)
       window.location.reload()
     } catch (e) {
       console.log(e);
@@ -158,8 +158,8 @@ const TelaLogin = () => {
       })
       if (!response.data.user_id) setValidatedUser(false)
       alert("Usuário logado com sucesso!!")
-      Cookies.set('user_id', response.data.user_id)
       Cookies.set('authToken', response.data.loginToken)
+      Cookies.set('user_id', response.data.user_id)
       window.location.reload()
     } catch (e) {
       alert('Ocorreu um erro ao validar o usuário.')
@@ -224,7 +224,7 @@ const TelaLogin = () => {
 
                   <div className="sexo-container">
                     <span>Sexo</span>
-                    <Select name="gender" id="sexo" required={true} itens={generos} placeholder="Sexo"/>
+                    <Select name="gender" id="sexo" required={true} itens={generos} placeholder="Sexo" />
                   </div>
                 </div>
 
@@ -342,20 +342,17 @@ const TelaLogin = () => {
                   />
                   <div className="estado_container">
                     <AvisoValidacao />
-                    <select
-                      name="uf"
-                      id="uf"
-                      value={ufValue}
-                      className="selected"
-                      required
-                    >
-                      <option selected disabled>UF</option>
-                      {estados.map((estado) => (
-                        <option key={estado.sigla} value={estado.sigla}>
-                          {estado.sigla}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="estado_container">
+                      <AvisoValidacao />
+                      <Select
+                        name="uf"
+                        id="estados"
+                        itens={estados}
+                        placeholder="UF"
+                        required
+                        value={ufValue}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

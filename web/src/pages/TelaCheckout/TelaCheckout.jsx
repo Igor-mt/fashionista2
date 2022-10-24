@@ -10,11 +10,14 @@ import Titulo from "../../components/Titulo/Titulo";
 import CardProduto from "../../components/CardProduto/CardProduto";
 import { EmptyCart, Icon } from "../../components/ShoppingCart/styles";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
+import Select from "../../components/Form/Select/Select";
+import AvisoValidacao from "../../components/AvisoValidacao/AvisoValidacao";
 
 import "./TelaCheckout.css";
 import "./Mobile-telaCheckout.css";
 
 import { CartContext } from "../../context/cart";
+
 
 const TelaCheckout = () => {
 
@@ -207,18 +210,17 @@ const TelaCheckout = () => {
             value={infoUser?.city}
           />
 
-          <select
-            name="estados"
-            id="estados"
-            className="selected"
-          >
-            <option selected disabled >{userId ? infoUser?.uf : 'UF'}</option>
-            {estados.map((estado) => (
-              <option key={estado.sigla} value={estado.sigla}>
-                {estado.sigla}
-              </option>
-            ))}
-          </select>
+          <div className="stateContainer">
+            <span className='select-label'>UF<AvisoValidacao /></span>
+            <Select
+              name="state"
+              id="estados"
+              itens={estados}
+              placeholder="UF"
+              required
+              value={infoUser?.uf}
+            />
+          </div>
         </div>
       </section>
 

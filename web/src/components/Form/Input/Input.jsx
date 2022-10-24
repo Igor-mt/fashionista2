@@ -2,7 +2,7 @@
 import AvisoValidacao from "../../AvisoValidacao/AvisoValidacao";
 import "./Input.css"
 
-const Input = ({ title, type, img, name, value, placeholder, pattern, maxLenght, onChange, onBlur, required }) => {
+const Input = ({ title, type, img, name, value, placeholder, pattern, maxLenght, onChange, onBlur, required, defaultValue }) => {
 
     return (
         <label>
@@ -17,6 +17,7 @@ const Input = ({ title, type, img, name, value, placeholder, pattern, maxLenght,
                 maxLength={maxLenght}
                 onChange={onChange}
                 onBlur={onBlur}
+                defaultValue={defaultValue}
             />
             {img && <img src={img} alt="imagem modo pagamento" />}
         </label>

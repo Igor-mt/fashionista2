@@ -12,10 +12,16 @@
 .formInputs{
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.2rem;
 }
 
 .select-label{
     display: flex;
     gap: 0.2rem;
+}
+
+.success-warning{
+    font-family: 'Poppins';
+    color: #4BB543;
+    font-weight: bold;
 }

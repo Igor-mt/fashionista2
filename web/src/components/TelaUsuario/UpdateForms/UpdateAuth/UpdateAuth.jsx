@@ -1,6 +1,7 @@
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+
 import AvisoValidacao from '../../../AvisoValidacao/AvisoValidacao'
 import Button from '../../../Button/Button'
 import Input from '../../../Form/Input/Input'
@@ -8,12 +9,14 @@ import Titulo from '../../../Titulo/Titulo'
 
 import './UpdateAuth.css'
 
-const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, isPasswordLenghtValid, isConfirmPasswordValid }) => {
+const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, isPasswordLenghtValid, infoUser, successfulUpdate }) => {
+  const isMobile = window.innerWidth <= 1024;
+  
   return (
     <>
       <div className="update-container">
         <Titulo>Atualizar dados de autenticação</Titulo>
-        <form id="updateUser" method="put" onSubmit={onSubmit}>
+        <form id="updateUserAuth" method="put" onSubmit={onSubmit}>
           <div className="formInputs">
             <Input
               title="Email"
@@ -21,6 +24,7 @@ const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, is
               name="email"
               placeholder="Email"
               required
+              value={infoUser?.email}
             />
             <Input
               title="Senha Antiga"
@@ -28,7 +32,9 @@ const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, is
               name="oldPassword"
               placeholder={toggleShowPassword ? "Senha" : "******"}
               required
+              style={!isMobile ? {width: "52%"} : {width: "66%"}}
             />
+            <div className="password-container-register">
               <Input
                 title="Nova Senha"
                 type={toggleShowPassword ? "text" : "password"}
@@ -36,11 +42,12 @@ const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, is
                 placeholder={toggleShowPassword ? "Senha" : "******"}
                 required
               />
+              <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /></Button>
             </div>
+          </div>
           {!isPasswordLenghtValid && <AvisoValidacao>As senha deve ter mais de 6 caracteres.</AvisoValidacao>}
-          {!isConfirmPasswordValid && <AvisoValidacao>As senhas não são iguais</AvisoValidacao>}
-          <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /> Ver senha</Button>
-          <Button type="submit">ATUALIZAR DADOS</Button>
+          {successfulUpdate && <h1 className='success-warning'>Dados atualizados com sucesso!</h1>}
+          <Button type="submit">ATUALIZAR SENHA</Button>
         </form>
       </div>
     </>

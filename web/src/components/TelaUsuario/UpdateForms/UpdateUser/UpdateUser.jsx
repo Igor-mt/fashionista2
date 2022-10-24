@@ -8,7 +8,7 @@ import Select from '../../../Form/Select/Select'
 import Titulo from '../../../Titulo/Titulo'
 import AvisoValidacao from '../../../AvisoValidacao/AvisoValidacao'
 
-const UpdateUser = ({ onSubmit, genderList }) => {
+const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
     return (
         <>
             <div className="update-container">
@@ -21,6 +21,7 @@ const UpdateUser = ({ onSubmit, genderList }) => {
                             name="name"
                             placeholder="Nome"
                             required
+                            value={infoUser?.name}
                         />
 
                         <div className="sobrenomeESexo__container">
@@ -33,7 +34,7 @@ const UpdateUser = ({ onSubmit, genderList }) => {
                             />
 
                             <div className="sexo-container">
-                                <span className='select-label'>Sexo<AvisoValidacao/></span>
+                                <span className='select-label'>Sexo<AvisoValidacao /></span>
                                 <Select
                                     name="gender"
                                     id="sexo"
@@ -50,6 +51,7 @@ const UpdateUser = ({ onSubmit, genderList }) => {
                             name="cpf"
                             placeholder="CPF"
                             required
+                            value={infoUser?.cpf}
                         />
 
                         <Input
@@ -58,6 +60,7 @@ const UpdateUser = ({ onSubmit, genderList }) => {
                             name="birthdate"
                             placeholder="Nascimento"
                             required
+                            value={infoUser?.birth}
                         />
                         <Input
                             title="Telefone"
@@ -67,8 +70,10 @@ const UpdateUser = ({ onSubmit, genderList }) => {
                             pattern="\d*"
                             maxLenght={11}
                             required
+                            value={infoUser?.phone}
                         />
                     </div>
+                    {successfulUpdate && <h1 className='success-warning'>Dados atualizados com sucesso!</h1>}
                     <Button>ATUALIZAR DADOS</Button>
                 </form>
             </div>
