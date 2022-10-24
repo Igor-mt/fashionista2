@@ -82,18 +82,6 @@ const TelaCheckout = () => {
     setPaymentMode(event.target.value)
   }
 
-  let args = {
-    sCepOrigem: '74030010',
-    sCepDestino: infoUser.cep,
-    nVlPeso: '1',
-    nCdFormato: '1',
-    nVlComprimento: '20',
-    nVlAltura: '20',
-    nVlLargura: '20',
-    nCdServico: ['04014', '04510'],
-    nVlDiametro: '0',
-  };
-
   let totalPrice = 0
 
   let totalItems = 0

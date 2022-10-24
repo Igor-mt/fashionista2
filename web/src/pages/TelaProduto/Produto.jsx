@@ -4,7 +4,6 @@ import axios from "axios";
 import { useParams } from "react-router"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Pagination, Navigation } from "swiper";
-import { GrPrevious, GrNext } from "react-icons/gr";
 
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
@@ -12,6 +11,7 @@ import './Produto.css'
 
 import { CartContext } from '../../context/cart'
 import { WishlistContext } from '../../context/wishlist'
+
 import ProdutoComponent from "../../components/Produto/Produto";
 import CarouselCard from "../../components/Carousel/CarouselCard";
 import Titulo from '../../components/Titulo/Titulo'
@@ -55,9 +55,8 @@ const Produto = () => {
         onAddToWishList={addProductToWishlist}
       />
       )}
-      <Titulo>Produtos Relacionados:</Titulo>
+      <Titulo>Você pode gostar</Titulo>
       <div className="carousel-container">
-        {!isMobile && <GrPrevious className="carousel-btn-prev" />}
         <Swiper
           effect={"keyboard"}
           grabCursor={true}
@@ -78,16 +77,15 @@ const Produto = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={!isMobile && {
-            prevEl: ".carousel-btn-prev",
-            nextEl: ".carousel-btn-next",
-          }}
+          navigation={true}
           modules={[Keyboard, Pagination, Navigation]}
         >
           {filteredRelatedProducts.slice(0, 10).map((product) => {
-            return <SwiperSlide style={{ width: "20%" }}>
+            return <SwiperSlide
+              key={product.product_id}
+              style={{ width: "20%" }}
+            >
               <CarouselCard
-                key={product.product_id}
                 product={product}
               />
             </SwiperSlide>
@@ -95,7 +93,6 @@ const Produto = () => {
           )}
         </Swiper>
       </div>
-      {!isMobile && <GrNext className="carousel-btn-next" />}
     </div >
   )
 }

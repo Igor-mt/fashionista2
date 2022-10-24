@@ -15,6 +15,7 @@ import Titulo from "../../components/Titulo/Titulo";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
 import Warning from '../../components/Form/Warning/Warning';
 import AvisoValidacao from '../../components/AvisoValidacao/AvisoValidacao';
+import Select from '../../components/Form/Select/Select';
 
 const TelaLogin = () => {
   const [validatedUser, setValidatedUser] = useState(true)
@@ -223,16 +224,7 @@ const TelaLogin = () => {
 
                   <div className="sexo-container">
                     <span>Sexo</span>
-                    <select name="gender" id="sexo" className="selected" required>
-                      <option selected disabled>
-                        Sexo
-                      </option>
-                      {generos.map((genero) => (
-                        <option key={genero.id} value={genero.nome}>
-                          {genero.nome}
-                        </option>
-                      ))}
-                    </select>
+                    <Select name="gender" id="sexo" required={true} itens={generos} placeholder="Sexo"/>
                   </div>
                 </div>
 

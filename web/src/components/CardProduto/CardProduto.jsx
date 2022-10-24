@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './CardProduto.css'
 
 import { CartContext } from '../../context/cart'
+import { Link } from 'react-router-dom'
 
 const CardProduto = ({ produto, onRemove }) => {
     const { increaseProductsCart, decreaseProductsCart, removeProductToCart } = useContext(CartContext)
@@ -9,8 +10,8 @@ const CardProduto = ({ produto, onRemove }) => {
     if (produto.qtd < 1) return removeProductToCart(produto.id, produto.size);
 
     return (
-        <>
-            <div className="cart-produto-container">
+        <div className="cart-produto-container">
+            <Link to={{ pathname: `/produto/${produto.id.product_id}` }}>
                 <div className="product-container">
                     <img className="cart-produto-image" src={produto.id.img_url} alt="" />
                     <div className="cart-produto-info">
@@ -19,15 +20,14 @@ const CardProduto = ({ produto, onRemove }) => {
                         <div className='cart-produto-price'>R${(produto.id.actual_price).toFixed(2).replace('.', ',')}</div>
                     </div>
                 </div>
-                <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
-                <div className="quantity-control-container">
-                    <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id, produto.size)}>-</button>
-                    {produto.qtd && <span className="quantity-number">{produto.qtd}</span>}
-                    <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
-                </div>
-
+            </Link>
+            <button className="cart-produto-remove" onClick={() => onRemove(produto.id, produto.size)}>✖</button>
+            <div className="quantity-control-container">
+                <button className="decrease-quantity-btn" onClick={() => decreaseProductsCart(produto.id, produto.size)}>-</button>
+                {produto.qtd && <span className="quantity-number">{produto.qtd}</span>}
+                <button className="increase-quantity-btn" onClick={() => increaseProductsCart(produto.id, produto.size)}>+</button>
             </div>
-        </>
+        </div>
     );
 }
 

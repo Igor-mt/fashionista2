@@ -42,11 +42,27 @@ router.route('/categorias/:categoria')
             res.json(produtos)
         } catch (e) {
             res.status(404).json({
-                message: "Ocorreu um erro ao encontrar todos produtos.",
+                message: "Ocorreu um erro ao encontrar os produtos pelo nome da categoria..",
                 Erro: e.message
             })
         }
     })
+
+// Buscar produtos por id da categoria
+router.route('/categoria/:categoriaId')
+    .get(async (req, res) => {
+        const categoryId = req.params.categoriaId
+        try {
+            const produtos = await productsData.getProductsByCategoryId(categoryId)
+            res.json(produtos)
+        } catch (e) {
+            res.status(404).json({
+                message: "Ocorreu um erro ao encontrar os produtos pelo id da categoria.",
+                Erro: e.message
+            })
+        }
+    })
+
 
 // Buscar produtos em promoção
 router.route('/promocao/produtos')
@@ -95,7 +111,7 @@ router.route('/novidades/produtos/')
 // Buscar id da variação do produto pelo id do produto e tamanho
 router.route('/productvariationid/:productId/:size')
     .get(async (req, res) => {
-        const {productId, size} = req.params
+        const { productId, size } = req.params
 
         try {
             const productVariationId = await productsData.getProductVariationId(productId, size)

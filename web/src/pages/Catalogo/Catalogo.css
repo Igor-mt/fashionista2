@@ -9,15 +9,10 @@ a{
     color: inherit;
 }
 
-.catalogue-container{
-    padding-top: 4rem;
-}
-
 @media screen and (min-width: 1024px){
     .catalogue-container{
     flex-direction: row;
-    padding-top: 6rem;
-}
+    }
 }
 
 .filterContainer {
@@ -50,7 +45,7 @@ a{
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 140px;
+    width: 8.75rem;
 }
 
 .filterOption:hover{
@@ -61,8 +56,8 @@ a{
 
 .produtos{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    width: 880px;
+    grid-template-columns: repeat(auto-fit, minmax(13.75rem, auto));
+    width: 55rem;
     margin: 3rem 0;
     gap: 1rem;
 }

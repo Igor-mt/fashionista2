@@ -5,6 +5,7 @@
     width: 100%;
     position: relative;
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .carousel{
@@ -12,7 +13,8 @@
 }
 
 .swiper-wrapper{
-    gap: 2rem;
+    gap:4rem;
+    margin-bottom: 3rem;
 }
 
 @media screen and (max-width: 1024px){
@@ -27,7 +29,7 @@
     }
 
     .swiper-wrapper{
-        margin-bottom: 3rem;
+        gap:1rem;
     }
 }
 
@@ -46,7 +48,24 @@
 }
 
 .carousel-btn-next{
-    left: auto;
-    right: 10%;
-    bottom: -26.5%;
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+}
+
+@media screen and (min-width: 1600px) {
+.swiper-wrapper{
+    gap:1rem;
+}
+}
+
+@media screen and (min-width: 1920px) {
+    .swiper-wrapper{
+        gap:0;
+    }
+    }
+
+.swiper-button-prev, .swiper-button-next{
+    color: #fff;
+    filter: drop-shadow(5px 5px 10px #000);
 }
