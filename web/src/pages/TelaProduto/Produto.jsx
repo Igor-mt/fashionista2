@@ -12,12 +12,13 @@ import './Produto.css'
 import { CartContext } from '../../context/cart'
 import { WishlistContext } from '../../context/wishlist'
 
-import ProdutoComponent from "../../components/Produto/Produto";
+import ProdutoComponent from "../../components/Produto/ProdutoComponent";
 import CarouselCard from "../../components/Carousel/CarouselCard";
 import Titulo from '../../components/Titulo/Titulo'
 
 const Produto = () => {
   const params = useParams()
+
   const [product, setProduct] = useState([])
   const [relatedProducts, setRelatedProducts] = useState([])
 
@@ -29,25 +30,31 @@ const Produto = () => {
     addProductToWishlist,
   } = useContext(WishlistContext);
 
-  useEffect(() => {
-    axios
+  const fetchData = async () => {
+    await axios
       .get(`http://localhost:5450/produtos/${params.id}`)
       .then((res) => {
         setProduct(res.data);
-        return res.data
       })
-      .then(async (product) => {
-        await axios.get(`http://localhost:5450/categoria/${product[0].category_id}`)
-          .then(res => setRelatedProducts(res.data))
-      })
-  }, [])
+      .then(() => {
+        axios
+          .get(`http://localhost:5450/categoria/${product[0]?.category_id}`)
+          .then(res => setRelatedProducts(res.data)
+          )
+      }
+      )
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [product])
 
   const filteredRelatedProducts = relatedProducts.filter(product => product.product_id !== params.id)
 
   const isMobile = window.innerWidth <= 1024
 
   return (
-    <div className="main-container">
+    <main className="product-page-container">
       {product.map(produto => <ProdutoComponent
         key={produto.product_id}
         item={produto}
@@ -93,7 +100,7 @@ const Produto = () => {
           )}
         </Swiper>
       </div>
-    </div >
+    </main>
   )
 }
 

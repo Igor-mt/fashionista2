@@ -1,3 +1,7 @@
+.product-page-container{
+    flex-direction: column;
+}
+
 .carousel-container{
     display: flex;
     justify-content: center;
@@ -26,6 +30,22 @@
 
     .carousel{
         width: 100%
+    }
+
+    .swiper-wrapper{
+        gap:1rem;
+    }
+}
+
+@media screen and (max-width: 1600px){
+    .carousel-container{
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        padding: 0 1rem;
+    }
+
+    .carousel{
+        width: 90%
     }
 
     .swiper-wrapper{

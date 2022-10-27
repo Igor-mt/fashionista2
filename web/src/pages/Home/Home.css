@@ -3,6 +3,10 @@ a{
     text-decoration: none;
 }
 
+.home-container{
+    flex-direction: column;
+}
+
 @media (height: 720px) and (width: 1280px){
     .container-banner{
         margin-top: 5rem
@@ -278,6 +282,10 @@ a{
 }
 
 @media screen and (max-width: 767px) {
+    .novidades{
+        width: 100%;
+    }
+
     .container-novidades {
         background-color: rgb(46, 46, 46);
         color: #fff;
@@ -286,6 +294,7 @@ a{
         justify-content: flex-start;
         align-items: center;
         gap: 3rem;
+        width: 100%;
     }
 
     .novidades-title {
@@ -309,7 +318,7 @@ a{
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        gap: 3rem;
+        gap: 7rem;
         margin-bottom: 10rem;
     }
 }
@@ -425,8 +434,9 @@ a{
         display: grid;
         width: 100%;
         grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 3rem;
+        grid-row-gap: 7rem;
         justify-items: center;
+        padding-bottom: 6rem;
     }
 }
 

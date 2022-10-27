@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Titulo from '../../Titulo/Titulo'
-import WishlistCardProduto from '../../Wishlist/WishlistCardProduto/WishlistCardProduto'
+import WishlistCardProduto from '../../CardProduto/CardProduto'
 
 const WishlistComponent = ({wishlist}) => {
     return (
@@ -12,6 +12,7 @@ const WishlistComponent = ({wishlist}) => {
                     return <WishlistCardProduto
                         key={item.id.product_id}
                         produto={item.id}
+                        wishList
                     />
                 })}
             </div>

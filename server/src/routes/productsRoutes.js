@@ -18,7 +18,7 @@ router.route('/produtos')
         }
     })
 
-// Buscar produtos por id
+// Buscar produto por id
 router.route('/produtos/:id')
     .get(async (req, res) => {
         const produtoId = req.params.id;

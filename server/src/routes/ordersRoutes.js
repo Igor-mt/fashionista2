@@ -24,15 +24,15 @@ router.route('/pedidos')
     })
 
 
-// Buscar itens do pedido por ID e inserir itens no pedido
+// Buscar itens do pedido por ID do Pedido
 
 router.route('/pedido/:id/items')
     .get(async (req, res) => {
         const orderId = req.params.id
 
         try {
-            orderData.getOrderItemsByOrderId(orderId)
-            res.status(201).json({ messagem: "Produtos do pedido retornados com sucesso!" })
+            const orderItems = await orderData.getOrderItemsByOrderId(orderId)
+            res.status(201).json(orderItems)
         } catch (e) {
             res.status(422).json({
                 message: "Ocorreu um erro ao encontrar os itens do pedido.",

@@ -21,7 +21,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="main-container">
+    <main className="home-container">
       <div className="container-banner">
         <div className="container-banner-text">
           <h1>
@@ -134,7 +134,7 @@ const Home = () => {
             />
           ))}
         </div>
-      </div>    </div>
+      </div>    </main>
   );
 };
 

@@ -16,7 +16,6 @@ main{
 
 .main-container {
     display: flex;
-    flex-direction: column;
     min-height: 85vh;
     background: #e6e6e6;
     background-image: url('.././public/assets/img/background-image.svg');

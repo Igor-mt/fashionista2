@@ -4,7 +4,6 @@ import { useParams } from "react-router"
 import axios from 'axios'
 
 import "./Catalogo.css"
-import "./Mobile-catalogo.css"
 
 import ProdutoCatalogo from "../../components/Catalogo/ProdutoCatalogo/ProdutoCatalogo"
 import Aviso from '../../components/Aviso/Aviso'

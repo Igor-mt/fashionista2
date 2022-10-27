@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Button/Button";
 import Titulo from "../../components/Titulo/Titulo";
-import CardProduto from "../../components/CardProduto/CardProduto";
+import CardProduto from "../../components/CardProdutoCart/CardProduto";
 import { EmptyCart, Icon } from "../../components/ShoppingCart/styles";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
 import Select from "../../components/Form/Select/Select";

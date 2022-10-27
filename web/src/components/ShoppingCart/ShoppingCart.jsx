@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Wrapper, CartCount, Icon, SideBar, EmptyCart, SideBarTitle, SideBarTotal, ClearCartBtn } from './styles'
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-import CardProduto from '../CardProduto/CardProduto'
+import CardProduto from '../CardProdutoCart/CardProduto'
 
 import './ShoppingCart.css'
 

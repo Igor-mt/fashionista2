@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./Produto.css"
+import "./ProdutoComponent.css"
 
 const Produto = ({ item, onAddToCart, onAddToWishList }) => {
   const [size, setSize] = useState('M')
@@ -9,7 +9,6 @@ const Produto = ({ item, onAddToCart, onAddToWishList }) => {
 
   const { img_url, name, regular_price, actual_price, color, installments, onSale } = item;
   const installment = (Number(actual_price) / installments).toFixed(2)
-
   return (
     <>
       <div className="productContainer">

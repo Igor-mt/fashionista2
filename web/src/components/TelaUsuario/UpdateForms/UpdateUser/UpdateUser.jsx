@@ -60,7 +60,7 @@ const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
                             name="birthdate"
                             placeholder="Nascimento"
                             required
-                            value={infoUser?.birth}
+                            defaultValue={infoUser?.birth}
                         />
                         <Input
                             title="Telefone"
