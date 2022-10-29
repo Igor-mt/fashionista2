@@ -64,7 +64,6 @@ router.route('/pedidos/:id')
 
         try {
             const orderId = await orderData.createOrder(orderInfo, customerID)
-            
             for (let product of orderInfo.products) {
                 await orderData.setOrderItems(orderId.order_id, product)
                 const productVariationId = await productsData.getProductVariationId(product.id.product_id, product.size)
@@ -72,8 +71,7 @@ router.route('/pedidos/:id')
             }
             const customer = await userData.getUserInfoByUserId(customerID)
             const order = await orderData.getOrderById(orderId.order_id)
-
-            twilio.sendOrderNotification(customer,order)
+            twilio.sendOrderNotification(customer, order)
 
             res.status(201).json({ message: "Pedido criado com sucesso!" })
         } catch (e) {

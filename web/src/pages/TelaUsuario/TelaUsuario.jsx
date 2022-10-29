@@ -78,7 +78,7 @@ const TelaUsuario = () => {
       setSuccessfulUpdate(true)
     } catch (e) {
       console.log(e);
-      alert('Ocorreu um erro ao criar o usuário.')
+      alert('Ocorreu um erro ao atualizar os dados do usuário.')
     }
   }
 

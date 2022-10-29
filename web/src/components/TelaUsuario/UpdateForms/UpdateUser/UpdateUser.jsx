@@ -9,6 +9,8 @@ import Titulo from '../../../Titulo/Titulo'
 import AvisoValidacao from '../../../AvisoValidacao/AvisoValidacao'
 
 const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
+    const userName = infoUser.name.split(" ")
+
     return (
         <>
             <div className="update-container">
@@ -21,7 +23,7 @@ const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
                             name="name"
                             placeholder="Nome"
                             required
-                            value={infoUser?.name}
+                            defaultValue={userName[0]}
                         />
 
                         <div className="sobrenomeESexo__container">
@@ -31,6 +33,7 @@ const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
                                 name="surname"
                                 placeholder="Sobrenome"
                                 required
+                                defaultValue={userName[1]}
                             />
 
                             <div className="sexo-container">
@@ -51,7 +54,7 @@ const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
                             name="cpf"
                             placeholder="CPF"
                             required
-                            value={infoUser?.cpf}
+                            defaultValue={infoUser?.cpf}
                         />
 
                         <Input
@@ -70,7 +73,7 @@ const UpdateUser = ({ onSubmit, genderList, successfulUpdate, infoUser }) => {
                             pattern="\d*"
                             maxLenght={11}
                             required
-                            value={infoUser?.phone}
+                            defaultValue={infoUser?.phone}
                         />
                     </div>
                     {successfulUpdate && <h1 className='success-warning'>Dados atualizados com sucesso!</h1>}

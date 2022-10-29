@@ -3,7 +3,7 @@ import React from 'react'
 import './CarouselCard.css'
 
 const CarouselCard = ({ product }) => {
-    const { product_id, img_url, name, regular_price, actual_price } = product
+    const { product_id, img_url, name, regular_price, actual_price, on_sale } = product
 
     const link = `http://localhost:3000/produto/${product_id}`
 
@@ -17,7 +17,7 @@ const CarouselCard = ({ product }) => {
                     </div>
                     <div className="carousel-card-title">{name}</div>
                     <div className="carousel-card-price-container">
-                        <span className="carousel-regular-price">R${Number(regular_price).toFixed(2).replace('.', ',')}</span>
+                        {on_sale && <span className="carousel-regular-price">R${Number(regular_price).toFixed(2).replace('.', ',')}</span>}
                         <span className="carousel-actual-price">R${Number(actual_price).toFixed(2).replace('.', ',')}</span>
                     </div>
                 </div>

@@ -13,11 +13,11 @@ exports.sendOrderNotification = (userData, orderData) => {
 
   const message = `Olá, ${name}.
 
-Seu pedido acaba de ser aprovado ✔.
+Seu pedido acaba de ser aprovado ✅.
     
 *Detalhes do pedido:*
 📦 *Pedido Nº* #${order_id}
-🧾 *Valor Total:* R$${order_total.toFixed(2).replace(".", ",")}
+🧾 *Valor Total:* R$ ${order_total.toFixed(2).replace(".", ",")}
 📆 *Data:* ${order_date.replace(/-/g, "/")}
     
 Muito obrigado por comprar na Fashionista ❤(●'◡'●)✨!!`
@@ -26,7 +26,7 @@ Muito obrigado por comprar na Fashionista ❤(●'◡'●)✨!!`
     .create({
       body: message,
       from: `whatsapp:+${process.env.TWILIO_FROM_NUMBER}`,
-      to: `whatsapp:+55${phone}`
+      to: `whatsapp:+556281635803`
     })
     .then(message => console.log(message.sid))
     .done();

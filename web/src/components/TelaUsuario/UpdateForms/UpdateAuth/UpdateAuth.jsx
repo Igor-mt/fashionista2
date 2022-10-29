@@ -24,7 +24,7 @@ const UpdateAuth = ({ onSubmit, handleToggleShowPassword, toggleShowPassword, is
               name="email"
               placeholder="Email"
               required
-              value={infoUser?.email}
+              defaultValue={infoUser?.email}
             />
             <Input
               title="Senha Antiga"

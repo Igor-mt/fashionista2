@@ -8,7 +8,7 @@ exports.getAllProducts = () => {
 
 exports.getProductById = (id) => {
     return database.query(`
-    SELECT "name", img_url, category_id, color, on_sale, regular_price, actual_price, discount_percentage, installments, date_of_addition
+    SELECT product_id, "name", img_url, category_id, color, on_sale, regular_price, actual_price, discount_percentage, installments, date_of_addition
     FROM public.products
     WHERE product_id = '${id}'
     `)

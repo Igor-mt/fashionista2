@@ -43,7 +43,7 @@ exports.createNewUser = (userData, hashPassword) => {
 }
 
 exports.updateUserAccountInfo = (userData) => {
-    const {name, gender_id, cpf, birth, phone} = userData
+    const {name, gender_id, cpf, birth, phone, customer_id} = userData
 
     return database.none(`
     UPDATE public.customers
