@@ -34,7 +34,7 @@ const TelaCheckout = () => {
   useEffect(() => {
     const getInfoUserById = async () => {
       if (userId) {
-        await axios.get(`https://fashionista-hackadev.netlify.app/user/${userId}`)
+        await axios.get(`https://fashionista-ecommerce.herokuapp.com/user/${userId}`)
           .then(res => setInfoUser(res.data))
           .catch(function (error) {
             console.log(error.response)
@@ -69,7 +69,7 @@ const TelaCheckout = () => {
     };
 
     try {
-      await axios.post(`https://fashionista-hackadev.netlify.app/pedidos/${userId}`, {
+      await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         order_total: totalPrice,
         products: productsCart

@@ -32,13 +32,13 @@ const Produto = () => {
 
   const fetchData = async () => {
     await axios
-      .get(`https://fashionista-hackadev.netlify.app/produtos/${params.id}`)
+      .get(`https://fashionista-ecommerce.herokuapp.com/produtos/${params.id}`)
       .then((res) => {
         setProduct(res.data);
       })
       .then(() => {
         axios
-          .get(`https://fashionista-hackadev.netlify.app/categoria/${product[0]?.category_id}`)
+          .get(`https://fashionista-ecommerce.herokuapp.com/categoria/${product[0]?.category_id}`)
           .then(res => setRelatedProducts(res.data)
           )
       }
