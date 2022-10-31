@@ -15,7 +15,7 @@ const TelaPedido = () => {
 
 
   useEffect(() => {
-    axios.get(`https://fashionista-hackadev.netlify.app/pedido/${orderId}/items`)
+    axios.get(`https://fashionista-ecommerce.herokuapp.com/pedido/${orderId}/items`)
       .then(res => setOrderItems(res.data))
   }, [orderId])
 

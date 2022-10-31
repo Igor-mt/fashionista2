@@ -30,7 +30,7 @@ const TelaUsuario = () => {
   useEffect(() => {
     const getInfoUserById = async () => {
       if (userId) {
-        await axios.get(`https://fashionista-hackadev.netlify.app/user/${userId}`)
+        await axios.get(`https://fashionista-ecommerce.herokuapp.com/user/${userId}`)
           .then(res => setInfoUser(res.data))
           .catch(function (error) {
             console.log(error.response)
@@ -44,7 +44,7 @@ const TelaUsuario = () => {
   }, [userId]);
 
   useEffect(() => {
-    axios.get(`https://fashionista-hackadev.netlify.app/${userId}/pedidos`)
+    axios.get(`https://fashionista-ecommerce.herokuapp.com/${userId}/pedidos`)
       .then(res => setOrders(res.data))
   }, [userId])
 
@@ -67,7 +67,7 @@ const TelaUsuario = () => {
     axios.defaults.withCredentials = true;
 
     try {
-      await axios.put(`https://fashionista-hackadev.netlify.app/update/user/account`, {
+      await axios.put(`https://fashionista-ecommerce.herokuapp.com/update/user/account`, {
         customer_id: userId,
         name: data.name + " " + data.surname,
         gender_id: genderId,
@@ -91,7 +91,7 @@ const TelaUsuario = () => {
     axios.defaults.withCredentials = true;
 
     try {
-      await axios.put(`https://fashionista-hackadev.netlify.app/update/user/address`, {
+      await axios.put(`https://fashionista-ecommerce.herokuapp.com/update/user/address`, {
         customer_id: userId,
         cep: data.cep,
         address: data.address + data.complement,
@@ -121,7 +121,7 @@ const TelaUsuario = () => {
         return
       }
       try {
-        await axios.post(`https://fashionista-hackadev.netlify.app/login`, {
+        await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
           email: data.email,
           password: data.oldPassword
         })
@@ -130,7 +130,7 @@ const TelaUsuario = () => {
         return
       }
 
-      await axios.put(`https://fashionista-hackadev.netlify.app/update/user/auth`, {
+      await axios.put(`https://fashionista-ecommerce.herokuapp.com/update/user/auth`, {
         customer_id: userId,
         email: data.email,
         password: data.newPassword

@@ -115,7 +115,7 @@ const TelaLogin = () => {
         return
       }
 
-      await axios.post(`https://fashionista-hackadev.netlify.app/cadastro`, {
+      await axios.post(`https://fashionista-ecommerce.herokuapp.com/cadastro`, {
         name: data.name + " " + data.surname,
         gender_id: genderId,
         email: data.email,
@@ -131,7 +131,7 @@ const TelaLogin = () => {
         uf: data.uf
       })
       alert("Usuário criado com sucesso!")
-      const response = await axios.post(`https://fashionista-hackadev.netlify.app/login`, {
+      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
         email: data.email,
         password: data.password
       })
@@ -152,7 +152,7 @@ const TelaLogin = () => {
     const data = Object.fromEntries(formData)
 
     try {
-      const response = await axios.post(`https://fashionista-hackadev.netlify.app/login`, {
+      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
         email: data.email,
         password: data.password
       })
