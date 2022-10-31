@@ -1,0 +1,11 @@
+.select-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.select-component{
+    height: 2rem;
+    margin: 0.3125rem 0;
+    padding: 0 0.625rem;
+    border-radius: 5px;
+}

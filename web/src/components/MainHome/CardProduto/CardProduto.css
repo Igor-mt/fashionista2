@@ -21,6 +21,8 @@
     }
 
     .informacao-produto {
+        position: absolute;
+        top: 90%;
         display: flex;
         flex-direction: column;
         gap: 0.4rem;

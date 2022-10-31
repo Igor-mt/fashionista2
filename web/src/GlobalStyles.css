@@ -1,4 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    min-height: 85vh;
+    background: #e6e6e6;
+    background-image: url('.././public/assets/img/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom 0;
+    background-size: 100%; 
+}
+
 .main-container {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    min-height: 85vh;
+    background: #e6e6e6;
+    background-image: url('.././public/assets/img/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom 0;
+    background-size: 100%; 
 }

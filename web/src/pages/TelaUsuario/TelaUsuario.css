@@ -1,69 +1,122 @@
 .user-main-container{
     display: flex;
-    flex-direction: column;
-    flex: 1;
     align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    min-height: 60vh;
-    padding-top: 2rem;
+    justify-content: space-between;
+    min-height: 80vh;
+    width: 100%;
+    position: relative;
 }
 
-.orders-container{
+.user-menu-container{
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    gap: 1rem;
+    background: rgb(46, 46, 46);
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.2);
+    width: 15%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.user-menu-btn{
+    font-family: 'Poppins';
+    width: 100%;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.4rem 0.3rem;
+    font-size: 14px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.user-menu-btn:hover{
+    transform: scale(1.05);
+    color: #f9004d;
+}
+
+.content-container{
+    display: flex;
+    width: 85%;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
 }
 
-.orders{
+.update-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.wishlist-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 1rem;
+    grid-template-columns: repeat(2, 40%);
+    grid-template-rows: repeat(1, auto);
     grid-row-gap: 1rem;
-    padding: 1rem;
-}
-
-.no-orders-container{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.no-orders-title{
-    font-size: 1rem;
-}
-
-.divider{
-    border-right: 1px solid #000;
-    height: 100%;
-}
-
-.wish-list-container{
-    display: flex;
-    flex: 1;
-    height: 110%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.user-main-container button{
-    width: 40%;
+    grid-column-gap: 1rem;
+    padding: 0 2rem ;
+    justify-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1024px){
     .user-main-container{
         display: flex;
         flex-direction: column;
-        flex: 1;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 80vh;
+        width: 100%;
+    }
+    
+    .user-menu-container{
+        display: flex;
+        margin-top: 6rem;
         align-items: center;
         justify-content: center;
+        gap: 1rem;
+        background: rgb(46, 46, 46);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .user-main-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 3rem;
         min-height: 60vh;
         padding-top: 0rem;
     }    
+
+    .user-menu-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: rgb(46, 46, 46);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .update-container{
+        margin-bottom: 2rem;
+    }
+
+    .update__form--container{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
     .orders{
         display: grid;
@@ -72,7 +125,14 @@
         padding: 1rem;
     }
 
-    .user-main-container button{
-        width: 100%;
+    .wishlist-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 1rem;
+        grid-column-gap: 1rem;
+        padding: 0 2rem ;
+        justify-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
     }
 }

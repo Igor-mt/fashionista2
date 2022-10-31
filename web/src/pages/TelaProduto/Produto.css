@@ -1,0 +1,91 @@
+.product-page-container{
+    flex-direction: column;
+}
+
+.carousel-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.carousel{
+    width: 70%
+}
+
+.swiper-wrapper{
+    gap:4rem;
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 1024px){
+    .carousel-container{
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        padding: 0 1rem;
+    }
+
+    .carousel{
+        width: 100%
+    }
+
+    .swiper-wrapper{
+        gap:1rem;
+    }
+}
+
+@media screen and (max-width: 1600px){
+    .carousel-container{
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        padding: 0 1rem;
+    }
+
+    .carousel{
+        width: 90%
+    }
+
+    .swiper-wrapper{
+        gap:1rem;
+    }
+}
+
+.carousel-btn-prev, .carousel-btn-next{
+    width: 50px;
+    height: 50px;
+    color: rgb(46, 46, 46);
+    position: absolute;
+    cursor: pointer;
+}
+
+.carousel-btn-prev{
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+}
+
+.carousel-btn-next{
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+}
+
+@media screen and (min-width: 1600px) {
+.swiper-wrapper{
+    gap:1rem;
+}
+}
+
+@media screen and (min-width: 1920px) {
+    .swiper-wrapper{
+        gap:0;
+    }
+    }
+
+.swiper-button-prev, .swiper-button-next{
+    color: #fff;
+    filter: drop-shadow(5px 5px 10px #000);
+}

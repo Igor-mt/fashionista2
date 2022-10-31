@@ -4,7 +4,6 @@ import { useParams } from "react-router"
 import axios from 'axios'
 
 import "./Catalogo.css"
-import "./Mobile-catalogo.css"
 
 import ProdutoCatalogo from "../../components/Catalogo/ProdutoCatalogo/ProdutoCatalogo"
 import Aviso from '../../components/Aviso/Aviso'
@@ -18,30 +17,28 @@ const Catalogo = () => {
     const [toggleFilterSubOptions, setToggleFilterSubOptions] = useState(false)
     const [products, setProducts] = useState([])
     const [searchProducts, setSearchProducts] = useState([])
-    const [filterOption, setFilterOption] = useState('')
 
     const handleToggleSubOptions = () => {
         !toggleFilterSubOptions ? setToggleFilterSubOptions(true) : setToggleFilterSubOptions(false)
     }
 
-    // eslint-disable-next-line no-unused-vars
-    let filteredProducts = []
+    const handleFilterOption = async (event) => {
+        const filterValue = event.target.value
 
-    const handleFilterOption = (event) => {
-        setFilterOption(event.target.value)
-        filteredProducts = products.filter(product => product.color === filterOption)
+        setProducts(products.filter(product => product.color === filterValue))
     }
+
 
     const filterOptions = ['Cor']
 
     if (category === 'Masculino' || category === 'Feminino' || category === 'Infantil') {
         useEffect(() => {
-            axios.get(`https://fashionista-ecommerce.herokuapp.com/categorias/${category}`)
+            axios.get(`https://fashionista-hackadev.netlify.app/categorias/${category}`)
                 .then(res => setProducts(res.data))
         }, [category])
 
         return (
-            <main>
+            <div className='main-container catalogue-container'>
                 <div className="filterContainer">
                     <h2 className='filterTitle'>Filtros</h2>
                     <div className="filterOptions">
@@ -71,16 +68,16 @@ const Catalogo = () => {
                     ))
                     }
                 </div>
-            </main>
+            </div>
         );
     } else if (category === 'Promocoes') {
         useEffect(() => {
-            axios.get('https://fashionista-ecommerce.herokuapp.com/promocao/produtos')
+            axios.get('https://fashionista-hackadev.netlify.app/promocao/produtos')
                 .then(res => setProducts(res.data))
         }, [category])
 
         return (
-            <main>
+            <div className='main-container catalogue-container'>
                 <div className="filterContainer">
                     <h2 className='filterTitle'>Filtros</h2>
                     <div className="filterOptions">
@@ -110,17 +107,17 @@ const Catalogo = () => {
                     ))
                     }
                 </div>
-            </main>
+            </div>
         )
     } else {
         useEffect(() => {
-            axios.get(`https://fashionista-ecommerce.herokuapp.com/pesquisa/produtos/${category}`)
+            axios.get(`https://fashionista-hackadev.netlify.app/pesquisa/produtos/${category}`)
                 .then(res => setSearchProducts(res.data))
         }, [category])
 
         if (searchProducts.length > 0) {
             return (
-                <main>
+                <div className='main-container catalogue-container'>
                     <div className="filterContainer">
                         <h2 className='filterTitle'>Filtros</h2>
                         <div className="filterOptions">
@@ -151,7 +148,7 @@ const Catalogo = () => {
                         ))
                         }
                     </div>
-                </main>
+                </div>
             )
         } else {
             return (

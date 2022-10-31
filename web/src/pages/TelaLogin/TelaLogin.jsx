@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie'
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import cep from 'cep-promise'
 
 import "./TelaLogin.css";
 import "./Mobile-telaLogin.css"
@@ -10,13 +14,19 @@ import Input from "../../components/Form/Input/Input";
 import Titulo from "../../components/Titulo/Titulo";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
 import Warning from '../../components/Form/Warning/Warning';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import AvisoValidacao from '../../components/AvisoValidacao/AvisoValidacao';
+import Select from '../../components/Form/Select/Select';
 
 const TelaLogin = () => {
   const [validatedUser, setValidatedUser] = useState(true)
   const [toggleShowPassword, setToggleShowPassword] = useState(false)
+  const [isPasswordLenghtValid, setIsPasswordLenghtValid] = useState(true)
+  const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true)
+
+  const [addressValue, setAddressValue] = useState('')
+  const [districtValue, setDistrictValue] = useState('')
+  const [cityValue, setCityValue] = useState('')
+  const [ufValue, setUfValue] = useState('')
 
   const handleToggleShowPassword = () => {
     if (toggleShowPassword) {
@@ -27,33 +37,33 @@ const TelaLogin = () => {
   }
 
   const estados = [
-    { nome: "Acre", sigla: "AC" },
-    { nome: "Alagoas", sigla: "AL" },
-    { nome: "Amapá", sigla: "AP" },
-    { nome: "Amazonas", sigla: "AM" },
-    { nome: "Bahia", sigla: "BA" },
-    { nome: "Ceará", sigla: "CE" },
-    { nome: "Distrito Federal", sigla: "DF" },
-    { nome: "Espírito Santo", sigla: "ES" },
-    { nome: "Goiás", sigla: "GO" },
-    { nome: "Maranhão", sigla: "MA" },
-    { nome: "Mato Grosso", sigla: "MT" },
-    { nome: "Mato Grosso do Sul", sigla: "MS" },
-    { nome: "Minas Gerais", sigla: "MG" },
-    { nome: "Pará", sigla: "PA" },
-    { nome: "Paraíba", sigla: "PB" },
-    { nome: "Paraná", sigla: "PR" },
-    { nome: "Pernambuco", sigla: "PE" },
-    { nome: "Piauí", sigla: "PI" },
-    { nome: "Rio de Janeiro", sigla: "RJ" },
-    { nome: "Rio Grande do Norte", sigla: "RN" },
-    { nome: "Rio Grande do Sul", sigla: "RS" },
-    { nome: "Rondônia", sigla: "RO" },
-    { nome: "Roraima", sigla: "RR" },
-    { nome: "Santa Catarina", sigla: "SC" },
-    { nome: "São Paulo", sigla: "SP" },
-    { nome: "Sergipe", sigla: "SE" },
-    { nome: "Tocantins", sigla: "TO" },
+    { sigla: "AC" },
+    { sigla: "AL" },
+    { sigla: "AP" },
+    { sigla: "AM" },
+    { sigla: "BA" },
+    { sigla: "CE" },
+    { sigla: "DF" },
+    { sigla: "ES" },
+    { sigla: "GO" },
+    { sigla: "MA" },
+    { sigla: "MT" },
+    { sigla: "MS" },
+    { sigla: "MG" },
+    { sigla: "PA" },
+    { sigla: "PB" },
+    { sigla: "PR" },
+    { sigla: "PE" },
+    { sigla: "PI" },
+    { sigla: "RJ" },
+    { sigla: "RN" },
+    { sigla: "RS" },
+    { sigla: "RO" },
+    { sigla: "RR" },
+    { sigla: "SC" },
+    { sigla: "SP" },
+    { sigla: "SE" },
+    { sigla: "TO" },
   ];
 
   const generos = [
@@ -61,6 +71,20 @@ const TelaLogin = () => {
     { id: "2", nome: "Feminino" },
     { id: "3", nome: "Prefiro Não Informar" },
   ];
+
+  const handleCep = async (event) => {
+    event.preventDefault();
+
+    const cepValue = event.target.value
+
+    await cep(cepValue)
+      .then((res) => {
+        setAddressValue(res.street)
+        setDistrictValue(res.neighborhood)
+        setCityValue(res.city)
+        setUfValue(res.state)
+      })
+  }
 
   const handleCreateUser = async (event) => {
     event.preventDefault();
@@ -78,14 +102,20 @@ const TelaLogin = () => {
       genderId = '6d6655f6-57de-4b87-8f26-1eaf5f0d4a48'
     }
 
-    if (data.password !== data.confirm_password) alert('As senhas não são iguais.')
-
-    if (data.password.length < 6) alert('A senha precisa ter mais que 6 caracteres.')
-
     axios.defaults.withCredentials = true;
 
     try {
-      axios.post(`https://fashionista-ecommerce.herokuapp.com/cadastro`, {
+      if (data.password !== data.confirm_password) {
+        setIsConfirmPasswordValid(false)
+        return
+      }
+
+      if (data.password.length < 6) {
+        setIsPasswordLenghtValid(false)
+        return
+      }
+
+      await axios.post(`https://fashionista-hackadev.netlify.app/cadastro`, {
         name: data.name + " " + data.surname,
         gender_id: genderId,
         email: data.email,
@@ -101,6 +131,14 @@ const TelaLogin = () => {
         uf: data.uf
       })
       alert("Usuário criado com sucesso!")
+      const response = await axios.post(`https://fashionista-hackadev.netlify.app/login`, {
+        email: data.email,
+        password: data.password
+      })
+      alert("Usuário logado com sucesso!!")
+      Cookies.set('authToken', response.data.loginToken)
+      Cookies.set('user_id', response.data.user_id)
+      window.location.reload()
     } catch (e) {
       console.log(e);
       alert('Ocorreu um erro ao criar o usuário.')
@@ -114,14 +152,14 @@ const TelaLogin = () => {
     const data = Object.fromEntries(formData)
 
     try {
-      const response = await axios.post(`https://fashionista-ecommerce.herokuapp.com/login`, {
+      const response = await axios.post(`https://fashionista-hackadev.netlify.app/login`, {
         email: data.email,
         password: data.password
       })
       if (!response.data.user_id) setValidatedUser(false)
       alert("Usuário logado com sucesso!!")
-      Cookies.set('user_id', response.data.user_id)
       Cookies.set('authToken', response.data.loginToken)
+      Cookies.set('user_id', response.data.user_id)
       window.location.reload()
     } catch (e) {
       alert('Ocorreu um erro ao validar o usuário.')
@@ -140,13 +178,15 @@ const TelaLogin = () => {
                 type="text"
                 name="email"
                 placeholder="Email"
+                required
               />
               <div className="password-container">
                 <Input
                   title="Senha"
                   type={toggleShowPassword ? "text" : "password"}
                   name="password"
-                  placeholder="Senha"
+                  placeholder={toggleShowPassword ? "Senha" : "******"}
+                  required
                 />
                 <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /></Button>
               </div>
@@ -170,6 +210,7 @@ const TelaLogin = () => {
                   type="text"
                   name="name"
                   placeholder="Nome"
+                  required
                 />
 
                 <div className="sobrenomeESexo__container">
@@ -178,20 +219,12 @@ const TelaLogin = () => {
                     type="text"
                     name="surname"
                     placeholder="Sobrenome"
+                    required
                   />
 
                   <div className="sexo-container">
                     <span>Sexo</span>
-                    <select name="gender" id="sexo" className="selected">
-                      <option selected disabled>
-                        Sexo
-                      </option>
-                      {generos.map((genero) => (
-                        <option key={genero.id} value={genero.nome}>
-                          {genero.nome}
-                        </option>
-                      ))}
-                    </select>
+                    <Select name="gender" id="sexo" required={true} itens={generos} placeholder="Sexo" />
                   </div>
                 </div>
 
@@ -200,6 +233,7 @@ const TelaLogin = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
 
                 <Input
@@ -207,6 +241,7 @@ const TelaLogin = () => {
                   type="text"
                   name="cpf"
                   placeholder="CPF"
+                  required
                 />
 
                 <Input
@@ -214,6 +249,7 @@ const TelaLogin = () => {
                   type="date"
                   name="birthdate"
                   placeholder="Nascimento"
+                  required
                 />
 
                 <div className="password-container-register">
@@ -221,16 +257,18 @@ const TelaLogin = () => {
                     title="Senha"
                     type={toggleShowPassword ? "text" : "password"}
                     name="password"
-                    placeholder="Senha"
+                    placeholder={toggleShowPassword ? "Senha" : "******"}
+                    required
                   />
                   <Button type="button" onClick={handleToggleShowPassword}><FontAwesomeIcon icon={faEye} /></Button>
                 </div>
 
                 <Input
                   title="Confirmar Senha"
-                  type="password"
+                  type={toggleShowPassword ? "text" : "password"}
                   name="confirm_password"
-                  placeholder="******"
+                  placeholder={toggleShowPassword ? "Senha" : "******"}
+                  required
                 />
               </div>
 
@@ -239,9 +277,10 @@ const TelaLogin = () => {
                   title="Telefone"
                   type="text"
                   name="phone"
-                  placeholder="62 99999-8888"
+                  placeholder="62 9999-8888"
                   pattern="\d*"
                   maxLenght={11}
+                  required
                 />
 
                 <Input
@@ -251,6 +290,8 @@ const TelaLogin = () => {
                   placeholder="12345678"
                   pattern="\d*"
                   maxLenght={8}
+                  required
+                  onBlur={handleCep}
                 />
 
                 <Input
@@ -258,6 +299,10 @@ const TelaLogin = () => {
                   type="text"
                   name="address"
                   placeholder="Rua"
+                  id="address"
+                  value={addressValue}
+                  defaultValue=""
+                  required
                 />
 
                 <Input
@@ -265,13 +310,17 @@ const TelaLogin = () => {
                   type="text"
                   name="address_number"
                   placeholder="Nº"
+                  required
                 />
 
                 <Input
                   title="Bairro"
                   type="text"
                   name="district"
+                  id="district"
+                  value={districtValue}
                   placeholder="Bairro"
+                  required
                 />
 
                 <Input
@@ -286,28 +335,31 @@ const TelaLogin = () => {
                     title="Cidade"
                     type="text"
                     name="city"
+                    id="city"
+                    value={cityValue}
                     placeholder="Cidade"
+                    required
                   />
                   <div className="estado_container">
-                    <select
-                      name="uf"
-                      className="selected"
-                    >
-                      <option selected disabled>UF</option>
-                      {estados.map((estado) => (
-                        <option key={estado.sigla} value={estado.sigla}>
-                          {estado.sigla}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="estado_container">
+                      <AvisoValidacao />
+                      <Select
+                        name="uf"
+                        id="estados"
+                        itens={estados}
+                        placeholder="UF"
+                        required
+                        value={ufValue}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            {!isPasswordLenghtValid && <AvisoValidacao>As senha deve ter mais de 6 caracteres.</AvisoValidacao>}
+            {!isConfirmPasswordValid && <AvisoValidacao>As senhas não são iguais</AvisoValidacao>}
             <Button>CRIAR CONTA</Button>
           </form>
-
-
         </div>
       </div>
     );

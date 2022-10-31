@@ -1,0 +1,11 @@
+.passwordBtn{
+    display: flex;
+    justify-content: center;
+    width: 50% !important;
+}
+
+#updateUserAuth{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

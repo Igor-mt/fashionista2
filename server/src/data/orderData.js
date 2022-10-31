@@ -30,10 +30,10 @@ exports.createOrder = (order, customerId) => {
 }
 
 exports.setOrderItems = (pedido_id, product) => {
-        const productInfo = product.id
-        const { product_id, actual_price } = productInfo
+    const productInfo = product.id
+    const { product_id, actual_price } = productInfo
 
-        return database.query(`
+    return database.query(`
         INSERT INTO public.order_items
         (order_items_id, order_id, product_id, quantity, "size", value)
         VALUES(gen_random_uuid(), '${pedido_id}', '${product_id}', ${product.qtd}, '${product.size}', '${actual_price}');    
@@ -43,8 +43,10 @@ exports.setOrderItems = (pedido_id, product) => {
 
 exports.getOrderItemsByOrderId = (orderId) => {
     return database.query(`
-        SELECT order_items_id, order_id, product_id, quantity, "size", value
-        FROM public.order_items
-        WHERE order_id = '${orderId}';
+    select i.product_id, quantity, size, value, img_url, name
+    from order_items i
+    left outer join products p
+    on i.product_id = p.product_id
+    where i.order_id = '${orderId}'
     `)
 }

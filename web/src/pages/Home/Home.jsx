@@ -11,17 +11,17 @@ const Home = () => {
   const [saleProducts, setSaleProducts] = useState([])
 
   useEffect(() => {
-    axios.get('https://fashionista-ecommerce.herokuapp.com/promocao/produtos/')
+    axios.get('https://fashionista-hackadev.netlify.app/promocao/produtos/')
       .then(res => setSaleProducts(res.data))
   }, [])
 
   useEffect(() => {
-    axios.get('https://fashionista-ecommerce.herokuapp.com/novidades/produtos/')
+    axios.get('https://fashionista-hackadev.netlify.app/novidades/produtos/')
       .then(res => setNewProducts(res.data))
   }, [])
 
   return (
-    <div className="main-container">
+    <main className="home-container">
       <div className="container-banner">
         <div className="container-banner-text">
           <h1>
@@ -134,7 +134,7 @@ const Home = () => {
             />
           ))}
         </div>
-      </div>    </div>
+      </div>    </main>
   );
 };
 

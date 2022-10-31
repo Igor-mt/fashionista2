@@ -11,6 +11,7 @@ import "./Navbar.css";
 
 const Navbar = (onRemove, cartItems) => {
     const [isToggle, setToggle] = useState(false);
+
     const navRef = useRef();
 
     const isLoggedIn = Cookies.get('authToken')
@@ -23,7 +24,7 @@ const Navbar = (onRemove, cartItems) => {
     if (isMobile) {
         return (
             <div className="navbar-container">
-                <Link to={{ pathname: "/", hash: "" }}>
+                <Link to={{ pathname: "/" }}>
                     <img
                         src="/assets/img/logo-fashionista.png"
                         className="logo"
@@ -36,30 +37,30 @@ const Navbar = (onRemove, cartItems) => {
                 <nav className="menu" ref={navRef}>
                     <ul className="navbar-items">
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
+                            <Link to={{ pathname: "/catalogo/Feminino" }}>FEMININO</Link>
 
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
+                            <Link to={{ pathname: "/catalogo/Masculino" }}>MASCULINO</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
+                            <Link to={{ pathname: "/catalogo/Infantil" }}>INFANTIL</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
+                            <Link to={{ pathname: "/catalogo/Promocoes" }}>PROMOÇÕES</Link>
                         </li>
                     </ul>
                     <div className="container-button">
                         <SearchBar />
-                        <button
-                            className="btn-branco btn-login"
-                            id="btn-login"
-                        >
-                            {isLoggedIn ? <Link to={{ pathname: "/usuario" }}><Icon icon={faUser} /></Link> : <button
-                                className="btn-branco btn-login"
-                                id="btn-login"
-                            ><Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link></button>}
-                        </button>
+                        {isLoggedIn ?
+                            <Link to={{ pathname: "/usuario" }}>
+                                <Icon icon={faUser} />
+                            </Link> :
+                            <button className="btn-branco btn-login" id="btn-login">
+                                <Link to={{ pathname: "/login" }}>
+                                    LOGIN
+                                </Link>
+                            </button>}
                     </div>
                     <button className="btn-menu nav-close-btn" onClick={showNavbar}>
                         <Icon icon={faTimes} />
@@ -73,7 +74,7 @@ const Navbar = (onRemove, cartItems) => {
     } else {
         return (
             <div className="navbar-container">
-                <Link to={{ pathname: "/", hash: "" }}>
+                <Link to={{ pathname: "/" }}>
                     <img
                         src="/assets/img/logo-fashionista.png"
                         className="logo"
@@ -84,17 +85,17 @@ const Navbar = (onRemove, cartItems) => {
                 <nav className="menu" ref={navRef}>
                     <ul className="navbar-items">
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Feminino", hash: "" }}>FEMININO</Link>
+                            <Link to={{ pathname: "/catalogo/Feminino" }}>FEMININO</Link>
 
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Masculino", hash: "" }}>MASCULINO</Link>
+                            <Link to={{ pathname: "/catalogo/Masculino" }}>MASCULINO</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Infantil", hash: "" }}>INFANTIL</Link>
+                            <Link to={{ pathname: "/catalogo/Infantil" }}>INFANTIL</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to={{ pathname: "/catalogo/Promocoes", hash: "" }}>PROMOÇÕES</Link>
+                            <Link to={{ pathname: "/catalogo/Promocoes" }}>PROMOÇÕES</Link>
                         </li>
                     </ul>
                 </nav>
@@ -103,10 +104,18 @@ const Navbar = (onRemove, cartItems) => {
                     <Cart
                         isToggle={isToggle} setToggle={setToggle} cartItems={cartItems}
                     />
-                    {isLoggedIn ? <Link to={{ pathname: "/usuario" }}><Icon icon={faUser} /></Link> : <button
-                        className="btn-branco btn-login"
-                        id="btn-login"
-                    ><Link to={{ pathname: "/login", hash: "" }}>LOGIN</Link></button>}
+                    {isLoggedIn ?
+                        <Link to={{ pathname: "/usuario" }}>
+                            <Icon icon={faUser} />
+                        </Link> :
+                        <Link to={{ pathname: "/login" }}>
+                            <button
+                                className="btn-branco btn-login"
+                                id="btn-login"
+                            >
+                                LOGIN
+                            </button>
+                        </Link>}
                 </div>
                 <button className="btn-menu nav-close-btn" onClick={showNavbar}>
                     <Icon icon={faTimes} />

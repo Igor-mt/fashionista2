@@ -7,38 +7,40 @@ import Cookies from 'js-cookie'
 import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Button/Button";
 import Titulo from "../../components/Titulo/Titulo";
-import CardProduto from "../../components/CardProduto/CardProduto";
+import CardProduto from "../../components/CardProdutoCart/CardProduto";
 import { EmptyCart, Icon } from "../../components/ShoppingCart/styles";
 import BarraLateral from "../../components/BarraLateral/BarraLateral";
+import Select from "../../components/Form/Select/Select";
+import AvisoValidacao from "../../components/AvisoValidacao/AvisoValidacao";
 
 import "./TelaCheckout.css";
 import "./Mobile-telaCheckout.css";
 
 import { CartContext } from "../../context/cart";
 
+
 const TelaCheckout = () => {
+
   const [paymentMode, setPaymentMode] = useState("");
   const [userId, setUserId] = useState("")
 
   const [infoUser, setInfoUser] = useState([]);
-  
+
   useEffect(() => {
     setUserId(Cookies.get('user_id'))
   }, [])
 
 
   useEffect(() => {
-
     const getInfoUserById = async () => {
-
-      if(userId){
-        await axios.get(`https://fashionista-ecommerce.herokuapp.com/user/${userId}`)
+      if (userId) {
+        await axios.get(`https://fashionista-hackadev.netlify.app/user/${userId}`)
           .then(res => setInfoUser(res.data))
-          .catch(function(error){
+          .catch(function (error) {
             console.log(error.response)
           })
       }
-       
+
     };
 
     getInfoUserById();
@@ -65,8 +67,9 @@ const TelaCheckout = () => {
       alert('Informe o modo de pagamento.')
       return
     };
+
     try {
-      await axios.post(`https://fashionista-ecommerce.herokuapp.com/pedidos/${userId}`, {
+      await axios.post(`https://fashionista-hackadev.netlify.app/pedidos/${userId}`, {
         payment_mode_id: paymentModeId,
         order_total: totalPrice,
         products: productsCart
@@ -92,33 +95,33 @@ const TelaCheckout = () => {
   }
 
   const estados = [
-    { nome: "Acre", sigla: "AC" },
-    { nome: "Alagoas", sigla: "AL" },
-    { nome: "Amapá", sigla: "AP" },
-    { nome: "Amazonas", sigla: "AM" },
-    { nome: "Bahia", sigla: "BA" },
-    { nome: "Ceará", sigla: "CE" },
-    { nome: "Distrito Federal", sigla: "DF" },
-    { nome: "Espírito Santo", sigla: "ES" },
-    { nome: "Goiás", sigla: "GO" },
-    { nome: "Maranhão", sigla: "MA" },
-    { nome: "Mato Grosso", sigla: "MT" },
-    { nome: "Mato Grosso do Sul", sigla: "MS" },
-    { nome: "Minas Gerais", sigla: "MG" },
-    { nome: "Pará", sigla: "PA" },
-    { nome: "Paraíba", sigla: "PB" },
-    { nome: "Paraná", sigla: "PR" },
-    { nome: "Pernambuco", sigla: "PE" },
-    { nome: "Piauí", sigla: "PI" },
-    { nome: "Rio de Janeiro", sigla: "RJ" },
-    { nome: "Rio Grande do Norte", sigla: "RN" },
-    { nome: "Rio Grande do Sul", sigla: "RS" },
-    { nome: "Rondônia", sigla: "RO" },
-    { nome: "Roraima", sigla: "RR" },
-    { nome: "Santa Catarina", sigla: "SC" },
-    { nome: "São Paulo", sigla: "SP" },
-    { nome: "Sergipe", sigla: "SE" },
-    { nome: "Tocantins", sigla: "TO" }
+    { sigla: "AC" },
+    { sigla: "AL" },
+    { sigla: "AP" },
+    { sigla: "AM" },
+    { sigla: "BA" },
+    { sigla: "CE" },
+    { sigla: "DF" },
+    { sigla: "ES" },
+    { sigla: "GO" },
+    { sigla: "MA" },
+    { sigla: "MT" },
+    { sigla: "MS" },
+    { sigla: "MG" },
+    { sigla: "PA" },
+    { sigla: "PB" },
+    { sigla: "PR" },
+    { sigla: "PE" },
+    { sigla: "PI" },
+    { sigla: "RJ" },
+    { sigla: "RN" },
+    { sigla: "RS" },
+    { sigla: "RO" },
+    { sigla: "RR" },
+    { sigla: "SC" },
+    { sigla: "SP" },
+    { sigla: "SE" },
+    { sigla: "TO" }
   ];
 
   return (
@@ -155,7 +158,7 @@ const TelaCheckout = () => {
           <h2 className="informacoesEntrega__aviso">Opcional</h2>
         </div>
         <div className="informacoesEntrega__divCEP--largura">
-          <Input 
+          <Input
             title="CEP"
             type="text"
             name="numeroDoCEP"
@@ -190,7 +193,7 @@ const TelaCheckout = () => {
           value={infoUser?.district}
         />
 
-        <Input title="Numero" type="text" name="numero" placeholder="Nº" value={infoUser?.address_number}/>
+        <Input title="Numero" type="text" name="numero" placeholder="Nº" value={infoUser?.address_number} />
 
         <Input
           title="Complemento"
@@ -208,17 +211,17 @@ const TelaCheckout = () => {
             value={infoUser?.city}
           />
 
-          <select
-            name="estados"
-            id="estados"
-          >
-            <option selected disabled >{userId ? infoUser?.uf : 'UF'}</option>
-            {estados.map((estado) => (
-              <option key={estado.sigla} value={estado.sigla}>
-                {estado.sigla}
-              </option>
-            ))}
-          </select>
+          <div className="stateContainer">
+            <span className='select-label'>UF<AvisoValidacao /></span>
+            <Select
+              name="state"
+              id="estados"
+              itens={estados}
+              placeholder="UF"
+              required
+              value={infoUser?.uf}
+            />
+          </div>
         </div>
       </section>
 

@@ -11,7 +11,7 @@ i:hover {
 }
 
 .logo {
-    max-height: 55px;
+    max-height: 3.4375rem;
     height: 90%;
     width: 90%;
 }
@@ -22,9 +22,7 @@ i:hover {
     align-items: center;
     background-color: rgb(46, 46, 46);
     height: 100px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
     width: 100%;
     z-index: 1000;
 }
@@ -54,7 +52,7 @@ i:hover {
 }
 
 .btn-login {
-    padding: 8px 20px;
+    padding: 0.5rem 1.25rem;
     font-size: 12px;
     cursor: pointer;
 }
@@ -92,6 +90,10 @@ i:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.container-button button{
+    width: auto;
 }
 
 .btn-menu{
