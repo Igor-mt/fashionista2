@@ -33,7 +33,7 @@ const Catalogo = () => {
 
     if (category === 'Masculino' || category === 'Feminino' || category === 'Infantil') {
         useEffect(() => {
-            axios.get(`http://localhost:5450/categorias/${category}`)
+            axios.get(`https://fashionista-hackadev.netlify.app/categorias/${category}`)
                 .then(res => setProducts(res.data))
         }, [category])
 
@@ -72,7 +72,7 @@ const Catalogo = () => {
         );
     } else if (category === 'Promocoes') {
         useEffect(() => {
-            axios.get('http://localhost:5450/promocao/produtos')
+            axios.get('https://fashionista-hackadev.netlify.app/promocao/produtos')
                 .then(res => setProducts(res.data))
         }, [category])
 
@@ -111,7 +111,7 @@ const Catalogo = () => {
         )
     } else {
         useEffect(() => {
-            axios.get(`http://localhost:5450/pesquisa/produtos/${category}`)
+            axios.get(`https://fashionista-hackadev.netlify.app/pesquisa/produtos/${category}`)
                 .then(res => setSearchProducts(res.data))
         }, [category])
 

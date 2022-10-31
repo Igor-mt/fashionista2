@@ -15,7 +15,7 @@ const TelaPedido = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5450/pedido/${orderId}/items`)
+    axios.get(`https://fashionista-hackadev.netlify.app/pedido/${orderId}/items`)
       .then(res => setOrderItems(res.data))
   }, [orderId])
 
